@@ -20,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: withastro/action@v3 # 설치·빌드(dist) + 아티팩트 업로드
+        with:
+          node-version: 22 # Astro 6 요구사항(Node >=22.12)
 
   deploy:
     needs: build
