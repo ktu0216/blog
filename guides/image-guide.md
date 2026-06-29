@@ -5,28 +5,47 @@
 
 ---
 
+## 0. 색 팔레트 (공통 토큰 — 모든 이미지가 공유)
+모든 이미지(썸네일·본문 4종)는 **하나의 브랜드 팔레트**를 공유한다. 강조색은 **사이트 강조색과 동일한 파랑 계열**(라이트 `#006cac` / 다크 `#4aa3df`)이며, 초록·주황 등 다른 강조색을 섞지 않는다. 각 HTML `<head>`에 아래 `:root`를 넣고 색은 **변수로만** 참조한다.
+
+```css
+:root{
+  --img-bg:#0a1020;       /* 썸네일 그라데 시작(딥 네이비) */
+  --img-bg2:#006cac;      /* 썸네일 그라데 끝(브랜드 파랑) */
+  --img-panel:#0d1117;    /* 본문 도형 카드 배경(다크) */
+  --img-surface:#161b22;  /* 노드/패널 배경 */
+  --img-fg:#e6edf3;       /* 밝은 글자 */
+  --img-muted:#8b949e;    /* 보조 글자 */
+  --img-accent:#4aa3df;   /* 강조 1개만(브랜드 파랑, 다크 위 대비) */
+  --img-border:#30363d;
+}
+```
+- **색 역할은 3개로 제한**: 배경 / 글자 / **강조 1개**(+무채색 보조). 강조색은 화면의 ~10% 이하, "강조"에만.
+- 강조색 변경 시 이 토큰만 바꾸면 **전 이미지가 일괄로** 바뀐다.
+
 ## 1. 대표(썸네일) 이미지 규격
 - **크기**: 가로 **1080px**, 세로 **1080px** (1:1 정사각형).
-- **배경**: 어두운 **다크-블루 그라데이션** (`#080812` → `#0236c4`).
+- **배경**: 어두운 **브랜드-블루 그라데이션** (`--img-bg` → `--img-bg2`, 딥 네이비 → 파랑).
 - **메인 텍스트**: 글 **제목** (큰 글씨, 흰색).
-- **보조 텍스트**: 카테고리/부제 (작은 글씨, 연한 회색).
+- **보조 텍스트**: 카테고리/부제 (작은 글씨, 연한 회색 `--img-muted`).
 - **정렬**: 모든 텍스트 **가로·세로 중앙 정렬**.
 - **폰트**: **Pretendard** 또는 시스템 기본 한글 폰트.
-- **액센트**: 우측 하단 **또는** 좌상단에 **작은 액센트**(도형, 코드 심볼, 단순 아이콘) 하나.
+- **액센트**: 우측 하단 **또는** 좌상단에 **작은 액센트**(도형, 코드 심볼, 단순 아이콘) 하나 — 색은 `--img-accent`.
 
 **참고 HTML/CSS 스켈레톤** (이대로 만들고 1080×1080으로 캡쳐):
 ```html
+<!-- <head>에 §0 :root 토큰 + Pretendard 웹폰트 포함 -->
 <div style="
   width:1080px;height:1080px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;text-align:center;gap:20px;
-  background:linear-gradient(135deg,#080812 0%,#0236c4 100%);
+  background:linear-gradient(135deg,var(--img-bg) 0%,var(--img-bg2) 100%);
   font-family:'Pretendard',-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
   position:relative;padding:80px;box-sizing:border-box;">
   <div style="font-size:72px;font-weight:800;color:#ffffff;line-height:1.25;">글 제목</div>
-  <div style="font-size:34px;color:#b8c1d9;">카테고리 · 부제</div>
+  <div style="font-size:34px;color:var(--img-muted);">카테고리 · 부제</div>
   <!-- 액센트(좌상단 또는 우하단): 도형/코드 심볼/아이콘 -->
   <div style="position:absolute;right:56px;bottom:56px;font-size:40px;
-              color:#6ee7b7;font-family:monospace;opacity:.85;">&lt;/&gt;</div>
+              color:var(--img-accent);font-family:monospace;opacity:.9;">&lt;/&gt;</div>
 </div>
 ```
 
@@ -53,7 +72,7 @@
   ```
   - 본문 이미지는 viewport 폭 1200, 높이는 콘텐츠에 맞춰 `full_page=True` 또는 해당 요소만 캡쳐.
   - 선명도를 위해 `device_scale_factor=2`(2배 해상도) 권장.
-- **배경 톤**: 본문·대표 이미지와 **어울리는 어두운 톤**으로 통일.
+- **배경 톤**: §0 토큰(`--img-panel`/`--img-surface`)으로 **어두운 톤 통일**. 강조는 `--img-accent` 하나만.
 - **텍스트는 최대한 짧게** — 이미지는 보조. 문장 나열 금지, 키워드·요점 위주.
 - **코드 블록 스타일을 디자인 요소로** 활용 가능(모노스페이스 폰트, 어두운 배경, 살짝 둥근 모서리).
 
