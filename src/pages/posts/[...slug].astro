@@ -15,13 +15,34 @@ const dateStr = post.data.date.toISOString().slice(0, 10);
 ---
 
 <Base title={post.data.title} description={post.data.description}>
-  <a href="/" class="muted" style="font-size:0.85rem;">← 목록</a>
-  <h1 style="margin:0.5rem 0 0.25rem;">{post.data.title}</h1>
-  <div class="muted" style="font-size:0.85rem; margin-bottom:1.5rem;">
-    {dateStr}
-    {post.data.tags.length > 0 && <span> · {post.data.tags.join(", ")}</span>}
+  <a href="/" class="back">← 목록</a>
+  <h1>{post.data.title}</h1>
+  <div class="post-meta">
+    <span>{dateStr}</span>
+    {post.data.tags.map((t) => <span class="badge">#{t}</span>)}
   </div>
   <article>
     <Content />
   </article>
 </Base>
+
+<style>
+  .back { font-size: 0.85rem; color: var(--muted); }
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0.5rem 0 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .badge {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+  }
+</style>
