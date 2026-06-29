@@ -1,6 +1,6 @@
 ---
 title: "Saegida 블로그 시작 — Astro + GitHub Pages"
-date: 2026-06-28
+pubDatetime: 2026-06-28T09:00:00+09:00
 description: "정적 사이트로 기술 블로그를 다시 세웁니다. 공개/비공개 분리와 글쓰기 규칙."
 tags: ["meta", "astro"]
 draft: false

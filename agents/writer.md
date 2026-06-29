@@ -66,10 +66,11 @@
 ```markdown
 ---
 title: "<핵심 키워드 앞쪽, 25~40자>"
-date: <YYYY-MM-DD>
-description: "<메타 디스크립션, 핵심 키워드 포함 1~2문장>"
+pubDatetime: <YYYY-MM-DDTHH:MM:SS+09:00>   # AstroPaper 스키마(KST). 예: 2026-06-28T10:00:00+09:00
+description: "<메타 디스크립션, 핵심 키워드 포함 1~2문장>"   # AstroPaper 필수
 tags: ["키워드", "연관어", ...]   # 5~15, 본문/해시태그와 일관
 draft: true
+# featured: true   # (선택) 홈 상단 고정 시
 ---
 
 <도입: 공감 질문/정의 + 독자 타겟팅, 첫 문단에 핵심 키워드>
@@ -93,7 +94,7 @@ draft: true
 - [ ] 세 가이드 + research.md 반영
 - [ ] 레지스터 통일 / 질문형 소제목 / 마무리 4요소(교훈·행동제안·기원·예고)
 - [ ] 제목 키워드 앞쪽·25~40자, 첫 문단·H2에 키워드, 도배 없음
-- [ ] 프론트매터 완비(title/date/description/tags/`draft: true`)
+- [ ] 프론트매터 완비(title/pubDatetime/description/tags/`draft: true`) — AstroPaper 스키마
 - [ ] 사실·수치는 research.md 범위 내, research에 없는 수치 창작 금지
 - [ ] `[IMAGE: …]` 마커 의미 있는 자리(설명 구체적)
 - [ ] 글 끝 해시태그 한 줄(tags와 일관)

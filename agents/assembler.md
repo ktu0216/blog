@@ -80,5 +80,7 @@ body{ margin:0; background:#fff; color:var(--fg);
 ## 마무리 안내 (사용자에게)
 - 작업 끝에 **브라우저로 미리보기**를 안내한다. 예:
   > "미리보기: `file://<절대경로>/output/<주제-슬러그>/final.html` 를 브라우저에서 열어 확인하세요."
-- 발행하려면 `final.md`를 블로그 글 위치(`src/content/posts/`)로 옮기고 이미지를 함께 배치한 뒤
-  `draft: false`로 바꿔 배포한다(별도 발행 단계).
+- 발행(별도 단계, AstroPaper 기준):
+  1. `final.md` → **평면 파일** `src/content/posts/<슬러그>.md` 로 이동(폴더형 `index.md` 금지 — URL이 `/posts/<슬러그>/index`로 깨짐).
+  2. 이미지는 **동명 하위폴더** `src/content/posts/<슬러그>/` 에 두고, 본문 참조를 `![alt](./<슬러그>/그림.png)` 로 맞춘다.
+  3. 프론트매터는 AstroPaper 스키마(`pubDatetime` 등) 확인 후 `draft: false` 로 바꿔 `main` 푸시 → 자동 배포.

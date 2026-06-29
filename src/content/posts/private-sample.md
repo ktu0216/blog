@@ -1,6 +1,6 @@
 ---
 title: "(비공개 샘플) 이 글은 배포되지 않습니다"
-date: 2026-06-28
+pubDatetime: 2026-06-28T08:00:00+09:00
 description: "draft:true 예시 — 프로덕션 빌드에서 제외됨."
 tags: ["draft"]
 draft: true

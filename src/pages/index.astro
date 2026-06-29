@@ -1,121 +1,129 @@
 ---
 import { getCollection } from "astro:content";
-import Base from "../layouts/Base.astro";
-import { legacyPosts } from "../data/legacy.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import Card from "@/components/Card.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
 
-// 프로덕션 빌드에선 draft 제외(비공개 초안). dev에선 모두 보임.
-const md = await getCollection("posts", ({ data }) =>
-  import.meta.env.PROD ? !data.draft : true,
-);
-const mdItems = md.map((p) => ({
-  title: p.data.title,
-  href: `/posts/${p.id}/`,
-  date: p.data.date.toISOString().slice(0, 10),
-  description: p.data.description,
-  tags: p.data.tags,
-  draft: p.data.draft,
-  legacy: false,
-}));
-const legacyItems = legacyPosts.map((p) => ({
-  title: p.title,
-  href: `/legacy/${p.file}`,
-  date: p.date,
-  description: undefined as string | undefined,
-  tags: [] as string[],
-  draft: false,
-  legacy: true,
-}));
-const posts = [...mdItems, ...legacyItems].sort((a, b) =>
-  b.date.localeCompare(a.date),
-);
+const { socials, posts: postsConfig } = config;
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+const posts = await getCollection("posts");
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const homePath = getRelativeLocaleUrl(locale, "");
 ---
 
-<Base title="홈" description="Saegida — 시스템 구축·개발 기록 기술 블로그">
-  <p class="lead">시스템을 만들며 배운 것들을 기록합니다.</p>
-  <ul class="posts">
-    {
-      posts.map((p) => (
-        <li>
-          <a class="card" href={p.href}>
-            <h2 class="t">
-              {p.title}
-              {p.draft && <span class="draft">draft</span>}
-            </h2>
-            {p.description && <p class="d">{p.description}</p>}
-            <div class="meta">
-              <span>{p.date}</span>
-              {p.legacy && <span class="badge">이전 글</span>}
-              {p.tags.slice(0, 3).map((t) => (
-                <span class="badge">#{t}</span>
-              ))}
-            </div>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</Base>
+<Layout>
+  <Header />
+  <main
+    id="main-content"
+    data-layout="index"
+    data-home-path={homePath}
+    class="app-layout"
+  >
+    <section id="hero" class="border-border border-b pt-8 pb-6">
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+        Saegida
+      </h1>
+      <a
+        target="_blank"
+        href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
+        class="inline-block"
+        aria-label="RSS Feed"
+        title="RSS Feed"
+      >
+        <IconRss
+          width={20}
+          height={20}
+          class="stroke-accent scale-125 stroke-3 rtl:-rotate-90"
+        />
+        <span class="sr-only">RSS Feed</span>
+      </a>
 
-<style>
-  .lead { color: var(--muted); margin: 0 0 2rem; }
-  .posts {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .card {
-    display: block;
-    padding: 1.3rem 1.4rem;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: var(--bg);
-    transition:
-      border-color 0.15s ease,
-      box-shadow 0.15s ease,
-      transform 0.15s ease;
-  }
-  .card:hover {
-    text-decoration: none;
-    border-color: var(--accent);
-    box-shadow: 0 8px 24px rgba(20, 30, 60, 0.08);
-    transform: translateY(-2px);
-  }
-  .card .t {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--fg);
-    letter-spacing: -0.01em;
-    line-height: 1.4;
-    margin: 0 0 0.4rem;
-  }
-  .card .d {
-    font-size: 0.95rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin: 0 0 0.7rem;
-  }
-  .card .meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
-  .card .badge {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.1rem 0.55rem;
-  }
-  .card .draft {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-left: 0.5rem;
-    vertical-align: middle;
-  }
-</style>
+      <p>
+        시스템을 만들며 배운 것들을 기록하는 기술 블로그입니다. 직접 구축하고
+        부딪힌 과정을 — 인프라·개발·AI 도구까지 — 실전 위주로 정리합니다.
+      </p>
+      <p class="mt-2">
+        아래 글 목록에서 관심 가는 주제를 둘러보세요.
+      </p>
+      {
+        socials.length > 0 && (
+          <div class="mt-4 flex max-sm:flex-col sm:items-center">
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">
+              {t.home.socialLinks}:
+            </div>
+            <Socials />
+          </div>
+        )
+      }
+    </section>
+
+    {
+      featuredPosts.length > 0 && (
+        <section
+          id="featured"
+          class:list={[
+            "pt-12 pb-6",
+            { "border-border border-b": recentPosts.length > 0 },
+          ]}
+        >
+          <h2 class="text-2xl font-semibold tracking-wide">
+            {t.home.featured}
+          </h2>
+          <ul>
+            {featuredPosts.map(data => (
+              <Card variant="h3" {...data} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">
+            {t.home.recentPosts}
+          </h2>
+          <ul>
+            {recentPosts.slice(0, postsConfig.perIndex).map(data => (
+              <Card variant="h3" {...data} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
+        {t.home.allPosts}
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset;
+    const baseRoot = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+    if (indexLayout?.layout) {
+      sessionStorage.setItem("backUrl", indexLayout.homePath ?? baseRoot);
+    }
+  });
+</script>

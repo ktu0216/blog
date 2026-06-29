@@ -1,16 +1,37 @@
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import config from "@/config";
 
-// 마크다운 글 컬렉션. draft:true는 프로덕션 빌드에서 제외(비공개 초안).
+export const BLOG_PATH = "src/content/posts";
+
 const posts = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: `./${BLOG_PATH}` }),
+  schema: ({ image }) =>
+    z.object({
+      author: z.string().default(config.site.author),
+      pubDatetime: z.date(),
+      modDatetime: z.date().optional().nullable(),
+      title: z.string(),
+      featured: z.boolean().optional(),
+      draft: z.boolean().optional(),
+      tags: z.array(z.string()).default(["others"]),
+      ogImage: image().or(z.string()).optional(),
+      description: z.string(),
+      canonicalURL: z.string().optional(),
+      hideEditPost: z.boolean().optional(),
+      timezone: z.string().optional(),
+    }),
+});
+
+const pages = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date(),
     description: z.string().optional(),
-    draft: z.boolean().default(false),
-    tags: z.array(z.string()).default([]),
+    ogImage: z.string().optional(),
+    canonicalURL: z.string().optional(),
   }),
 });
 
-export const collections = { posts };
+export const collections = { posts, pages };
