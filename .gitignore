@@ -1,0 +1,19 @@
+# build output
+dist/
+.astro/
+
+# 글 생성 파이프라인 작업 폴더(중간 산출물). 발행본은 src/content/posts/로 이동.
+output/
+
+# 문체 분석용 참고 원고(로컬 전용, 사이트 콘텐츠 아님).
+sample/
+
+# deps
+node_modules/
+
+# env / secrets
+.env
+.env.*
+
+# os
+.DS_Store

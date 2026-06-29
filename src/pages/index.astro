@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { legacyPosts } from "../data/legacy.ts";
+
+// 프로덕션 빌드에선 draft 제외(비공개 초안). dev에선 모두 보임.
+const md = await getCollection("posts", ({ data }) =>
+  import.meta.env.PROD ? !data.draft : true,
+);
+const mdItems = md.map((p) => ({
+  title: p.data.title,
+  href: `/posts/${p.id}/`,
+  date: p.data.date.toISOString().slice(0, 10),
+  draft: p.data.draft,
+}));
+const legacyItems = legacyPosts.map((p) => ({
+  title: p.title,
+  href: `/legacy/${p.file}`,
+  date: p.date,
+  draft: false,
+}));
+const posts = [...mdItems, ...legacyItems].sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Base title="홈" description="Saegida — 시스템 구축·개발 기록 기술 블로그">
+  <p class="muted">시스템을 만들며 배운 것들을 기록합니다.</p>
+  <hr />
+  <ul style="list-style:none; padding:0;">
+    {
+      posts.map((p) => (
+        <li style="margin:0 0 1.1rem;">
+          <a href={p.href} style="font-size:1.05rem;">{p.title}</a>
+          {p.draft && <span class="muted"> · draft</span>}
+          <div class="muted" style="font-size:0.8rem;">{p.date}</div>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>재부팅 후 tmux 자동실행 & main 세션 설정 (systemd user service)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #7c6af7;
+      --accent2: #4fc3f7;
+      --green: #4caf7d;
+      --yellow: #f0c040;
+      --red: #f07070;
+      --text: #dde1f0;
+      --text-muted: #7a80a0;
+      --code-bg: #12141f;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #12141f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 0 48px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+
+    header h1 span { color: var(--accent); }
+
+    .meta {
+      color: var(--text-muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .meta span::before { margin-right: 6px; }
+
+    /* Layout */
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 52px;
+    }
+
+    .toc h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+    }
+
+    .toc li { margin-bottom: 6px; }
+    .toc a { color: var(--accent2); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Sections */
+    section { margin-bottom: 56px; }
+
+    h2.section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2.section-title .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin: 28px 0 10px;
+    }
+
+    p { margin-bottom: 14px; color: var(--text); }
+
+    /* Code block */
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 16px 0 24px;
+    }
+
+    .code-block .cb-header {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cb-header .filename {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .cb-header .lang {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .code-block pre {
+      padding: 20px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Inline code */
+    code {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: var(--accent2);
+    }
+
+    .code-block pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: inherit;
+      color: var(--text);
+    }
+
+    /* Syntax highlight helpers */
+    .c-comment { color: #5c6370; font-style: italic; }
+    .c-key     { color: #c678dd; }
+    .c-val     { color: #98c379; }
+    .c-cmd     { color: #61afef; }
+    .c-flag    { color: #e5c07b; }
+    .c-prompt  { color: #4caf7d; user-select: none; }
+
+    /* Callout */
+    .callout {
+      display: flex;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 1px solid;
+    }
+
+    .callout.info  { background: #1a2a3a; border-color: #2a4a6a; }
+    .callout.warn  { background: #2a2010; border-color: #5a4010; }
+    .callout.tip   { background: #0f2a1a; border-color: #1a5a30; }
+
+    .callout .icon { font-size: 18px; flex-shrink: 0; line-height: 1.6; }
+    .callout .body { font-size: 14.5px; line-height: 1.65; }
+    .callout .body strong { color: #fff; }
+
+    /* Step list */
+    .steps { list-style: none; padding: 0; counter-reset: step; }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      align-items: flex-start;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--surface2);
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .steps li .step-body { flex: 1; }
+    .steps li .step-body strong { display: block; font-size: 1rem; margin-bottom: 8px; }
+
+    /* Verify box */
+    .verify {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .verify h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      margin: 0 0 14px;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 14.5px;
+    }
+
+    th {
+      background: var(--surface2);
+      color: var(--text-muted);
+      text-align: left;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: var(--surface); }
+
+    td code { font-size: 12.5px; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Linux · tmux · systemd</div>
+  <h1>재부팅 후 <span>tmux</span> 자동실행<br>& main 세션 설정</h1>
+  <div class="meta">
+    <span>⏱ 약 5분</span>
+    <span>🖥 Ubuntu 24.04</span>
+    <span>📦 tmux 3.x</span>
+    <span>📅 2026-05-21</span>
+  </div>
+</header>
+
+<div class="wrapper">
+
+  <!-- 왜 이 글을 썼는가 -->
+  <div class="callout info" style="margin-bottom: 36px; border-left: 3px solid var(--accent);">
+    <div class="icon">📝</div>
+    <div class="body">
+      <strong>왜 이걸 설정했나?</strong><br>
+      Claude CLI를 Discord 봇(<code>mybot</code>)으로 항상 켜두고 싶었습니다.
+      Discord에서 메시지를 받으면 언제든 응답할 수 있어야 하고, 서버를 재부팅해도
+      자동으로 다시 살아나야 합니다.
+      <br><br>
+      그러려면 두 가지가 필요합니다.
+      <br>
+      1. <strong>tmux <code>main</code> 세션이 부팅 시 자동 생성</strong> — 이 글의 주제
+      <br>
+      2. <strong>그 세션에 Claude CLI가 자동 attach + 실행</strong> — 마지막 섹션
+      <br><br>
+      <code>systemd user service</code>를 이용해 두 단계를 분리해서 관리합니다.
+      tmux와 Claude의 의존성을 깔끔히 표현할 수 있고, 어느 한쪽이 죽어도
+      독립적으로 재시작할 수 있습니다.
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>목차</h2>
+    <ol>
+      <li><a href="#intro">배경 — 왜 필요한가</a></li>
+      <li><a href="#overview">동작 방식</a></li>
+      <li><a href="#setup">설정 방법 (단계별)</a></li>
+      <li><a href="#service-file">서비스 파일 전체 내용</a></li>
+      <li><a href="#verify">정상 동작 확인</a></li>
+      <li><a href="#commands">자주 쓰는 명령어</a></li>
+      <li><a href="#trouble">트러블슈팅</a></li>
+      <li><a href="#claude">Claude CLI 자동 실행 (응용)</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. 배경 -->
+  <section id="intro">
+    <h2 class="section-title"><span class="num">1</span> 배경 — 왜 필요한가</h2>
+    <p>
+      서버나 데스크톱을 재부팅할 때마다 tmux 세션을 수동으로 만드는 건 번거롭습니다.
+      특히 <strong>백그라운드 프로세스, CLI 에이전트, 모니터링 도구</strong> 등을 tmux 세션 안에서
+      실행하고 있다면, 재부팅 후 자동으로 세션이 준비되어 있어야 합니다.
+    </p>
+    <p>
+      <strong>systemd user service</strong>를 이용하면 로그인 없이도 부팅 시 tmux <code>main</code>
+      세션이 자동 생성되고, 이후 어디서든 <code>tmux attach -t main</code>으로 바로 접속할 수 있습니다.
+    </p>
+
+    <div class="callout info">
+      <div class="icon">ℹ️</div>
+      <div class="body">
+        <strong>systemd user service란?</strong><br>
+        root 권한 없이 일반 사용자 계정 수준에서 서비스를 등록·관리하는 방식입니다.
+        <code>~/.config/systemd/user/</code> 경로에 <code>.service</code> 파일을 만들고
+        <code>systemctl --user</code> 명령으로 제어합니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 동작 방식 -->
+  <section id="overview">
+    <h2 class="section-title"><span class="num">2</span> 동작 방식</h2>
+    <p>전체 흐름은 다음과 같습니다:</p>
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">boot sequence</span><span class="lang">text</span></div>
+      <pre><code>부팅
+ └─ systemd (user) 시작
+     └─ tmux.service 실행
+         └─ tmux new-session -d -s main   ← 백그라운드로 main 세션 생성
+             └─ 이후 언제든 tmux attach -t main 으로 접속 가능</code></pre>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>항목</th><th>값</th><th>설명</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>서비스 파일 경로</td><td><code>~/.config/systemd/user/tmux.service</code></td><td>사용자 레벨 서비스</td></tr>
+        <tr><td>세션 이름</td><td><code>main</code></td><td>기본 세션명</td></tr>
+        <tr><td>실행 방식</td><td><code>Type=forking</code></td><td>tmux가 데몬으로 분기</td></tr>
+        <tr><td>재시작 정책</td><td><code>Restart=on-failure</code></td><td>비정상 종료 시 재시작</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 3. 설정 방법 -->
+  <section id="setup">
+    <h2 class="section-title"><span class="num">3</span> 설정 방법 (단계별)</h2>
+    <ul class="steps">
+
+      <li>
+        <div class="step-body">
+          <strong>서비스 파일 디렉터리 생성</strong>
+          <p>아직 없다면 만들어줍니다.</p>
+          <div class="code-block">
+            <div class="cb-header"><span class="filename">terminal</span><span class="lang">bash</span></div>
+            <pre><code><span class="c-prompt">$ </span><span class="c-cmd">mkdir</span> -p ~/.config/systemd/user</code></pre>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="step-body">
+          <strong>서비스 파일 작성</strong>
+          <p>아래 내용을 <code>~/.config/systemd/user/tmux.service</code>로 저장합니다.</p>
+          <div class="code-block">
+            <div class="cb-header">
+              <span class="filename">~/.config/systemd/user/tmux.service</span>
+              <span class="lang">ini</span>
+            </div>
+            <pre><code><span class="c-key">[Unit]</span>
+<span class="c-flag">Description</span>=<span class="c-val">tmux default session</span>
+<span class="c-flag">After</span>=<span class="c-val">network.target</span>
+
+<span class="c-key">[Service]</span>
+<span class="c-flag">Type</span>=<span class="c-val">forking</span>
+<span class="c-flag">ExecStart</span>=<span class="c-val">/usr/bin/tmux new-session -d -s main</span>
+<span class="c-flag">ExecStop</span>=<span class="c-val">/usr/bin/tmux kill-server</span>
+<span class="c-flag">Restart</span>=<span class="c-val">on-failure</span>
+
+<span class="c-key">[Install]</span>
+<span class="c-flag">WantedBy</span>=<span class="c-val">default.target</span></code></pre>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="step-body">
+          <strong>systemd 데몬 재로드 & 서비스 활성화</strong>
+          <div class="code-block">
+            <div class="cb-header"><span class="filename">terminal</span><span class="lang">bash</span></div>
+            <pre><code><span class="c-comment"># 파일 변경사항 반영</span>
+<span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user daemon-reload
+
+<span class="c-comment"># 부팅 시 자동실행 등록</span>
+<span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user enable tmux.service
+
+<span class="c-comment"># 지금 당장 시작 (선택)</span>
+<span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user start tmux.service</code></pre>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="step-body">
+          <strong>lingering 활성화 (선택 — 로그인 전에도 실행되어야 할 때)</strong>
+          <p>
+            기본적으로 user service는 로그인 후에 시작됩니다.
+            SSH 서버처럼 <strong>로그인 없이도 부팅 직후 실행</strong>이 필요하다면 아래 명령을 추가합니다.
+          </p>
+          <div class="code-block">
+            <div class="cb-header"><span class="filename">terminal</span><span class="lang">bash</span></div>
+            <pre><code><span class="c-prompt">$ </span><span class="c-cmd">sudo</span> loginctl enable-linger $USER</code></pre>
+          </div>
+          <div class="callout warn">
+            <div class="icon">⚠️</div>
+            <div class="body">
+              <strong>데스크톱 환경</strong>이라면 linger 없이도 로그인 시 자동 실행됩니다.
+              원격 서버(headless)에서만 필요한 설정입니다.
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- 4. 서비스 파일 -->
+  <section id="service-file">
+    <h2 class="section-title"><span class="num">4</span> 서비스 파일 전체 내용 & 옵션 설명</h2>
+
+    <h3>ExecStart — 세션 생성</h3>
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">bash</span><span class="lang">bash</span></div>
+      <pre><code>/usr/bin/tmux new-session <span class="c-flag">-d</span> <span class="c-flag">-s</span> <span class="c-val">main</span></code></pre>
+    </div>
+    <table>
+      <thead><tr><th>옵션</th><th>의미</th></tr></thead>
+      <tbody>
+        <tr><td><code>new-session</code></td><td>새 세션 생성</td></tr>
+        <tr><td><code>-d</code></td><td>detached 모드 — 백그라운드로 생성 (화면 attach 안 함)</td></tr>
+        <tr><td><code>-s main</code></td><td>세션 이름을 <code>main</code>으로 지정</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Type=forking</h3>
+    <p>
+      tmux는 실행 후 자식 프로세스(서버)를 만들고 부모는 종료합니다.
+      systemd에게 "자식이 계속 실행되는 구조"임을 알려주어 서비스가 정상 상태로 유지됩니다.
+    </p>
+
+    <h3>ExecStop — 종료 처리</h3>
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">bash</span><span class="lang">bash</span></div>
+      <pre><code>/usr/bin/tmux kill-server</code></pre>
+    </div>
+    <p><code>systemctl --user stop tmux.service</code> 실행 시 tmux 서버 전체를 종료합니다.</p>
+  </section>
+
+  <!-- 5. 확인 -->
+  <section id="verify">
+    <h2 class="section-title"><span class="num">5</span> 정상 동작 확인</h2>
+
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">terminal</span><span class="lang">bash</span></div>
+      <pre><code><span class="c-comment"># 서비스 상태 확인</span>
+<span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user status tmux.service</code></pre>
+    </div>
+
+    <div class="verify">
+      <h3>✅ 정상 출력 예시</h3>
+      <div class="code-block" style="margin:0">
+        <div class="cb-header"><span class="filename">output</span><span class="lang">text</span></div>
+        <pre><code>● tmux.service - tmux default session
+     Loaded: loaded (~/.config/systemd/user/tmux.service; <span class="c-val">enabled</span>)
+     Active: <span class="c-val">active (running)</span> since Thu 2026-05-21 09:08:52 KST
+   Main PID: 2407 (tmux: server)</code></pre>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">terminal</span><span class="lang">bash</span></div>
+      <pre><code><span class="c-comment"># 세션 목록 확인</span>
+<span class="c-prompt">$ </span><span class="c-cmd">tmux</span> list-sessions
+<span class="c-val">main: 1 windows (created Thu May 21 09:08:52 2026)</span>
+
+<span class="c-comment"># 세션 접속</span>
+<span class="c-prompt">$ </span><span class="c-cmd">tmux</span> attach -t main</code></pre>
+    </div>
+
+    <div class="callout tip">
+      <div class="icon">💡</div>
+      <div class="body">
+        <strong>편의 alias 추가 (~/.zshrc 또는 ~/.bashrc)</strong><br>
+        <code>alias t='tmux attach || tmux new -s main'</code><br>
+        터미널을 열면 <code>t</code>만 입력해도 main 세션에 즉시 접속됩니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 명령어 -->
+  <section id="commands">
+    <h2 class="section-title"><span class="num">6</span> 자주 쓰는 명령어</h2>
+    <table>
+      <thead><tr><th>명령어</th><th>설명</th></tr></thead>
+      <tbody>
+        <tr><td><code>systemctl --user status tmux</code></td><td>서비스 상태 확인</td></tr>
+        <tr><td><code>systemctl --user start tmux</code></td><td>서비스 시작</td></tr>
+        <tr><td><code>systemctl --user stop tmux</code></td><td>서비스 & 세션 종료</td></tr>
+        <tr><td><code>systemctl --user restart tmux</code></td><td>서비스 재시작</td></tr>
+        <tr><td><code>systemctl --user enable tmux</code></td><td>부팅 시 자동실행 등록</td></tr>
+        <tr><td><code>systemctl --user disable tmux</code></td><td>자동실행 해제</td></tr>
+        <tr><td><code>tmux attach -t main</code></td><td>main 세션 접속</td></tr>
+        <tr><td><code>tmux list-sessions</code></td><td>세션 목록 확인</td></tr>
+        <tr><td><code>tmux kill-session -t main</code></td><td>main 세션만 종료</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 7. 트러블슈팅 -->
+  <section id="trouble">
+    <h2 class="section-title"><span class="num">7</span> 트러블슈팅</h2>
+
+    <h3>서비스 시작 실패 — "session already exists"</h3>
+    <p>이미 같은 이름의 세션이 있을 때 발생합니다. ExecStart를 아래처럼 수정하면 방지됩니다.</p>
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">tmux.service</span><span class="lang">ini</span></div>
+      <pre><code><span class="c-flag">ExecStart</span>=<span class="c-val">/bin/sh -c 'tmux has-session -t main 2>/dev/null || tmux new-session -d -s main'</span></code></pre>
+    </div>
+
+    <h3>부팅 후 세션이 없음 (원격 서버)</h3>
+    <p>lingering이 꺼져 있으면 로그인 전에 user service가 실행되지 않습니다.</p>
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">terminal</span><span class="lang">bash</span></div>
+      <pre><code><span class="c-prompt">$ </span><span class="c-cmd">loginctl</span> show-user $USER | grep Linger
+<span class="c-comment"># Linger=no 면 아래 명령 실행</span>
+<span class="c-prompt">$ </span><span class="c-cmd">sudo</span> loginctl enable-linger $USER</code></pre>
+    </div>
+
+    <h3>로그 확인</h3>
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">terminal</span><span class="lang">bash</span></div>
+      <pre><code><span class="c-prompt">$ </span><span class="c-cmd">journalctl</span> --user -u tmux.service -n 30</code></pre>
+    </div>
+  </section>
+
+  <!-- 8. Claude CLI 자동 실행 -->
+  <section id="claude">
+    <h2 class="section-title"><span class="num">8</span> Claude CLI 자동 실행 (응용)</h2>
+    <p>
+      tmux 자동 실행은 그 자체로 유용하지만, 진짜 목적은 <strong>그 위에서 어떤 프로세스를 24/7로 돌리느냐</strong>입니다.
+      여기서는 Claude CLI를 Discord 봇으로 자동 기동하는 예를 봅니다.
+    </p>
+
+    <h3 style="margin-top: 28px; font-size: 1.1rem;">의존성 모델</h3>
+    <p>두 개의 systemd unit을 분리합니다.</p>
+    <ul style="margin: 12px 0 20px 24px;">
+      <li><code>tmux.service</code> — tmux <code>main</code> 세션을 띄움 (이전 섹션들)</li>
+      <li><code>claude-discord.service</code> — <code>main</code> 세션에 Claude CLI 명령을 <code>send-keys</code>로 전송</li>
+    </ul>
+    <p>
+      Claude 쪽이 죽거나 재시작해도 tmux 세션은 그대로 살아있어 빠르게 재기동할 수 있고,
+      반대로 tmux를 다시 띄워도 의존성을 따라 Claude가 다시 들어옵니다.
+    </p>
+
+    <h3 style="margin-top: 28px; font-size: 1.1rem;">claude-discord.service 전체</h3>
+    <pre><code>[Unit]
+Description=Claude CLI - Discord (mybot bot) in tmux main session
+After=network-online.target tmux.service systemd-resolved.service
+Wants=network-online.target
+Requires=tmux.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=/bin/bash -c 'for i in $(seq 1 60); do nslookup api.anthropic.com &gt;/dev/null 2&gt;&amp;1 &amp;&amp; exit 0; sleep 2; done; exit 1'
+ExecStart=/usr/bin/tmux send-keys -t main "cd /home/<user> &amp;&amp; claude --dangerously-skip-permissions --channels plugin:discord@claude-plugins-official --remote-control mybot" Enter
+ExecStop=/usr/bin/tmux send-keys -t main "" ""
+
+[Install]
+WantedBy=default.target</code></pre>
+
+    <h3 style="margin-top: 28px; font-size: 1.1rem;">핵심 포인트</h3>
+    <ul style="margin: 12px 0 20px 24px;">
+      <li><code>Requires=tmux.service</code> — tmux가 먼저 떠 있어야 동작</li>
+      <li><code>After=network-online.target</code> — 네트워크 준비 후 실행</li>
+      <li><code>ExecStartPre</code> — Anthropic API DNS 확인까지 최대 120초 대기 (네트워크 단계가 끝나도 DNS가 즉시 안 풀리는 경우 방어)</li>
+      <li><code>Type=oneshot + RemainAfterExit=yes</code> — send-keys는 한 번만 실행되면 끝. Claude CLI 자체는 tmux 세션 안에서 계속 살아 있음</li>
+      <li><code>--remote-control mybot</code> — Discord 봇 이름과 통신 채널 식별자</li>
+    </ul>
+
+    <h3 style="margin-top: 28px; font-size: 1.1rem;">등록 명령</h3>
+    <pre><code><span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user daemon-reload
+<span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user enable claude-discord.service
+<span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user start claude-discord.service
+<span class="c-prompt">$ </span><span class="c-cmd">tmux</span> attach -t main   <span class="c-comment"># Claude가 실행 중인지 확인</span></code></pre>
+
+    <div class="callout warn" style="margin-top: 24px;">
+      <div class="icon">⚠️</div>
+      <div class="body">
+        <strong>--dangerously-skip-permissions 사용 주의</strong><br>
+        이 옵션은 도구 호출 시 사용자 승인 단계를 건너뜁니다.
+        무인 운영을 위해 필요하지만, 신뢰할 수 없는 입력(특히 Discord 메시지)에 의한
+        부작용을 막기 위해 별도로 <code>ai-bot-rules.md</code>나 시스템 프롬프트에서
+        가드레일을 둬야 합니다.
+      </div>
+    </div>
+
+    <h3 style="margin-top: 28px; font-size: 1.1rem;">동작 확인</h3>
+    <pre><code><span class="c-prompt">$ </span><span class="c-cmd">systemctl</span> --user status claude-discord.service
+<span class="c-prompt">$ </span><span class="c-cmd">journalctl</span> --user -u claude-discord.service -n 50
+<span class="c-prompt">$ </span><span class="c-cmd">tmux</span> capture-pane -t main -p | tail -20   <span class="c-comment"># tmux 내부 출력 확인</span></code></pre>
+
+    <p style="margin-top: 24px;">
+      이 구조 덕분에 서버를 재부팅해도 Discord 채널에 메시지가 오면 1~2분 내 Claude가 응답합니다.
+      tmux를 그저 자동 실행만 한 게 아니라, <strong>AI 에이전트 운영의 토대</strong>로 쓴 셈입니다.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <p>Ubuntu 24.04 · tmux 3.x · systemd 255 환경에서 작성되었습니다.</p>
+</footer>
+
+</body>
+</html>

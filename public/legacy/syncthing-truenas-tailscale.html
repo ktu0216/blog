@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syncthing으로 여러 PC 동기화 — TrueNAS 허브 + Tailscale</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #7c6af7;
+      --accent2: #4fc3f7;
+      --green: #4caf7d;
+      --yellow: #f0c040;
+      --red: #f07070;
+      --text: #dde1f0;
+      --text-muted: #7a80a0;
+      --code-bg: #12141f;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Pretendard', 'Noto Sans KR', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #12141f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 0 48px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+
+    header h1 span { color: var(--accent); }
+
+    .meta {
+      color: var(--text-muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 52px;
+    }
+
+    .toc h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 6px; }
+    .toc a { color: var(--accent2); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    section { margin-bottom: 56px; }
+
+    h2.section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2.section-title .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin: 28px 0 10px;
+    }
+
+    p { margin-bottom: 14px; color: var(--text); }
+
+    ul.bullets { margin: 0 0 18px; padding-left: 22px; line-height: 1.9; }
+    ul.bullets li { margin-bottom: 4px; }
+
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 16px 0 24px;
+    }
+
+    .code-block .cb-header {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cb-header .filename {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .cb-header .lang {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .code-block pre {
+      padding: 20px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    code {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: var(--accent2);
+    }
+
+    .code-block pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: inherit;
+      color: var(--text);
+    }
+
+    .c-comment { color: #5c6370; font-style: italic; }
+    .c-key     { color: #c678dd; }
+    .c-val     { color: #98c379; }
+    .c-cmd     { color: #61afef; }
+    .c-flag    { color: #e5c07b; }
+    .c-prompt  { color: #4caf7d; user-select: none; }
+
+    .callout {
+      display: flex;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 1px solid;
+    }
+
+    .callout.info  { background: #1a2a3a; border-color: #2a4a6a; }
+    .callout.warn  { background: #2a2010; border-color: #5a4010; }
+    .callout.tip   { background: #0f2a1a; border-color: #1a5a30; }
+
+    .callout .icon { font-size: 18px; flex-shrink: 0; line-height: 1.6; }
+    .callout .body { font-size: 14.5px; line-height: 1.65; }
+    .callout .body strong { color: #fff; }
+
+    .steps { list-style: none; padding: 0; counter-reset: step; }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      align-items: flex-start;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--surface2);
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .steps li .step-body { flex: 1; }
+    .steps li .step-body strong { display: block; font-size: 1rem; margin-bottom: 8px; }
+
+    .verify {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .verify h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      margin: 0 0 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 14.5px;
+    }
+
+    th {
+      background: var(--surface2);
+      color: var(--text-muted);
+      text-align: left;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: var(--surface); }
+    td code { font-size: 12.5px; }
+
+    .arch-diagram {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 20px 0 24px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.9;
+      overflow-x: auto;
+    }
+
+    .arch-diagram .node { color: var(--accent2); }
+    .arch-diagram .arrow { color: var(--text-muted); }
+    .arch-diagram .label { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Syncthing · TrueNAS · Tailscale</div>
+  <h1><span>Syncthing</span>으로 여러 PC 동기화<br>— TrueNAS 허브 + Tailscale</h1>
+  <div class="meta">
+    <span>⏱ 약 12분</span>
+    <span>🔄 P2P 파일 동기화</span>
+    <span>🖥 TrueNAS · Linux · macOS · Windows</span>
+    <span>📅 2026-06-21</span>
+  </div>
+</header>
+
+<div class="wrapper">
+
+  <!-- 왜 이 글을 썼는가 -->
+  <div class="callout info" style="margin-bottom: 36px; border-left: 3px solid var(--accent);">
+    <div class="icon">📝</div>
+    <div class="body">
+      <strong>여러 대의 PC를 클라우드 없이 동기화하고 싶다면.</strong><br>
+      집·사무실·노트북 3대에 같은 작업 폴더를 두고 쓰는데, 드롭박스에 매달 돈 내기도 싫고
+      내 파일이 남의 서버에 올라가는 것도 찜찜하다면 <strong>Syncthing</strong>이 답입니다.
+      중앙 서버 없이 내 기기끼리 직접, 암호화된 채로 동기화합니다.
+      <br><br>
+      여기에 <strong>항상 켜져 있는 TrueNAS</strong>를 허브로 두고 <strong>Tailscale</strong> 사설망 위에
+      얹으면, 3대가 동시에 켜져 있지 않아도 누락 없이 안정적으로 동기화됩니다. 그 구성을 정리합니다.
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>목차</h2>
+    <ol>
+      <li><a href="#what">Syncthing이란 무엇인가</a></li>
+      <li><a href="#how">어떻게 동작하는가 — 장치 ID와 폴더 공유</a></li>
+      <li><a href="#why">왜 좋은가 — 핵심 장점</a></li>
+      <li><a href="#topology">토폴로지 — 메시 vs 허브</a></li>
+      <li><a href="#hub">TrueNAS를 허브 노드로</a></li>
+      <li><a href="#setup">Tailscale 위에서 설치 & 설정</a></li>
+      <li><a href="#ops">운영 팁 — 버전 관리·무시·충돌</a></li>
+      <li><a href="#summary">정리</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Syncthing이란 -->
+  <section id="what">
+    <h2 class="section-title"><span class="num">1</span> Syncthing이란 무엇인가</h2>
+    <p>
+      <strong>Syncthing</strong>은 두 대 이상의 컴퓨터 사이에서 파일을 <strong>실시간으로 계속 동기화</strong>하는
+      오픈소스 프로그램입니다(MPL-2.0). 드롭박스·구글드라이브와 목적은 비슷하지만, 결정적 차이가 있습니다 —
+      <strong>중앙 서버가 없습니다.</strong> 파일은 오직 내 기기들 위에만 존재하고, 기기끼리 직접(P2P) 주고받습니다.
+    </p>
+
+    <h3>한 줄 요약</h3>
+    <ul class="bullets">
+      <li><strong>비공개(Private)</strong> — 데이터가 제3자 서버에 저장되지 않음. 털릴 중앙 서버가 없음</li>
+      <li><strong>암호화(Encrypted)</strong> — 모든 통신이 TLS + 순방향 비밀성(PFS)으로 보호</li>
+      <li><strong>오픈소스</strong> — 전체 소스가 GitHub에 공개, 무료</li>
+      <li><strong>P2P</strong> — 내 기기들이 서로 직접 연결, 구독료 없음</li>
+    </ul>
+
+    <div class="callout info">
+      <div class="icon">ℹ️</div>
+      <div class="body">
+        <strong>"동기화"지 "백업"이 아니다</strong><br>
+        Syncthing은 한쪽의 변경(삭제 포함)을 다른 쪽에 그대로 반영합니다. 실수로 지운 파일도 같이 사라질 수
+        있으므로, 백업처럼 쓰려면 뒤에 나오는 <strong>파일 버전 관리</strong>를 켜야 합니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 어떻게 -->
+  <section id="how">
+    <h2 class="section-title"><span class="num">2</span> 어떻게 동작하는가 — 장치 ID와 폴더 공유</h2>
+    <p>
+      Syncthing의 모델은 단순합니다. <strong>기기를 서로 등록</strong>하고, <strong>폴더를 공유</strong>하면 끝입니다.
+    </p>
+
+    <h3>① 장치 ID (Device ID)</h3>
+    <p>
+      각 기기는 설치 시 암호학적 키쌍을 만들고, 공개키에서 유도된 <strong>장치 ID</strong>(긴 문자열)를 갖습니다.
+      이 ID로 서로를 식별·인증하므로, 상대 ID만 등록하면 신뢰 관계가 성립합니다.
+    </p>
+
+    <h3>② 폴더 공유 (Folder)</h3>
+    <p>
+      동기화할 폴더에 <strong>폴더 ID</strong>를 붙이고, 어떤 기기와 공유할지 고릅니다. 각 기기에서 폴더 타입을
+      정할 수 있습니다 — <code>Send &amp; Receive</code>(양방향), <code>Send Only</code>(보내기만),
+      <code>Receive Only</code>(받기만).
+    </p>
+
+    <h3>③ 발견(Discovery)과 전송</h3>
+    <p>
+      같은 LAN이면 로컬 브로드캐스트로, 외부면 글로벌 디스커버리/릴레이로 서로를 찾습니다. 다만 우리는
+      <strong>Tailscale 사설망</strong>을 쓸 것이므로, 디스커버리에 의존하지 않고 <strong>고정 사설 IP로 직접</strong>
+      연결합니다(아래 6절). 변경분은 <strong>블록 단위</strong>로만 전송돼 큰 파일을 조금 고쳐도 전체를 다시 보내지 않습니다.
+    </p>
+
+    <table>
+      <tr><th>포트</th><th>용도</th><th>비고</th></tr>
+      <tr><td><code>8384</code> /tcp</td><td>웹 GUI</td><td>기본 <code>127.0.0.1</code>만 허용</td></tr>
+      <tr><td><code>22000</code> /tcp·udp</td><td>동기화(데이터)</td><td>TCP + QUIC</td></tr>
+      <tr><td><code>21027</code> /udp</td><td>로컬 디스커버리</td><td>같은 LAN 자동 발견</td></tr>
+    </table>
+  </section>
+
+  <!-- 3. 왜 좋은가 -->
+  <section id="why">
+    <h2 class="section-title"><span class="num">3</span> 왜 좋은가 — 핵심 장점</h2>
+
+    <ul class="bullets">
+      <li><strong>Tailscale 위에서 포트포워딩 0</strong> — 이미 사설망이 깔려 있으니 공유기 설정 없이 바로 연결</li>
+      <li><strong>설정이 거의 없음</strong> — 설치 후 기기 등록 + "폴더 공유" 버튼 몇 번이면 끝, 이후엔 자동</li>
+      <li><strong>오프라인에서도 작업</strong> — 파일은 로컬에 있으므로 끊겨도 그냥 쓰고, 온라인되면 알아서 동기화</li>
+      <li><strong>프라이버시·무료</strong> — 내 기기에만 데이터가 있고 구독료가 없음</li>
+      <li><strong>충돌에 안전</strong> — 양쪽이 같은 파일을 고치면 덮어쓰지 않고 충돌본을 따로 남김</li>
+    </ul>
+
+    <div class="callout tip">
+      <div class="icon">💡</div>
+      <div class="body">
+        <strong>Tailscale과의 궁합</strong><br>
+        Syncthing의 유일한 귀찮음은 "외부에서 서로 찾고 뚫는" 부분인데, Tailscale이 이미
+        암호화된 사설망(100.x 대역)을 제공하므로 그 단계가 통째로 사라집니다. NAT·방화벽·포트포워딩 고민이 없습니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 토폴로지 -->
+  <section id="topology">
+    <h2 class="section-title"><span class="num">4</span> 토폴로지 — 메시 vs 허브</h2>
+    <p>
+      Syncthing은 기본적으로 <strong>메시(mesh)</strong>입니다. 모든 기기가 서로 직접 연결되려 합니다.
+      그런데 노트북·데스크톱처럼 <strong>껐다 켰다 하는 기기들끼리만</strong> 묶으면 문제가 생깁니다 —
+      A에서 바꾼 파일이 B에 가려면 <strong>그 순간 A와 B가 동시에 켜져 있어야</strong> 합니다.
+    </p>
+
+    <div class="arch-diagram">
+<span class="label">메시 (직접 연결) — 동시에 켜져 있어야 전파</span>
+   <span class="node">PC-A</span> <span class="arrow">⇄</span> <span class="node">PC-B</span>
+     <span class="arrow">⇅   ⇅</span>          <span class="arrow">↑</span> A와 C가 동시에 안 켜지면
+   <span class="node">PC-C</span> <span class="arrow">⇄</span> <span class="node">PC-A</span>          변경 전파 지연/누락
+
+<span class="label">허브 (TrueNAS 항상 ON) — 누락 없음</span>
+   <span class="node">PC-A</span> <span class="arrow">→</span>  <span class="node">TrueNAS</span>  <span class="arrow">←</span> <span class="node">PC-B</span>
+              <span class="arrow">↑</span>
+            <span class="node">PC-C</span>     <span class="arrow">←</span> 각 PC는 TrueNAS 하고만 동기화
+    </div>
+
+    <p>
+      해법은 <strong>항상 켜져 있는 노드 하나를 허브로</strong> 두는 것입니다. 각 PC는 그 허브하고만 동기화하면 되고,
+      허브가 모든 변경을 모아 두었다가 다른 PC가 켜질 때 전달합니다. 그 허브로 <strong>TrueNAS</strong>가 완벽합니다.
+    </p>
+  </section>
+
+  <!-- 5. TrueNAS 허브 -->
+  <section id="hub">
+    <h2 class="section-title"><span class="num">5</span> TrueNAS를 허브 노드로</h2>
+    <p>
+      TrueNAS는 24시간 켜져 있는 데다 디스크 용량이 넉넉하고, <strong>Syncthing을 앱으로 바로 설치</strong>할 수
+      있습니다(TrueNAS SCALE 앱 카탈로그). TrueNAS에 Syncthing을 올려 <strong>항상 살아 있는 허브</strong>로 쓰면:
+    </p>
+
+    <ul class="bullets">
+      <li><strong>동시 가동 불필요</strong> — 3대 중 2대가 꺼져 있어도, 켜진 1대가 TrueNAS와 맞추면 됨</li>
+      <li><strong>누락 없는 전파</strong> — 모든 변경이 항상 켜진 TrueNAS에 일단 모임 → 나중에 켜진 기기가 받아감</li>
+      <li><strong>사실상 백업 노드</strong> — TrueNAS 폴더에 파일 버전 관리를 켜면, 동기화 + 이력 보관을 겸함</li>
+      <li><strong>ZFS 스냅샷과 결합</strong> — TrueNAS의 데이터셋 스냅샷으로 추가 안전망 확보</li>
+    </ul>
+
+    <div class="callout tip">
+      <div class="icon">💡</div>
+      <div class="body">
+        <strong>허브 폴더 타입</strong><br>
+        TrueNAS의 폴더는 <code>Send &amp; Receive</code>로 두어 모든 PC와 양방향 동기화하게 합니다.
+        그리고 <strong>파일 버전 관리(Staggered 등)를 TrueNAS에만</strong> 켜면, 각 PC에서 실수로 지운 파일도
+        허브에 이력으로 남아 복구할 수 있습니다.
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="icon">⚠️</div>
+      <div class="body">
+        <strong>"동기화 = 백업"은 아니다</strong><br>
+        허브가 있어도 삭제는 전파됩니다. 진짜 안전망은 <strong>TrueNAS의 파일 버전 관리 + ZFS 스냅샷</strong>입니다.
+        둘을 켜두면 동기화의 편의와 백업의 안전을 함께 얻습니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 설치 & 설정 -->
+  <section id="setup">
+    <h2 class="section-title"><span class="num">6</span> Tailscale 위에서 설치 &amp; 설정</h2>
+    <p>
+      전제: 3대 PC와 TrueNAS가 모두 <strong>같은 Tailscale 테일넷</strong>에 들어와 있습니다(각자 <code>100.x.x.x</code> 보유).
+      이제 포트포워딩 없이 바로 연결합니다.
+    </p>
+
+    <ol class="steps">
+      <li><div class="step-body"><strong>TrueNAS에 Syncthing 앱 설치</strong>
+        Apps → 카탈로그에서 Syncthing 설치. 동기화할 데이터셋을 앱의 폴더로 마운트한다. 설치 후 웹 GUI(<code>:8384</code>)에 접속.
+      </div></li>
+      <li><div class="step-body"><strong>각 PC에 Syncthing 설치</strong>
+        Windows/macOS/Linux용 바이너리 설치 후 실행하면 로컬 GUI(<code>http://127.0.0.1:8384</code>)가 열린다.
+      </div></li>
+      <li><div class="step-body"><strong>장치 등록 (PC ↔ TrueNAS)</strong>
+        각 PC의 장치 ID를 TrueNAS에 "Add Remote Device"로 추가하고, 주소를 Tailscale IP로 고정한다(아래). 반대로 PC에도 TrueNAS를 등록.
+      </div></li>
+      <li><div class="step-body"><strong>주소를 Tailscale IP로 고정</strong>
+        기기 주소를 <code>dynamic</code> 대신 <code>tcp://100.x.x.x:22000</code>으로 지정하면 디스커버리·릴레이 없이 직접 연결된다.
+      </div></li>
+      <li><div class="step-body"><strong>폴더 공유</strong>
+        TrueNAS에서 폴더를 만들고(<code>Send &amp; Receive</code>) 각 PC와 공유로 체크. 각 PC는 들어온 공유 요청을 수락하고 로컬 경로를 지정하면 끝.
+      </div></li>
+    </ol>
+
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">기기 주소 설정 (각 Remote Device)</span><span class="lang">config</span></div>
+<pre><code><span class="c-comment"># dynamic 대신 Tailscale 사설 IP로 직접 지정</span>
+Addresses: <span class="c-val">tcp://100.101.102.103:22000</span>
+
+<span class="c-comment"># 사설망만 쓰면 글로벌 디스커버리/릴레이는 꺼도 됨(프라이버시·속도)</span>
+Global Discovery:  <span class="c-key">off</span>
+Relaying:          <span class="c-key">off</span></code></pre>
+    </div>
+
+    <div class="callout tip">
+      <div class="icon">💡</div>
+      <div class="body">
+        <strong>GUI 원격 접속도 Tailscale로</strong><br>
+        Syncthing GUI는 기본 <code>127.0.0.1:8384</code>만 듣습니다. TrueNAS 앱 GUI를 테일넷에서 열고 싶으면
+        앱의 바인드 주소를 Tailscale IP로 두거나 Tailscale Serve로 노출하세요. 외부 포트는 열 필요가 없습니다.
+      </div>
+    </div>
+
+    <div class="verify">
+      <h3>✓ 동작 확인</h3>
+      <ul class="bullets">
+        <li>각 PC GUI에서 TrueNAS가 <strong>Connected</strong>로 보이는가 (주소가 100.x인지)</li>
+        <li>한 PC에서 파일을 만들면 → TrueNAS → 다른 PC 순으로 전파되는가</li>
+        <li>한 PC를 꺼도, 켜져 있는 PC ↔ TrueNAS 동기화가 계속되는가</li>
+        <li>꺼졌던 PC를 켜면 그동안의 변경을 TrueNAS에서 받아오는가</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. 운영 팁 -->
+  <section id="ops">
+    <h2 class="section-title"><span class="num">7</span> 운영 팁 — 버전 관리·무시·충돌</h2>
+
+    <h3>파일 버전 관리 (허브에 켜기)</h3>
+    <p>
+      TrueNAS 폴더에 <strong>File Versioning</strong>을 켜면 덮어쓰기·삭제된 파일이 버전 폴더에 보관됩니다.
+      <code>Staggered</code>(시간이 지날수록 듬성듬성 보관)가 백업 용도로 무난합니다.
+    </p>
+
+    <h3>무시 패턴 (.stignore)</h3>
+    <div class="code-block">
+      <div class="cb-header"><span class="filename">.stignore</span><span class="lang">gitignore</span></div>
+<pre><code><span class="c-comment">// 동기화에서 제외할 것들</span>
+node_modules
+.DS_Store
+*.tmp
+.git</code></pre>
+    </div>
+
+    <h3>충돌 처리</h3>
+    <p>
+      양쪽에서 같은 파일을 동시에 고치면, Syncthing은 한쪽을
+      <code>파일명.sync-conflict-날짜-기기.확장자</code>로 남겨 <strong>덮어쓰지 않습니다.</strong>
+      어느 쪽이 맞는지 직접 보고 정리하면 됩니다.
+    </p>
+
+    <div class="callout warn">
+      <div class="icon">⚠️</div>
+      <div class="body">
+        <strong>DB·VM 이미지 같은 "항상 열려 있는 큰 파일"은 주의</strong><br>
+        실시간으로 바뀌는 데이터베이스 파일이나 가상머신 디스크는 동기화 중 손상될 수 있습니다.
+        그런 건 Syncthing이 아니라 전용 백업(스냅샷/덤프)으로 다루세요.
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 정리 -->
+  <section id="summary">
+    <h2 class="section-title"><span class="num">8</span> 정리</h2>
+    <p>
+      Syncthing은 <strong>클라우드 없이 내 기기끼리 암호화 동기화</strong>하는 가장 깔끔한 방법이고,
+      <strong>TrueNAS 허브 + Tailscale</strong> 조합이 그 약점(동시 가동·NAT 뚫기)을 정확히 메웁니다.
+    </p>
+
+    <table>
+      <tr><th>요소</th><th>역할</th><th>이점</th></tr>
+      <tr><td><strong>Syncthing</strong></td><td>P2P 파일 동기화</td><td>무료·오픈소스·암호화·오프라인</td></tr>
+      <tr><td><strong>TrueNAS 허브</strong></td><td>항상 켜진 중계·보관 노드</td><td>동시 가동 불필요, 누락 없음, 버전·스냅샷</td></tr>
+      <tr><td><strong>Tailscale</strong></td><td>암호화 사설망</td><td>포트포워딩 0, 어디서나 직접 연결</td></tr>
+    </table>
+
+    <div class="callout tip">
+      <div class="icon">💡</div>
+      <div class="body">
+        <strong>요점</strong><br>
+        "3대가 서로 직접 안 닿아도, 항상 켜진 TrueNAS 하나만 있으면 된다." 각 PC는 TrueNAS하고만 맞추면 되니
+        설정도 단순하고 누락도 없습니다. 여기에 파일 버전 관리와 ZFS 스냅샷까지 더하면, 동기화의 편의와
+        백업의 안전을 한 번에 얻습니다.
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Saegida Blog · 2026-06-21 · <a href="claude-code-spec-driven-workflow.html" style="color: var(--accent2);">이전 글: 클로드 코드로 시스템 만들기</a>
+</footer>
+
+</body>
+</html>

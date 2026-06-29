@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true,
+  );
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const dateStr = post.data.date.toISOString().slice(0, 10);
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <a href="/" class="muted" style="font-size:0.85rem;">← 목록</a>
+  <h1 style="margin:0.5rem 0 0.25rem;">{post.data.title}</h1>
+  <div class="muted" style="font-size:0.85rem; margin-bottom:1.5rem;">
+    {dateStr}
+    {post.data.tags.length > 0 && <span> · {post.data.tags.join(", ")}</span>}
+  </div>
+  <article>
+    <Content />
+  </article>
+</Base>
