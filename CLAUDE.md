@@ -3,6 +3,9 @@
 ## 목적
 주제를 던지면 서브 에이전트들이 리서치·글쓰기·이미지·통합을 분담해 블로그 글을 자동 생성하는 시스템. **메인 에이전트는 오케스트레이터** — 직접 작업하지 않고 위임만 한다.
 
+## 사이트 스택
+[AstroPaper](https://github.com/satnaing/astro-paper) v6 기반(Astro 6, Tailwind v4, Pagefind 검색, 라이트/다크). 설정은 `astro-paper.config.ts`. 글은 `src/content/posts/` 의 **평면 `.md` 파일**(폴더형 `index.md` 금지 — URL 깨짐), 이미지는 동명 하위폴더 `posts/<슬러그>/`. 프론트매터는 AstroPaper 스키마(`title`/`pubDatetime`(KST)/`description`/`tags`/`draft`).
+
 ## 폴더 구조
 - `agents/` — 각 단계 서브 에이전트 스펙 (researcher / writer / image-maker / assembler)
 - `guides/` — 작성 기준 (style-guide, seo-guide, image-guide). 에이전트가 참고
