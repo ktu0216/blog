@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1020"/>
+      <stop offset="1" stop-color="#006cac"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <text x="540" y="300" fill="#8bd0f0" font-size="30" text-anchor="middle" font-family="monospace" letter-spacing="2">docker · 홈서버 · 회고</text>
+
+  <text x="540" y="470" fill="#ffffff" font-size="82" font-weight="800" text-anchor="middle">재부팅 한 번에</text>
+  <text x="540" y="576" fill="#ffffff" font-size="82" font-weight="800" text-anchor="middle">알림이 끊겼다</text>
+
+  <text x="540" y="676" fill="#cfe3f2" font-size="36" text-anchor="middle">홈서버 도커 서비스를 자동 복구하는 3가지</text>
+
+  <!-- three-dot accent -->
+  <circle cx="500" cy="760" r="9" fill="#8bd0f0"/>
+  <circle cx="540" cy="760" r="9" fill="#8bd0f0"/>
+  <circle cx="580" cy="760" r="9" fill="#8bd0f0"/>
+
+  <text x="1016" y="1030" fill="#8bd0f0" font-size="40" text-anchor="end" font-family="monospace" opacity="0.9">⟳</text>
+</svg>

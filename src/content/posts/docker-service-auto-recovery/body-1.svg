@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="600" fill="#0d1117"/>
+  <text x="60" y="72" fill="#e6edf3" font-size="38" font-weight="800">재부팅 후, 같은 호스트인데 갈렸다</text>
+  <text x="60" y="108" fill="#8b949e" font-size="22">호스트 재부팅 · restart 정책 유무가 생사를 가른다</text>
+
+  <!-- reboot band -->
+  <rect x="60" y="140" width="1080" height="48" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="600" y="171" fill="#8b949e" font-size="24" text-anchor="middle">⟳  호스트 재부팅</text>
+
+  <!-- left panel: alive -->
+  <rect x="60" y="220" width="510" height="320" rx="16" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="90" y="270" fill="#4aa3df" font-size="24" font-weight="700" font-family="monospace">restart: unless-stopped</text>
+  <rect x="90" y="292" width="450" height="52" rx="10" fill="#122a3d" stroke="#4aa3df"/>
+  <text x="110" y="325" fill="#e6edf3" font-size="22">app  ·  Up (healthy)</text>
+  <rect x="90" y="356" width="450" height="52" rx="10" fill="#122a3d" stroke="#4aa3df"/>
+  <text x="110" y="389" fill="#e6edf3" font-size="22">db   ·  Up (healthy)</text>
+  <text x="90" y="470" fill="#4aa3df" font-size="30" font-weight="800">✓ 자동 복구 — 살아있음</text>
+  <text x="90" y="506" fill="#8b949e" font-size="20">데몬이 부팅 때 다시 띄운다</text>
+
+  <!-- right panel: dead -->
+  <rect x="630" y="220" width="510" height="320" rx="16" fill="#12151b" stroke="#30363d" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="660" y="270" fill="#8b949e" font-size="24" font-weight="700" font-family="monospace">restart 없음  (no)</text>
+  <rect x="660" y="292" width="450" height="52" rx="10" fill="#161b22" stroke="#30363d" stroke-dasharray="5 5"/>
+  <text x="680" y="325" fill="#6b7480" font-size="22">app  ·  Exited</text>
+  <rect x="660" y="356" width="450" height="52" rx="10" fill="#161b22" stroke="#30363d" stroke-dasharray="5 5"/>
+  <text x="680" y="389" fill="#6b7480" font-size="22">db   ·  Exited</text>
+  <text x="660" y="470" fill="#8b949e" font-size="30" font-weight="800">✗ 복구 안 됨 — 꺼짐</text>
+  <text x="660" y="506" fill="#6b7480" font-size="20">아무도 다시 안 띄운다 → 알림 끊김</text>
+</svg>

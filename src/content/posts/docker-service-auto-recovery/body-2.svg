@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="680" fill="#0d1117"/>
+  <text x="60" y="76" fill="#e6edf3" font-size="40" font-weight="800">재시작 정책 4종 — 재부팅 자동복구 기준</text>
+  <text x="60" y="112" fill="#8b949e" font-size="22">docker restart policy · 홈서버 단일 호스트</text>
+
+  <!-- header -->
+  <text x="84"  y="176" fill="#8b949e" font-size="24" font-weight="600">정책</text>
+  <text x="460" y="176" fill="#8b949e" font-size="24" font-weight="600">재부팅 시 복구</text>
+  <text x="810" y="176" fill="#8b949e" font-size="24" font-weight="600">수동 stop 존중</text>
+
+  <!-- row 1: no -->
+  <rect x="60" y="196" width="1080" height="60" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84"  y="234" fill="#e6edf3" font-size="26" font-weight="700" font-family="monospace">no</text>
+  <text x="460" y="234" fill="#8b949e" font-size="26">✗ 안 됨</text>
+  <text x="810" y="234" fill="#8b949e" font-size="26">—</text>
+
+  <!-- row 2: always -->
+  <rect x="60" y="268" width="1080" height="60" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84"  y="306" fill="#e6edf3" font-size="26" font-weight="700" font-family="monospace">always</text>
+  <text x="460" y="306" fill="#4aa3df" font-size="26" font-weight="700">✓ 복구</text>
+  <text x="810" y="306" fill="#8b949e" font-size="26">✗ 수동 stop도 다시 뜸</text>
+
+  <!-- row 3: on-failure -->
+  <rect x="60" y="340" width="1080" height="60" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84"  y="378" fill="#e6edf3" font-size="26" font-weight="700" font-family="monospace">on-failure</text>
+  <text x="460" y="378" fill="#e6edf3" font-size="26">△ 에러 종료 시만</text>
+  <text x="810" y="378" fill="#8b949e" font-size="26">—</text>
+
+  <!-- row 4: unless-stopped (recommended) -->
+  <rect x="60" y="412" width="1080" height="60" rx="12" fill="#0f2233" stroke="#4aa3df"/>
+  <text x="84"  y="450" fill="#4aa3df" font-size="26" font-weight="700" font-family="monospace">unless-stopped</text>
+  <rect x="360" y="426" width="66" height="32" rx="16" fill="none" stroke="#4aa3df"/>
+  <text x="371" y="449" fill="#4aa3df" font-size="18">권장</text>
+  <text x="460" y="450" fill="#4aa3df" font-size="26" font-weight="700">✓ 복구</text>
+  <text x="810" y="450" fill="#4aa3df" font-size="26" font-weight="700">✓ 수동 stop은 유지</text>
+
+  <!-- footer -->
+  <text x="60" y="548" fill="#8b949e" font-size="22">홈서버 기본값으로는 <tspan fill="#4aa3df" font-weight="700">unless-stopped</tspan> — "재부팅엔 살아나되, 내가 끈 건 꺼진 채로".</text>
+</svg>
