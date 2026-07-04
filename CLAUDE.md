@@ -7,11 +7,13 @@
 [AstroPaper](https://github.com/satnaing/astro-paper) v6 기반(Astro 6, Tailwind v4, Pagefind 검색, 라이트/다크). 설정은 `astro-paper.config.ts`. 글은 `src/content/posts/` 의 **평면 `.md` 파일**(폴더형 `index.md` 금지 — URL 깨짐), 이미지는 동명 하위폴더 `posts/<슬러그>/`. 프론트매터는 AstroPaper 스키마(`title`/`pubDatetime`(KST)/`description`/`tags`/`draft`).
 
 ## 폴더 구조
-- `agents/` — 각 단계 서브 에이전트 스펙 (researcher / writer / image-maker / assembler)
+- `agents/` — 각 단계 서브 에이전트 스펙 (ideator / researcher / writer / image-maker / assembler)
 - `guides/` — 작성 기준 (style-guide, seo-guide, image-guide). 에이전트가 참고
-- `output/[주제-슬러그]/` — 단계별 산출물(research.md → draft.md → images/ → final.*)
+- `topics-pool.md` — 주제 풀(앵커×렌즈). ideator의 입력
+- `output/[주제-슬러그]/` — 단계별 산출물(brief.md → research.md → draft.md → images/ → final.*)
 
-## 작업 단계 (주제 입력 시)
+## 작업 단계
+- **Step 0 · 주제 조합(선택)** → `agents/ideator.md`를 따라 → 앵커×렌즈 후보 제시·**승인** → `output/[주제-슬러그]/brief.md` 생성. 주제를 직접 주면 이 단계는 건너뛴다.
 - **Step 1 · 리서치** → `agents/researcher.md`를 따라 → `output/[주제-슬러그]/research.md` 생성
 - **Step 2 · 글쓰기** → `agents/writer.md`를 따라 → `output/[주제-슬러그]/draft.md` 생성 (`[IMAGE: …]` 마커 포함)
 - **Step 3 · 이미지** → `agents/image-maker.md`를 따라 → 이미지 생성 후 draft.md 마커 치환
