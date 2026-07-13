@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="640" fill="#0d1117"/>
+  <text x="60" y="64" fill="#e6edf3" font-size="34" font-weight="800">대화형 데이터 협업 — 네 층</text>
+  <text x="60" y="98" fill="#8b949e" font-size="20">아래에서 위로 쌓이고, 거버넌스가 전체를 관통한다</text>
+
+  <!-- ③ 대화형 BI (top) -->
+  <rect x="60" y="140" width="830" height="112" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="88" y="182" fill="#4aa3df" font-size="24" font-weight="700">③ 대화형 BI + Artifacts</text>
+  <text x="88" y="216" fill="#e6edf3" font-size="20">자연어로 물으면 표·차트로 답 · 만든 차트를 권한 따라 공유·재사용</text>
+
+  <!-- arrow up -->
+  <path d="M475 268 L475 282 M468 275 L475 268 L482 275" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- ② AI 에이전트 (mid) -->
+  <rect x="60" y="290" width="830" height="112" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="88" y="332" fill="#4aa3df" font-size="24" font-weight="700">② AI 에이전트 (LLM)</text>
+  <text x="88" y="366" fill="#e6edf3" font-size="20">자연어 → SQL (Cortex Analyst) · 데이터는 거버넌스 경계 밖으로 안 나감</text>
+
+  <path d="M475 418 L475 432 M468 425 L475 418 L482 425" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- ① 데이터웨어하우스 (bottom) -->
+  <rect x="60" y="440" width="830" height="112" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="88" y="482" fill="#4aa3df" font-size="24" font-weight="700">① 데이터웨어하우스</text>
+  <text x="88" y="516" fill="#e6edf3" font-size="20">스토리지·컴퓨트 분리 · 신뢰할 수 있는 단일 데이터 기반</text>
+
+  <!-- ④ 거버넌스 spine (right, spans all) -->
+  <rect x="915" y="140" width="225" height="412" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="1027" y="330" fill="#4aa3df" font-size="24" font-weight="700" text-anchor="middle" transform="rotate(90 1027 330)">④ 보안 거버넌스</text>
+  <text x="1060" y="330" fill="#8b949e" font-size="17" text-anchor="middle" transform="rotate(90 1060 330)">RBAC · 컬럼 마스킹 · 모든 대화에 자동 적용</text>
+
+  <!-- footnote -->
+  <text x="60" y="596" fill="#8b949e" font-size="18">※ 시맨틱(Semantic View)이 ②·③의 정확도를 좌우 — 정의가 부실하면 그럴듯한 오답이 나온다</text>
+</svg>
