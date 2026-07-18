@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="760" fill="#0d1117"/>
+  <text x="60" y="72" fill="#e6edf3" font-size="38" font-weight="800">오탐 하나가 SMS 10통으로 증폭되는 경로</text>
+  <text x="60" y="108" fill="#8b949e" font-size="22">단가 오류가 걸러지지 않고 그대로 흘러 내려간다</text>
+
+  <!-- Box 1 -->
+  <rect x="60" y="150" width="840" height="96" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="88" y="196" fill="#4aa3df" font-size="26" font-weight="700">① 추정 청구 계산 서브시스템</text>
+  <text x="88" y="228" fill="#8b949e" font-size="21">단가(unit pricing) 오류로 추정치가 부풀려짐 — 근본원인</text>
+
+  <!-- arrow -->
+  <path d="M480 250 L480 274 M472 266 L480 274 L488 266" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- Box 2 -->
+  <rect x="60" y="280" width="840" height="96" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="88" y="326" fill="#4aa3df" font-size="26" font-weight="700">② 빌링 데이터 · 하루 1회+ 갱신</text>
+  <text x="88" y="358" fill="#8b949e" font-size="21">오염된 추정치가 갱신되는 순간 그대로 하류로 전달</text>
+
+  <path d="M480 380 L480 404 M472 396 L480 404 L488 396" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- Box 3 (accent) -->
+  <rect x="60" y="410" width="840" height="96" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="88" y="456" fill="#4aa3df" font-size="26" font-weight="700">③ AWS Budgets — actual / forecast</text>
+  <text x="88" y="488" fill="#e6edf3" font-size="21">forecast 알림은 임계값을 오갈 때마다 반복 발송 (새벽 3연타)</text>
+
+  <path d="M480 510 L480 534 M472 526 L480 534 L488 526" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- Box 4 -->
+  <rect x="60" y="540" width="840" height="96" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="88" y="586" fill="#4aa3df" font-size="26" font-weight="700">④ 이메일 10개 + SNS 1개 → SMS</text>
+  <text x="88" y="618" fill="#8b949e" font-size="21">오탐 하나가 10명에게 동시에 SMS로 도착</text>
+
+  <!-- right panel: no sanity check -->
+  <rect x="930" y="150" width="210" height="486" rx="14" fill="#12151b" stroke="#8b949e" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="1035" y="330" fill="#8b949e" font-size="26" font-weight="800" text-anchor="middle">현실성 검증</text>
+  <text x="1035" y="366" fill="#8b949e" font-size="22" text-anchor="middle">(sanity check)</text>
+  <text x="1035" y="418" fill="#e6edf3" font-size="30" font-weight="800" text-anchor="middle">없음</text>
+  <text x="1035" y="470" fill="#8b949e" font-size="20" text-anchor="middle">1,840억 달러도</text>
+  <text x="1035" y="498" fill="#8b949e" font-size="20" text-anchor="middle">그대로 통과</text>
+
+  <text x="60" y="708" fill="#8b949e" font-size="22">경로 어디에도 <tspan fill="#4aa3df" font-weight="700">"이 금액이 말이 되는가?"</tspan>를 묻는 단계가 없다.</text>
+</svg>
