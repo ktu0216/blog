@@ -120,7 +120,7 @@ const rssHref = getRelativeLocaleUrl(
           is:inline
           type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={`{"token": "${site.cloudflareWebAnalyticsToken}"}`}
+          data-cf-beacon={`{"token": "${site.cloudflareWebAnalyticsToken}", "spa": true}`}
         />
       )
     }
