@@ -11,6 +11,8 @@ export default defineAstroPaperConfig({
     lang: "ko",
     timezone: "Asia/Seoul",
     dir: "ltr",
+    // Cloudflare Web Analytics: 대시보드 → Web Analytics → 사이트 추가 후 토큰 붙여넣기
+    cloudflareWebAnalyticsToken: "4a612052ae5744e2b79bee1bbc56b656",
   },
   posts: {
     perPage: 6,
