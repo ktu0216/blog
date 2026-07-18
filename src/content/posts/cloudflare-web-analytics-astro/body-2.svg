@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="900" fill="#0d1117"/>
+  <text x="60" y="60" fill="#e6edf3" font-size="36" font-weight="800">지표 → 행동: 무엇을 보고 무엇을 정하나</text>
+  <text x="60" y="96" fill="#8b949e" font-size="21">숫자를 나열하지 않고, 각 지표가 어떤 결정으로 이어지는지로 읽는다</text>
+
+  <!-- column headers -->
+  <text x="80" y="164" fill="#4aa3df" font-size="21" font-weight="800">지표 · 무엇을 보나</text>
+  <text x="576" y="164" fill="#4aa3df" font-size="21" font-weight="800">결정 · 행동 · 무엇을 정하나</text>
+
+  <!-- Row 1: Referer -->
+  <rect x="60" y="184" width="430" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84" y="224" fill="#e6edf3" font-size="24" font-weight="800">Referer · 유입 경로</text>
+  <text x="84" y="256" fill="#8b949e" font-size="18">검색 · 커뮤니티 · 직접 접속 구분</text>
+  <path d="M502 232 L540 232 M528 222 L540 232 L528 242" fill="none" stroke="#4aa3df" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="556" y="184" width="584" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="580" y="222" fill="#e6edf3" font-size="20">검색↑ → SEO 패턴 확장 · 커뮤니티↑ → 그 주제·공유 타이밍</text>
+  <text x="580" y="254" fill="#8b949e" font-size="18">대부분 direct·빈 값 → 발견성 약함, 공유·SEO 보강 신호</text>
+
+  <!-- Row 2: Path -->
+  <rect x="60" y="296" width="430" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84" y="336" fill="#e6edf3" font-size="24" font-weight="800">Path · 인기 페이지</text>
+  <text x="84" y="368" fill="#8b949e" font-size="18">어떤 글(경로)이 방문을 받나</text>
+  <path d="M502 344 L540 344 M528 334 L540 344 L528 354" fill="none" stroke="#4aa3df" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="556" y="296" width="584" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="580" y="334" fill="#e6edf3" font-size="20">꾸준한 &apos;에버그린 글&apos; → 업데이트·심화편으로 재투자</text>
+  <text x="580" y="366" fill="#8b949e" font-size="18">안 읽히는 글 → 제목·유입·주제 수요 중 무엇이 문제인지 구분</text>
+
+  <!-- Row 3: Country -->
+  <rect x="60" y="408" width="430" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84" y="448" fill="#e6edf3" font-size="24" font-weight="800">Country · 국가</text>
+  <text x="84" y="480" fill="#8b949e" font-size="18">국내 중심인지 해외 유입이 있는지</text>
+  <path d="M502 456 L540 456 M528 446 L540 456 L528 466" fill="none" stroke="#4aa3df" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="556" y="408" width="584" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="580" y="464" fill="#e6edf3" font-size="20">해외 비중이 유의미하면 → 영어 요약·용어 병기 고려</text>
+
+  <!-- Row 4: Device -->
+  <rect x="60" y="520" width="430" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84" y="560" fill="#e6edf3" font-size="24" font-weight="800">Device · 기기</text>
+  <text x="84" y="592" fill="#8b949e" font-size="18">모바일 vs 데스크톱 비중</text>
+  <path d="M502 568 L540 568 M528 558 L540 568 L528 578" fill="none" stroke="#4aa3df" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="556" y="520" width="584" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="580" y="558" fill="#e6edf3" font-size="20">모바일↑ → 가독성·이미지 용량·코드 가로 스크롤 점검</text>
+  <text x="580" y="590" fill="#8b949e" font-size="18">데스크톱↑ → 코드·다이어그램 중심 심화 콘텐츠에 유리</text>
+
+  <!-- Row 5: Core Web Vitals -->
+  <rect x="60" y="632" width="430" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84" y="672" fill="#e6edf3" font-size="23" font-weight="800">Core Web Vitals</text>
+  <text x="84" y="704" fill="#8b949e" font-size="18">LCP·INP·CLS — 실제 방문자(RUM) 성능</text>
+  <path d="M502 680 L540 680 M528 670 L540 680 L528 690" fill="none" stroke="#4aa3df" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="556" y="632" width="584" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="580" y="670" fill="#e6edf3" font-size="20">트래픽 큰 인기 글부터 개선 (Poor면 우선순위 ↑)</text>
+  <text x="580" y="702" fill="#8b949e" font-size="18">LCP↓ 이미지·폰트 · CLS↓ 이미지 width/height 지정</text>
+
+  <!-- Row 6: Visit:PV ratio -->
+  <rect x="60" y="744" width="430" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="84" y="784" fill="#e6edf3" font-size="22" font-weight="800">방문 : 페이지뷰 비율</text>
+  <text x="84" y="816" fill="#8b949e" font-size="18">페이지뷰 ÷ 방문 = 탐색 깊이</text>
+  <path d="M502 792 L540 792 M528 782 L540 792 L528 802" fill="none" stroke="#4aa3df" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="556" y="744" width="584" height="96" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="580" y="782" fill="#e6edf3" font-size="20">1에 가까움 → 내부 링크·관련 글 추천으로 더 회유</text>
+  <text x="580" y="814" fill="#8b949e" font-size="18">높음 → 사이트 안에서 이것저것 더 둘러보는 중</text>
+</svg>

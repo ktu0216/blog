@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="700" fill="#0d1117"/>
+  <text x="60" y="58" fill="#e6edf3" font-size="36" font-weight="800">회색 구름(DNS-only)에서 데이터가 흐르는 두 경로</text>
+  <text x="60" y="94" fill="#8b949e" font-size="21">트래픽은 Cloudflare 엣지를 우회하고, 방문자 데이터는 브라우저 비컨만 보낸다</text>
+
+  <!-- HTTP arc bypass label -->
+  <text x="440" y="132" fill="#8b949e" font-size="21" font-weight="700" text-anchor="middle">① HTTP 요청 — 엣지 우회(bypass)</text>
+
+  <!-- browser (single visitor, two paths) -->
+  <rect x="60" y="300" width="180" height="150" rx="16" fill="#161b22" stroke="#30363d"/>
+  <text x="150" y="356" fill="#e6edf3" font-size="25" font-weight="800" text-anchor="middle">방문자 브라우저</text>
+  <text x="150" y="392" fill="#8b949e" font-size="19" text-anchor="middle">한 명 · 두 경로</text>
+
+  <!-- HTTP arc: browser -> GitHub Pages, arcing OVER the gray cloud -->
+  <path d="M240 322 C 360 150 520 142 640 210" fill="none" stroke="#8b949e" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M628 200 L640 210 L626 218" fill="none" stroke="#8b949e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- gray cloud (edge, proxy off) sitting under the arc -->
+  <ellipse cx="440" cy="252" rx="78" ry="25" fill="#2b323b"/>
+  <circle cx="404" cy="240" r="28" fill="#2b323b"/>
+  <circle cx="440" cy="221" r="39" fill="#2b323b"/>
+  <circle cx="479" cy="240" r="26" fill="#2b323b"/>
+  <text x="440" y="238" fill="#8b949e" font-size="19" font-weight="800" text-anchor="middle">Cloudflare 엣지</text>
+  <text x="440" y="262" fill="#8b949e" font-size="17" text-anchor="middle">회색 구름 · 프록시 꺼짐</text>
+
+  <!-- link cloud -> edge empty chip -->
+  <line x1="440" y1="290" x2="440" y2="308" stroke="#8b949e" stroke-width="2" stroke-dasharray="5 5"/>
+  <rect x="326" y="308" width="228" height="66" rx="12" fill="#12151b" stroke="#8b949e" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="440" y="338" fill="#8b949e" font-size="20" text-anchor="middle">엣지 Analytics</text>
+  <text x="440" y="362" fill="#e6edf3" font-size="21" font-weight="800" text-anchor="middle">비어 있음</text>
+
+  <!-- GitHub Pages origin -->
+  <rect x="640" y="150" width="256" height="120" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="768" y="192" fill="#e6edf3" font-size="24" font-weight="800" text-anchor="middle">GitHub Pages 원본</text>
+  <text x="768" y="224" fill="#4aa3df" font-size="20" font-family="monospace" text-anchor="middle">185.199.108–111.153</text>
+  <text x="768" y="252" fill="#8b949e" font-size="18" text-anchor="middle">정적 파일을 그대로 응답</text>
+
+  <!-- beacon label -->
+  <text x="470" y="470" fill="#4aa3df" font-size="21" font-weight="700" text-anchor="middle">② 브라우저 비컨 · beacon.min.js</text>
+
+  <!-- beacon arc: browser -> Web Analytics -->
+  <path d="M240 428 C 380 480 500 512 632 530" fill="none" stroke="#4aa3df" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M620 519 L633 530 L618 537" fill="none" stroke="#4aa3df" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Cloudflare Web Analytics collector -->
+  <rect x="640" y="474" width="288" height="128" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="784" y="518" fill="#4aa3df" font-size="24" font-weight="800" text-anchor="middle">Cloudflare Web Analytics</text>
+  <text x="784" y="550" fill="#8b949e" font-size="18" text-anchor="middle">브라우저 Performance API → 수집</text>
+  <text x="784" y="584" fill="#e6edf3" font-size="21" font-weight="800" text-anchor="middle">데이터 수집됨 ✓</text>
+
+  <text x="60" y="668" fill="#8b949e" font-size="21">프록시(주황 구름) 없이도, 비컨은 <tspan fill="#4aa3df" font-weight="700">DNS·엣지와 무관하게</tspan> 방문자 데이터를 보낸다.</text>
+</svg>
