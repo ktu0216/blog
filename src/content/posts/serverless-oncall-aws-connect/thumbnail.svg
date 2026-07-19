@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1020"/>
+      <stop offset="1" stop-color="#006cac"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <text x="540" y="170" fill="#8bd0f0" font-size="30" text-anchor="middle" font-family="monospace" letter-spacing="2">AWS 서버리스 · 긴급 장애 온콜</text>
+
+  <!-- main title -->
+  <text x="540" y="360" fill="#ffffff" font-size="78" font-weight="800" text-anchor="middle">긴급 장애 메일 한 통을</text>
+  <text x="540" y="466" fill="#ffffff" font-size="78" font-weight="800" text-anchor="middle">전화·SMS로 자동 발송</text>
+
+  <text x="540" y="552" fill="#cfe3f2" font-size="33" text-anchor="middle">SES → Lambda → Amazon Connect · Polly 음성 TTS</text>
+
+  <!-- fan-out diagram -->
+  <!-- source mail chip -->
+  <rect x="400" y="660" width="280" height="86" rx="16" fill="#0d1117" stroke="#4aa3df" stroke-width="2.5" opacity="0.95"/>
+  <text x="540" y="700" fill="#8bd0f0" font-size="27" font-weight="700" text-anchor="middle">긴급 장애 메일</text>
+  <text x="540" y="730" fill="#8b949e" font-size="22" text-anchor="middle">단일 조건 트리거 · 1통</text>
+
+  <!-- fan-out arrows -->
+  <path d="M540 746 L540 800 L300 800 L300 862 M292 852 L300 862 L308 852" stroke="#8bd0f0" stroke-width="2.5" fill="none"/>
+  <path d="M540 746 L540 800 L780 800 L780 862 M772 852 L780 862 L788 852" stroke="#8bd0f0" stroke-width="2.5" fill="none"/>
+
+  <!-- left: voice call -->
+  <rect x="160" y="864" width="280" height="96" rx="16" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="300" y="906" fill="#ffffff" font-size="30" font-weight="800" text-anchor="middle">음성 전화</text>
+  <text x="300" y="938" fill="#8bd0f0" font-size="22" text-anchor="middle">Amazon Connect · Polly</text>
+
+  <!-- right: SMS -->
+  <rect x="640" y="864" width="280" height="96" rx="16" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="780" y="906" fill="#ffffff" font-size="30" font-weight="800" text-anchor="middle">SMS 문자</text>
+  <text x="780" y="938" fill="#8bd0f0" font-size="22" text-anchor="middle">이중화 · 국제 발신</text>
+
+  <text x="1016" y="1032" fill="#8bd0f0" font-size="40" text-anchor="end" font-family="monospace" opacity="0.9">🔔</text>
+</svg>

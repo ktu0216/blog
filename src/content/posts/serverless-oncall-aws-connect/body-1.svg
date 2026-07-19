@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="700" fill="#0d1117"/>
+  <text x="60" y="60" fill="#e6edf3" font-size="38" font-weight="800">서버리스 온콜 알림 파이프라인</text>
+  <text x="60" y="96" fill="#8b949e" font-size="21">긴급 장애 메일 1통 → 음성 전화 + SMS 팬아웃, 전부 AWS 관리형 서비스</text>
+
+  <!-- entry label -->
+  <text x="180" y="150" fill="#8bd0f0" font-size="20" font-weight="700" text-anchor="middle">모니터링 긴급 장애 메일</text>
+  <path d="M180 158 L180 178 M172 168 L180 178 L188 168" stroke="#8b949e" stroke-width="2.5" fill="none"/>
+
+  <!-- pipeline row -->
+  <!-- SES -->
+  <rect x="55" y="182" width="250" height="120" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="81" y="228" fill="#4aa3df" font-size="25" font-weight="800">Amazon SES</text>
+  <text x="81" y="260" fill="#e6edf3" font-size="19">이메일 수신 · Receipt Rule</text>
+  <text x="81" y="286" fill="#8b949e" font-size="18">공통 입력 포맷 = 메일</text>
+
+  <path d="M305 242 L331 242 M319 232 L331 242 L319 252" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- SNS -->
+  <rect x="335" y="182" width="250" height="120" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="361" y="228" fill="#4aa3df" font-size="25" font-weight="800">Amazon SNS</text>
+  <text x="361" y="260" fill="#e6edf3" font-size="19">팬아웃 · 토픽 publish</text>
+  <text x="361" y="286" fill="#8b949e" font-size="18">SNS 액션 · 최대 150KB</text>
+
+  <path d="M585 242 L611 242 M599 232 L611 242 L599 252" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- SQS -->
+  <rect x="615" y="182" width="250" height="120" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="641" y="228" fill="#4aa3df" font-size="25" font-weight="800">Amazon SQS</text>
+  <text x="641" y="260" fill="#e6edf3" font-size="19">버퍼 · 속도 제어</text>
+  <text x="641" y="286" fill="#8b949e" font-size="18">지연 재발송(최대 15분)</text>
+
+  <path d="M865 242 L891 242 M879 232 L891 242 L879 252" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- Lambda (core) -->
+  <rect x="895" y="182" width="250" height="120" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="921" y="228" fill="#4aa3df" font-size="25" font-weight="800">AWS Lambda</text>
+  <text x="921" y="260" fill="#e6edf3" font-size="19">코어 · 파싱 · 라우팅</text>
+  <text x="921" y="286" fill="#8b949e" font-size="18">예약 동시성=4로 속도 제어</text>
+
+  <!-- fan-out from Lambda -->
+  <path d="M1020 302 L1020 340 L740 340 L740 398 M732 388 L740 398 L748 388" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+  <path d="M1020 302 L1020 340 L1020 398 M1012 388 L1020 398 L1028 388" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- output: Amazon Connect voice -->
+  <rect x="615" y="400" width="250" height="120" rx="14" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="641" y="446" fill="#4aa3df" font-size="24" font-weight="800">Amazon Connect</text>
+  <text x="641" y="478" fill="#e6edf3" font-size="19">아웃바운드 음성 전화</text>
+  <text x="641" y="504" fill="#8b949e" font-size="18">Polly 한국어 TTS · Seoyeon</text>
+
+  <!-- output: SMS -->
+  <rect x="895" y="400" width="250" height="120" rx="14" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="921" y="446" fill="#4aa3df" font-size="24" font-weight="800">End User Messaging</text>
+  <text x="921" y="478" fill="#e6edf3" font-size="19">SMS 문자 발송</text>
+  <text x="921" y="504" fill="#8b949e" font-size="18">한국(KR) = 국제 발신 경로</text>
+
+  <!-- fan-out summary bracket -->
+  <text x="180" y="470" fill="#8b949e" font-size="20">전화 + SMS 이중화</text>
+  <text x="180" y="500" fill="#e6edf3" font-size="21" font-weight="700">단일 캐리어</text>
+  <text x="180" y="528" fill="#e6edf3" font-size="21" font-weight="700">장애점 회피</text>
+
+  <!-- bottom caption -->
+  <line x1="60" y1="600" x2="1140" y2="600" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="648" fill="#8b949e" font-size="21"><tspan fill="#4aa3df" font-weight="700">핵심 제약</tspan> — SES 수신 리소스는 같은 리전(서울 지원), 한국 발신번호는 Support 티켓 · 문서 검증이 필요하다.</text>
+</svg>
