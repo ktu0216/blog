@@ -57,6 +57,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    // Dev-only: allow reaching `astro dev --host` by Tailscale hostname
+    // (Vite blocks non-IP hosts by default). No effect on production build.
+    server: {
+      allowedHosts: ["ktu-ubuntu", ".ts.net"],
+    },
   },
   fonts: [
     {
