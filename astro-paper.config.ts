@@ -24,13 +24,10 @@ export default defineAstroPaperConfig({
     dynamicOgImage: true,
     showArchives: true,
     showBackButton: true,
-    editPost: {
-      enabled: true,
-      url: "https://github.com/ktu0216/blog/edit/main/",
-    },
+    editPost: { enabled: false },
     search: "pagefind",
   },
-  socials: [{ name: "github", url: "https://github.com/ktu0216/blog" }],
+  socials: [{ name: "github", url: "https://github.com/ktu0216" }],
   shareLinks: [
     { name: "x", url: "https://x.com/intent/post?url=" },
     { name: "telegram", url: "https://t.me/share/url?url=" },
