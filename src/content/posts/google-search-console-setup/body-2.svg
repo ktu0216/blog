@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="760" fill="#0d1117"/>
+  <text x="60" y="60" fill="#e6edf3" font-size="38" font-weight="800">도메인 속성 vs URL 접두어 속성</text>
+  <text x="60" y="96" fill="#8b949e" font-size="21">갈림길은 인증 방법 — 도메인 속성은 DNS 인증 한 가지만 된다</text>
+
+  <!-- column headers -->
+  <rect x="300" y="128" width="420" height="56" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="510" y="164" fill="#4aa3df" font-size="25" font-weight="800" text-anchor="middle">도메인 속성 (권장)</text>
+
+  <rect x="732" y="128" width="408" height="56" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="936" y="164" fill="#e6edf3" font-size="25" font-weight="800" text-anchor="middle">URL 접두어 속성</text>
+
+  <!-- Row 1: 형식 -->
+  <text x="60" y="248" fill="#4aa3df" font-size="22" font-weight="800">형식</text>
+  <rect x="300" y="200" width="420" height="96" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="324" y="240" fill="#e6edf3" font-size="21">프로토콜·경로 없이 도메인만</text>
+  <text x="324" y="272" fill="#8b949e" font-size="20" font-family="monospace">saegida.com</text>
+  <rect x="732" y="200" width="408" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="756" y="240" fill="#e6edf3" font-size="21">지정한 접두어로 시작하는 URL</text>
+  <text x="756" y="272" fill="#8b949e" font-size="20" font-family="monospace">https://blog.saegida.com/</text>
+
+  <!-- Row 2: 커버 범위 -->
+  <text x="60" y="360" fill="#4aa3df" font-size="22" font-weight="800">커버 범위</text>
+  <rect x="300" y="312" width="420" height="96" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="324" y="352" fill="#e6edf3" font-size="21">모든 하위도메인 + http/https</text>
+  <text x="324" y="384" fill="#8b949e" font-size="19">blog · www · 루트를 한 속성에</text>
+  <rect x="732" y="312" width="408" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="756" y="352" fill="#e6edf3" font-size="21">그 접두어 하나만</text>
+  <text x="756" y="384" fill="#8b949e" font-size="19">www·http 다 보려면 속성 여러 개</text>
+
+  <!-- Row 3: 인증 방법 (key) -->
+  <text x="60" y="472" fill="#4aa3df" font-size="22" font-weight="800">인증 방법</text>
+  <rect x="300" y="424" width="420" height="96" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="324" y="464" fill="#4aa3df" font-size="22" font-weight="800">DNS TXT 레코드 한 가지만</text>
+  <text x="324" y="496" fill="#8b949e" font-size="19">HTML·메타태그·GA·GTM 불가</text>
+  <rect x="732" y="424" width="408" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="756" y="464" fill="#e6edf3" font-size="21">여러 방법 지원</text>
+  <text x="756" y="496" fill="#8b949e" font-size="19">HTML · 메타태그 · GA · GTM · DNS</text>
+
+  <!-- Row 4: 선택 기준 -->
+  <text x="60" y="584" fill="#4aa3df" font-size="22" font-weight="800">선택 기준</text>
+  <rect x="300" y="536" width="420" height="96" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="324" y="576" fill="#e6edf3" font-size="21">DNS에 접근할 수 있으면</text>
+  <text x="324" y="608" fill="#8b949e" font-size="19">가장 넓게 커버 · 데이터 완전</text>
+  <rect x="732" y="536" width="408" height="96" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="756" y="576" fill="#e6edf3" font-size="21">DNS 접근이 어려울 때</text>
+  <text x="756" y="608" fill="#8b949e" font-size="19">파일·메타태그로 간편 인증</text>
+
+  <text x="60" y="704" fill="#8b949e" font-size="22">DNS를 다룰 수 있다면 <tspan fill="#4aa3df" font-weight="700">도메인 속성</tspan>이 대개 정답 — TXT 한 줄로 하위도메인·프로토콜을 한 번에 묶는다.</text>
+</svg>

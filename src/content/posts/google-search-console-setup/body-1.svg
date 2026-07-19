@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="620" fill="#0d1117"/>
+  <text x="60" y="64" fill="#e6edf3" font-size="38" font-weight="800">발행 &#8800; 색인 — 구글은 세 단계를 거친다</text>
+  <text x="60" y="100" fill="#8b949e" font-size="21">배포했다고 바로 검색에 뜨지 않는다. 발견 · 크롤 · 색인은 각각 별개다</text>
+
+  <!-- publish start -->
+  <rect x="60" y="150" width="240" height="120" rx="14" fill="#12151b" stroke="#30363d" stroke-width="2"/>
+  <text x="180" y="200" fill="#8b949e" font-size="24" font-weight="800" text-anchor="middle">발행 · 배포</text>
+  <text x="180" y="234" fill="#6b7480" font-size="19" text-anchor="middle">deploy 완료</text>
+  <text x="180" y="256" fill="#6b7480" font-size="18" text-anchor="middle">여기까진 내 몫</text>
+
+  <!-- gap arrow: publish != index -->
+  <path d="M300 210 L356 210 M344 200 L356 210 L344 220" stroke="#8b949e" stroke-width="2.5" fill="none"/>
+
+  <!-- Step 1: Discover -->
+  <rect x="360" y="150" width="250" height="120" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="386" y="196" fill="#4aa3df" font-size="25" font-weight="800">① 발견 Discover</text>
+  <text x="386" y="228" fill="#e6edf3" font-size="20">URL의 존재를 구글이 앎</text>
+  <text x="386" y="254" fill="#8b949e" font-size="18">사이트맵 · 링크로 도달</text>
+
+  <path d="M610 210 L666 210 M654 200 L666 210 L654 220" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- Step 2: Crawl -->
+  <rect x="670" y="150" width="250" height="120" rx="14" fill="#161b22" stroke="#30363d"/>
+  <text x="696" y="196" fill="#4aa3df" font-size="25" font-weight="800">② 크롤 Crawl</text>
+  <text x="696" y="228" fill="#e6edf3" font-size="20">봇이 페이지를 읽어감</text>
+  <text x="696" y="254" fill="#8b949e" font-size="18">robots 허용이 전제</text>
+
+  <path d="M920 210 L976 210 M964 200 L976 210 L964 220" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- Step 3: Index (accent) -->
+  <rect x="980" y="150" width="160" height="120" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="1060" y="196" fill="#4aa3df" font-size="25" font-weight="800" text-anchor="middle">③ 색인</text>
+  <text x="1060" y="222" fill="#4aa3df" font-size="22" font-weight="800" text-anchor="middle">Index</text>
+  <text x="1060" y="252" fill="#e6edf3" font-size="18" text-anchor="middle">검색 DB 등록</text>
+
+  <!-- middle-state band -->
+  <rect x="360" y="320" width="780" height="150" rx="14" fill="#12151b" stroke="#30363d" stroke-dasharray="7 7"/>
+  <text x="384" y="360" fill="#8b949e" font-size="22" font-weight="800">GSC 페이지 색인 리포트에 그대로 표시되는 중간 상태</text>
+
+  <rect x="384" y="384" width="352" height="66" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="404" y="414" fill="#e6edf3" font-size="19" font-family="monospace">Discovered – not indexed</text>
+  <text x="404" y="440" fill="#8b949e" font-size="18">발견은 했지만 아직 크롤 안 함</text>
+
+  <rect x="756" y="384" width="360" height="66" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="776" y="414" fill="#e6edf3" font-size="19" font-family="monospace">Crawled – not indexed</text>
+  <text x="776" y="440" fill="#8b949e" font-size="18">크롤은 했지만 색인은 보류</text>
+
+  <text x="60" y="356" fill="#8b949e" font-size="20">새 도메인은</text>
+  <text x="60" y="386" fill="#e6edf3" font-size="21" font-weight="700">발견 경로</text>
+  <text x="60" y="414" fill="#e6edf3" font-size="21" font-weight="700">자체가 적어</text>
+  <text x="60" y="446" fill="#8b949e" font-size="20">초기 2~4주 소요</text>
+
+  <text x="60" y="560" fill="#8b949e" font-size="22"><tspan fill="#4aa3df" font-weight="700">색인 &#8800; 순위</tspan> — 색인은 "검색 후보에 들어감"일 뿐, 상위 노출을 보장하지 않는다.</text>
+</svg>
