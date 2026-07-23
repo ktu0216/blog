@@ -1,6 +1,7 @@
 ---
 title: "돈 잃은 사람은 없고 데이터 잃은 사람은 있었다 — AWS 비용 알람 오탐 사건"
 pubDatetime: 2026-07-18T10:00:00+09:00
+modDatetime: 2026-07-23T14:00:00+09:00
 description: "AWS 빌링 시스템의 단가 오류로 터진 대규모 비용 알람 오탐 사건. 추정치와 확정 인보이스를 가르고, 리소스 실존 여부로 진짜 과금을 판별하는 절차를 정리했습니다."
 tags: ["AWS", "AWS비용", "AWS Budgets", "빌링알람", "클라우드비용관리", "AWS장애", "비용알람오탐", "AWSHealthDashboard", "CostExplorer", "FinOps"]
 draft: false
@@ -14,7 +15,17 @@ draft: false
 
 이 글은 2026년 7월 17일 발생한 **AWS 비용 알람 오탐** 사건을 기록하면서, 그때 저와 많은 사람들을 실제로 구한 판별 기준 하나를 정리합니다. "얼마가 찍혔는지"를 구경하는 글은 아닙니다. **추정치 계층이 깨졌을 때, 실재하는 것과 표시되는 것을 어떻게 가르는가** — 이게 이 글의 주제입니다. 알람을 받고 패닉이 온 적 있는 분, 혹은 언젠가 그럴 분을 위한 절차입니다.
 
-> **글 작성 시점 안내**: 이 글 갱신 시점(2026-07-18) 기준, AWS는 근본 원인을 완화하고 잘못된 추정 데이터를 재계산(백필)하는 중입니다. 완전 복구 예정 시각은 07-19 04:00 KST(07-18 12:00 PM PDT)로 안내됐고, 이 글 작성 시점엔 아직 도래 전입니다. 최종 복구 확인과 보상 여부는 미확인으로 남겨 둡니다.
+> **글 작성 시점 안내**: 이 글 갱신 시점(2026-07-18) 기준, AWS는 근본 원인을 완화하고 잘못된 추정 데이터를 재계산(백필)하는 중입니다. 완전 복구 예정 시각은 07-19 04:00 KST(07-18 12:00 PM PDT)로 안내됐고, 이 글 작성 시점엔 아직 도래 전입니다. 최종 복구 확인과 보상 여부는 미확인으로 남겨 둡니다. → **아래 업데이트 참조.**
+
+> [!important] 업데이트 (2026-07-23) — 사건 공식 해결됨
+> AWS Health가 이 이벤트를 **resolved로 종료**했습니다. 최종 메시지 원문: *"The issue has been resolved and all AWS services are now operating normally."*
+>
+> - **해결 시점 구분**: 근본원인 완화·복구는 **07-17**에 시작됐고, 대다수 계정은 **07-18 오전(PDT)**에 정상화됐습니다. 다만 **공식 이벤트 종료는 07-18 22:57 KST(=07-18 21:00 PDT)** 입니다. 즉 "07-17 해결"은 완화·복구 착수 기준이고, 공식 종료는 07-18입니다.
+> - **비용 정상화 확인**: 부풀려진 추정치가 재계산돼 정상 값으로 돌아왔습니다(제 계정에서도 확인). 실제 청구는 애초에 정상이었고, 표시만 바로잡힌 것입니다.
+> - **Cost Anomaly Detection 오탐, AWS 공식 인정**: 사후 발표가 *"Customers may have received **erroneous budget and cost anomaly detection alerts**"* 라고 밝혔습니다. 본문에서 제 Support 케이스로만 확인했던 **CAD 오탐이 공식 확인**된 것입니다.
+> - **공식 근본원인**: bill computation system의 **설정 변경(configuration change)이 단위 변환(unit conversion) 데이터 갱신을 실패시켜 line item 비용이 부풀려졌고**, 그 값이 콘솔로 전파돼 Budgets·anomaly 알림을 트리거했습니다. 커뮤니티의 "GB↔Bytes 혼동" 추측과 방향은 비슷하나, 공식 표현은 이것입니다.
+> - **보상**: AWS는 **사과와 retrospective(사후 분석)** 를 밝혔고, **금전 보상·크레딧 언급은 없습니다.** 실제 과금이 없었으니 환불 대상 자체가 없는 셈입니다.
+> - 이벤트 기록: <https://health.aws.amazon.com/health/status?eventID=arn:aws:health:global::event/BILLING/AWS_BILLING_OPERATIONAL_ISSUE/AWS_BILLING_OPERATIONAL_ISSUE_47B68_BACBD91434F>
 
 ![AWS 비용 알람 오탐 — 표시된 추정치(Estimated·Pending)와 실재하는 확정·리소스 계층을 가르는 개념도](./aws-billing-false-alarm/thumbnail.svg)
 
@@ -32,6 +43,7 @@ AWS Health Dashboard의 공개 이벤트 기록을 그대로 옮기면 이렇습
 | 07-17 19:03 | 07-17 10:03 | **근본원인 발표** |
 | 07-17 19:52 | 07-17 10:52 | **완화조치** — 추정 청구 계산 일시 중단 |
 | 07-18 06:14 | 07-17 21:14 | **근본원인 완화·데이터 백필 시작** — 완전 복구 예정 07-19 04:00 KST(07-18 12:00 PM PDT) |
+| **07-18 22:57** | 07-18 13:57 | **AWS 공식 이벤트 종료(resolved)** — "all AWS services are now operating normally" |
 
 핵심은 발생 시점과 공지 시점 사이의 간격입니다. 발생은 11:38, AWS 최초 공지는 17:33. **약 6시간의 공백**이 있었습니다. 그 6시간 동안 전 세계 사용자는 아무 공식 정보 없이 천문학적 금액의 경보를 받았습니다. 저를 포함해서요. 제 계정에 알림이 온 15:34는 AWS가 공개적으로 인정하기 **약 2시간 전**이었습니다. 그 시점에 상태 페이지를 열어봤자 아무것도 없었다는 뜻입니다.
 
@@ -217,7 +229,7 @@ AWS가 공식적으로 인정한 내용은 다음 세 가지입니다. ([AWS Hea
 ## 참고 자료 (공식 출처)
 
 **1차 — AWS 공식**
-- [AWS Health Dashboard — Service health](https://health.aws.amazon.com/health/status) — 이벤트 `Inaccurate Estimated Billing Data` (AWS Billing Console, Global). 본문 타임라인·근본원인·완화조치 인용의 근거. **갱신 시점(2026-07-18) 근본원인 완화·백필 진행 중, 완전 복구 예정 07-19 04:00 KST**
+- [AWS Health Dashboard — Service health](https://health.aws.amazon.com/health/status) — 이벤트 `Inaccurate Estimated Billing Data` (AWS Billing Console, Global). 본문 타임라인·근본원인·완화조치 인용의 근거. **2026-07-18 공식 해결(resolved), 이벤트 종료. (2026-07-23 확인)**
 - [AWS 계정별 Health 페이지](https://health.aws.amazon.com/health/home) — 로그인 필요, 전 고객 무료
 - [What is AWS Health?](https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html) — 대시보드·EventBridge 무료, Health API는 Business Support 이상
 - [Understanding your bill](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/getting-viewing-bill.html) — `Pending`(추정) / `Issued`(확정 인보이스) 구분
