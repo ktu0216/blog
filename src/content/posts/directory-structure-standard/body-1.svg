@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="700" fill="#0d1117"/>
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800">깊이 한 단계 = 항목 21개 — 실측이 알려준 교환비</text>
+  <text x="60" y="98" fill="#8b949e" font-size="21">Bergman &amp; Whittaker 외, JASIST 2010 · 참가자 296명 · 파일 1,131개 · 탐색 단계 5,035개</text>
+
+  <!-- regression formula -->
+  <rect x="60" y="128" width="1080" height="68" rx="12" fill="#161b22" stroke="#30363d"/>
+  <text x="600" y="172" fill="#e6edf3" font-size="28" font-family="monospace" text-anchor="middle">검색시간 = 4.956 + 2.236 × 깊이 + 0.106 × 항목수</text>
+
+  <!-- exchange rate chip -->
+  <text x="600" y="240" fill="#8b949e" font-size="20" text-anchor="middle">2.236 ÷ 0.106 = 교환비</text>
+  <rect x="470" y="256" width="260" height="66" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="600" y="302" fill="#4aa3df" font-size="36" font-weight="800" text-anchor="middle" font-family="monospace">× 21.09</text>
+
+  <!-- balance beam -->
+  <line x1="150" y1="360" x2="1050" y2="360" stroke="#4aa3df" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="600" cy="360" r="9" fill="#4aa3df"/>
+  <!-- fulcrum -->
+  <path d="M600 372 L556 500 L644 500 Z" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <line x1="530" y1="502" x2="670" y2="502" stroke="#30363d" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- hangers -->
+  <line x1="305" y1="360" x2="305" y2="392" stroke="#4aa3df" stroke-width="2.5"/>
+  <line x1="895" y1="360" x2="895" y2="392" stroke="#4aa3df" stroke-width="2.5"/>
+
+  <!-- left pan -->
+  <rect x="110" y="392" width="390" height="150" rx="14" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="136" y="434" fill="#8b949e" font-size="21">폴더 깊이 +1단계</text>
+  <text x="136" y="490" fill="#e6edf3" font-size="46" font-weight="800">2.236초</text>
+  <text x="136" y="522" fill="#8b949e" font-size="19">한 단계 더 내려가는 비용</text>
+
+  <!-- right pan -->
+  <rect x="700" y="392" width="390" height="150" rx="14" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="726" y="434" fill="#8b949e" font-size="21">폴더 안 항목 +1개</text>
+  <text x="726" y="490" fill="#e6edf3" font-size="46" font-weight="800">0.106초</text>
+  <text x="726" y="522" fill="#8b949e" font-size="19">같은 자리에 하나 더 두는 비용</text>
+
+  <!-- bottom notes -->
+  <line x1="60" y1="586" x2="1140" y2="586" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="628" fill="#e6edf3" font-size="22"><tspan fill="#4aa3df" font-weight="700">'up to 21' 휴리스틱</tspan> — 폴더당 21개를 넘기지 말고, 넘으면 그때 하위 레벨을 하나 만든다.</text>
+  <text x="60" y="664" fill="#8b949e" font-size="20">실측 — 평균 폴더 크기 22개 · 파일의 67.3%가 21개 이하 폴더에 · 한 번에 찾은 폴더 22.72 vs 못 찾은 폴더 27.45</text>
+</svg>

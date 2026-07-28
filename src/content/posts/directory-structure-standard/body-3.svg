@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="680" fill="#0d1117"/>
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800">규모가 규칙보다 먼저 — 규칙은 순서대로 켠다</text>
+  <text x="60" y="98" fill="#8b949e" font-size="21">R10. 파일 수십 개짜리 저장소에 규칙 10개를 전부 켜면 관리 비용만 남는다</text>
+
+  <!-- stage 1 (active) -->
+  <rect x="60" y="140" width="330" height="380" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="86" y="188" fill="#4aa3df" font-size="26" font-weight="800">① 지금 시작</text>
+  <text x="86" y="222" fill="#8b949e" font-size="20">파일 수십 개 · 저장소 하나</text>
+  <line x1="86" y1="248" x2="364" y2="248" stroke="#30363d" stroke-width="1.5"/>
+
+  <rect x="86" y="272" width="62" height="38" rx="8" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="117" y="298" fill="#4aa3df" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R1</text>
+  <text x="164" y="298" fill="#e6edf3" font-size="20">폭 20 · 깊이 5</text>
+
+  <rect x="86" y="330" width="62" height="38" rx="8" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="117" y="356" fill="#4aa3df" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R3</text>
+  <text x="164" y="356" fill="#e6edf3" font-size="20">파일명 · ISO 8601</text>
+
+  <rect x="86" y="388" width="62" height="38" rx="8" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="117" y="414" fill="#4aa3df" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R4</text>
+  <text x="164" y="414" fill="#e6edf3" font-size="20">가까운 폴더에 먼저</text>
+
+  <rect x="86" y="446" width="62" height="38" rx="8" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text x="117" y="472" fill="#4aa3df" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R5</text>
+  <text x="164" y="472" fill="#e6edf3" font-size="20">담는 것 / 안 담는 것</text>
+
+  <!-- arrow 1 -->
+  <path d="M396 330 L428 330 M416 320 L428 330 L416 340" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- stage 2 -->
+  <rect x="435" y="140" width="330" height="380" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="461" y="188" fill="#e6edf3" font-size="26" font-weight="800">② 폭이 상한에 닿을 때</text>
+  <text x="461" y="222" fill="#8b949e" font-size="20">한 레벨 형제 폴더 20개 초과</text>
+  <line x1="461" y1="248" x2="739" y2="248" stroke="#30363d" stroke-width="1.5"/>
+  <text x="461" y="292" fill="#8b949e" font-size="19">앞 단계 4개는 그대로 두고 +</text>
+
+  <rect x="461" y="316" width="62" height="38" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="492" y="342" fill="#8bd0f0" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R2</text>
+  <text x="539" y="342" fill="#e6edf3" font-size="20">번호 구역 NN_</text>
+
+  <rect x="461" y="374" width="62" height="38" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="492" y="400" fill="#8bd0f0" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R6</text>
+  <text x="539" y="400" fill="#e6edf3" font-size="20">옮기지 말고 링크</text>
+
+  <rect x="461" y="432" width="62" height="38" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="492" y="458" fill="#8bd0f0" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R9</text>
+  <text x="539" y="458" fill="#e6edf3" font-size="20">동기화 · 백업 분리</text>
+
+  <!-- arrow 2 -->
+  <path d="M771 330 L803 330 M791 320 L803 330 L791 340" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+
+  <!-- stage 3 -->
+  <rect x="810" y="140" width="330" height="380" rx="14" fill="#12151b" stroke="#30363d" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="836" y="188" fill="#e6edf3" font-size="26" font-weight="800">③ 환경이 둘 이상</text>
+  <text x="836" y="222" fill="#8b949e" font-size="20">다중 기기 · 협업 · 미러 트리</text>
+  <line x1="836" y1="248" x2="1114" y2="248" stroke="#30363d" stroke-width="1.5"/>
+  <text x="836" y="292" fill="#8b949e" font-size="19">앞 단계 7개는 그대로 두고 +</text>
+
+  <rect x="836" y="316" width="62" height="38" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="867" y="342" fill="#8bd0f0" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R7</text>
+  <text x="914" y="342" fill="#e6edf3" font-size="20">정렬축 · 미러 예외</text>
+
+  <rect x="836" y="374" width="62" height="38" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="867" y="400" fill="#8bd0f0" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R8</text>
+  <text x="914" y="400" fill="#e6edf3" font-size="20">시스템 경로 불가침</text>
+
+  <rect x="836" y="432" width="70" height="38" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="871" y="458" fill="#8bd0f0" font-size="20" font-weight="700" text-anchor="middle" font-family="monospace">R10</text>
+  <text x="922" y="458" fill="#e6edf3" font-size="20">한 번에 하나만</text>
+
+  <line x1="60" y1="570" x2="1140" y2="570" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="612" fill="#e6edf3" font-size="22"><tspan fill="#4aa3df" font-weight="700">전면 재편 금지</tspan> — 전면 재편은 대개 중단되고, 중단된 재편은 이전보다 나쁘다.</text>
+  <text x="60" y="648" fill="#8b949e" font-size="20">규칙을 바꿀 때도 한 번에 하나만. 되돌리기 쉬운 것부터, 참조가 깨지는 것은 맨 마지막에.</text>
+</svg>
