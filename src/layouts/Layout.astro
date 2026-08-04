@@ -24,10 +24,11 @@ const {
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
+// Trailing slash would 404 — the feed is an endpoint (`/rss.xml`), not a page.
 const rssHref = getRelativeLocaleUrl(
   Astro.currentLocale ?? config.site.lang,
   "rss.xml"
-);
+).replace(/\/$/, "");
 ---
 
 <!doctype html>
