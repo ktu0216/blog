@@ -10,12 +10,14 @@
 - `agents/` — 각 단계 서브 에이전트 스펙 (ideator / researcher / writer / image-maker / assembler)
 - `guides/` — 작성 기준 (style-guide, seo-guide, image-guide). 에이전트가 참고
 - `topics-pool.md` — 주제 풀(앵커×렌즈). ideator의 입력
-- `output/[주제-슬러그]/` — 단계별 산출물(brief.md → research.md → draft.md → images/ → final.*)
+- `output/[날짜]_[주제-슬러그]/` — 단계별 산출물(brief.md → research.md → draft.md → images/ → final.*)
+  - **날짜는 폴더를 만든 날(`YYYY-MM-DD`)**. 첫 산출물을 쓰는 에이전트가 정하고, 이후 단계는 그 폴더명을 그대로 받아 쓴다 — 발행일이 아니므로 나중에 고치지 않는다.
+  - 슬러그는 `src/content/posts/<슬러그>.md` 및 이미지 폴더와 **같은 값**을 쓴다. 날짜는 `output/`에만 붙는다.
 
 ## 작업 단계
-- **Step 0 · 주제 조합(선택)** → `agents/ideator.md`를 따라 → 앵커×렌즈 후보 제시·**승인** → `output/[주제-슬러그]/brief.md` 생성. 주제를 직접 주면 이 단계는 건너뛴다.
-- **Step 1 · 리서치** → `agents/researcher.md`를 따라 → `output/[주제-슬러그]/research.md` 생성
-- **Step 2 · 글쓰기** → `agents/writer.md`를 따라 → `output/[주제-슬러그]/draft.md` 생성 (`[IMAGE: …]` 마커 포함)
+- **Step 0 · 주제 조합(선택)** → `agents/ideator.md`를 따라 → 앵커×렌즈 후보 제시·**승인** → `output/[날짜]_[주제-슬러그]/brief.md` 생성. 주제를 직접 주면 이 단계는 건너뛴다.
+- **Step 1 · 리서치** → `agents/researcher.md`를 따라 → `output/[날짜]_[주제-슬러그]/research.md` 생성
+- **Step 2 · 글쓰기** → `agents/writer.md`를 따라 → `output/[날짜]_[주제-슬러그]/draft.md` 생성 (`[IMAGE: …]` 마커 포함)
 - **Step 3 · 이미지** → `agents/image-maker.md`를 따라 → 이미지 생성 후 draft.md 마커 치환
 - **Step 4 · 통합** → `agents/assembler.md`를 따라 → `final.html`, `final.md` 생성
 

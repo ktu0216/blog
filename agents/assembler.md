@@ -11,12 +11,12 @@
 완성된 글(이미지 포함)을 사람이 바로 검토·미리보기할 수 있는 최종본 2종으로 묶어낸다.
 
 ## 입력
-- **`output/<주제-슬러그>/draft.md`** — 이미지가 마크다운 문법(`![alt](./images/…)`)으로 박힌 상태.
-- **`output/<주제-슬러그>/images/`** — `thumbnail.png`, `body-N.png` 등.
+- **`output/<날짜>_<주제-슬러그>/draft.md`** — 이미지가 마크다운 문법(`![alt](./images/…)`)으로 박힌 상태.
+- **`output/<날짜>_<주제-슬러그>/images/`** — `thumbnail.png`, `body-N.png` 등.
 
 ## 출력 (산출물)
-- **`output/<주제-슬러그>/final.md`** — 발행/검토용 마크다운.
-- **`output/<주제-슬러그>/final.html`** — 시각 미리보기용 HTML(자체 스타일 포함, 그대로 열림).
+- **`output/<날짜>_<주제-슬러그>/final.md`** — 발행/검토용 마크다운.
+- **`output/<날짜>_<주제-슬러그>/final.html`** — 시각 미리보기용 HTML(자체 스타일 포함, 그대로 열림).
 
 ## 작동 방식
 1. **`draft.md` 읽기** — 프론트매터(YAML)와 본문을 분리한다. 본문엔 이미 `![](./images/…)`로
@@ -79,7 +79,7 @@ body{ margin:0; background:#fff; color:var(--fg);
 
 ## 마무리 안내 (사용자에게)
 - 작업 끝에 **브라우저로 미리보기**를 안내한다. 예:
-  > "미리보기: `file://<절대경로>/output/<주제-슬러그>/final.html` 를 브라우저에서 열어 확인하세요."
+  > "미리보기: `file://<절대경로>/output/<날짜>_<주제-슬러그>/final.html` 를 브라우저에서 열어 확인하세요."
 - 발행(별도 단계, AstroPaper 기준):
   1. `final.md` → **평면 파일** `src/content/posts/<슬러그>.md` 로 이동(폴더형 `index.md` 금지 — URL이 `/posts/<슬러그>/index`로 깨짐).
   2. 이미지는 **동명 하위폴더** `src/content/posts/<슬러그>/` 에 두고, 본문 참조를 `![alt](./<슬러그>/그림.png)` 로 맞춘다.

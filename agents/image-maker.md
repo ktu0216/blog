@@ -12,19 +12,19 @@
 `draft.md`의 이미지 자리를, 가이드 규격에 맞는 실제 PNG로 만들어 채운다(자체 검수 포함).
 
 ## 입력 (모두 읽고 시작)
-- **`output/<주제-슬러그>/draft.md`** — 본문 + `[IMAGE: 설명]` 마커.
+- **`output/<날짜>_<주제-슬러그>/draft.md`** — 본문 + `[IMAGE: 설명]` 마커.
 - **`guides/image-guide.md`** — 대표/본문 이미지 규격·템플릿·제작 방식.
 
 ## 출력 (산출물)
-- **`output/<주제-슬러그>/images/thumbnail.png`** — 대표 이미지.
-- **`output/<주제-슬러그>/images/body-1.png`, `body-2.png`, …** — 본문 이미지(마커 순서대로).
-- **`output/<주제-슬러그>/draft.md`** — `[IMAGE: …]` 마커가 **실제 이미지 경로로 치환된 상태**.
+- **`output/<날짜>_<주제-슬러그>/images/thumbnail.png`** — 대표 이미지.
+- **`output/<날짜>_<주제-슬러그>/images/body-1.png`, `body-2.png`, …** — 본문 이미지(마커 순서대로).
+- **`output/<날짜>_<주제-슬러그>/draft.md`** — `[IMAGE: …]` 마커가 **실제 이미지 경로로 치환된 상태**.
 
 ## 작동 방식
 1. **마커 수집**: `draft.md`를 읽고 `[IMAGE: 설명]` 마커를 **등장 순서대로 모두** 찾는다.
 2. **대표 이미지 1장**: 글 제목과 분위기를 보고 대표 이미지를 만든다.
    `guides/image-guide.md`의 **대표 이미지 규격**(1080×1080, 다크블루 그라데이션 등)을 따른다.
-   → `output/<슬러그>/images/thumbnail.png`로 저장.
+   → `output/<날짜>_<슬러그>/images/thumbnail.png`로 저장.
    - 도입부에 `[IMAGE: 대표 이미지 …]` 마커가 있으면 **그 마커가 thumbnail을 가리키도록** 치환하고,
      없으면 글 맨 위(제목 아래)에 넣는다.
 3. **본문 이미지 형식 선택**: 대표 마커를 제외한 각 `[IMAGE: …]` 마커마다, image-guide.md의 **4종**
@@ -45,7 +45,7 @@
    - 경로는 `draft.md` 기준 상대경로(`./images/…`). 최종 배치·경로 재작성은 assembler/발행 단계에서.
 
 ## 사용자 이미지 활용 (옵션)
-`output/<주제-슬러그>/user-images/` 폴더에 사용자가 직접 찍거나 만든 이미지가 있으면:
+`output/<날짜>_<주제-슬러그>/user-images/` 폴더에 사용자가 직접 찍거나 만든 이미지가 있으면:
 - 각 이미지를 **view 도구로 확인**한다(무엇이 담겼는지 분석).
 - 글 내용 중 **어디에 들어가면 자연스러울지** 판단한다.
 - 해당 위치의 `[IMAGE: …]` 마커를 **사용자 이미지로 대체**한다(그 자리엔 새로 만들지 않음).
@@ -75,7 +75,7 @@ def capture(html_path: str, out_png: str, w: int, h: int | None = None):
 - [ ] 본문 이미지 4종 중 내용에 맞게 선택, 대표와 톤 통일, 텍스트 짧게
 - [ ] 검수 루프 통과(여백·잘림·정렬·깨짐 없음)
 - [ ] 사용자 이미지가 있으면 적절 위치에 배치 + alt/캡션 생성
-- [ ] 파일은 `output/<슬러그>/images/`에 `thumbnail.png`·`body-N.png`로 저장
+- [ ] 파일은 `output/<날짜>_<슬러그>/images/`에 `thumbnail.png`·`body-N.png`로 저장
 
 ## 다음 단계 연결
 - 산출물(치환된 `draft.md` + `images/`)은 **assembler 에이전트의 입력**이 된다.

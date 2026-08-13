@@ -67,7 +67,7 @@
       b = p.chromium.launch()
       pg = b.new_page(viewport={"width": 1080, "height": 1080}, device_scale_factor=2)
       pg.goto("file:///abs/path/to/thumb.html")
-      pg.screenshot(path="output/<슬러그>/images/thumb.png")  # 요소만: locator.screenshot()
+      pg.screenshot(path="output/<날짜>_<슬러그>/images/thumb.png")  # 요소만: locator.screenshot()
       b.close()
   ```
   - 본문 이미지는 viewport 폭 1200, 높이는 콘텐츠에 맞춰 `full_page=True` 또는 해당 요소만 캡쳐.
@@ -77,7 +77,7 @@
 - **코드 블록 스타일을 디자인 요소로** 활용 가능(모노스페이스 폰트, 어두운 배경, 살짝 둥근 모서리).
 
 ## 4. 산출·연결
-- **저장 위치**: `output/<슬러그>/images/` (예: `thumb.png`, `compare-table.png`, `steps-diagram.png`).
+- **저장 위치**: `output/<날짜>_<슬러그>/images/` (예: `thumb.png`, `compare-table.png`, `steps-diagram.png`).
 - **파일명**: 의미 있게(영문 kebab-case). 대표 이미지는 `thumb.png`.
 - **alt/캡션**: `../guides/seo-guide.md`의 이미지 규칙을 따른다(설명+키워드 자연 포함, 과도한 키워드 X).
 - 다음 단계 **assembler**가 `draft.md`의 `[IMAGE: …]` 마커를 이 이미지들로 교체해 최종본을 만든다.
