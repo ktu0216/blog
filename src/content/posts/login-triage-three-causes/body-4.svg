@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="600" fill="#0d1117"/>
+
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800"><tspan font-family="monospace" fill="#4aa3df">findmnt --verify</tspan> 가 이걸 못 잡은 이유</text>
+  <text x="60" y="98" fill="#8b949e" font-size="21">경고는 종료 코드에 반영되지 않는다 — 갈림길은 <tspan fill="#e6edf3">마운트포인트 디렉터리의 존재 여부</tspan></text>
+
+  <!-- left card : this incident -->
+  <rect x="60" y="140" width="520" height="292" rx="14" fill="#161b22" stroke="#4aa3df" stroke-width="2.5"/>
+  <rect x="60" y="140" width="520" height="56" rx="14" fill="#0f2233"/>
+  <rect x="60" y="182" width="520" height="14" fill="#0f2233"/>
+  <text x="82" y="177" fill="#e6edf3" font-size="22" font-weight="800">마운트포인트 디렉터리 있음 <tspan fill="#4aa3df">← 이번 사건</tspan></text>
+
+  <text x="82" y="238" fill="#8b949e" font-size="20" font-family="monospace">[ ] target exists</text>
+  <text x="82" y="274" fill="#8b949e" font-size="20" font-family="monospace">[W] unreachable source:</text>
+  <text x="112" y="302" fill="#8b949e" font-size="20" font-family="monospace">/dev/mapper/nonexistent-lv</text>
+  <text x="82" y="338" fill="#8b949e" font-size="20" font-family="monospace">[W] cannot detect fs type</text>
+
+  <line x1="82" y1="360" x2="558" y2="360" stroke="#30363d" stroke-width="1.5"/>
+  <text x="82" y="404" fill="#8b949e" font-size="21" font-family="monospace">$ echo $?</text>
+  <text x="558" y="410" fill="#4aa3df" font-size="46" font-weight="800" text-anchor="end" font-family="monospace">0</text>
+
+  <text x="82" y="470" fill="#4aa3df" font-size="22" font-weight="700">자동화는 그냥 통과시킨다</text>
+  <text x="82" y="500" fill="#8b949e" font-size="20">원인은 <tspan font-family="monospace" fill="#e6edf3">[W]</tspan> 줄에 문장으로만 남는다</text>
+
+  <!-- right card -->
+  <rect x="620" y="140" width="520" height="292" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <rect x="620" y="140" width="520" height="56" rx="14" fill="#12151b"/>
+  <rect x="620" y="182" width="520" height="14" fill="#12151b"/>
+  <text x="642" y="177" fill="#8b949e" font-size="22" font-weight="800">마운트포인트 디렉터리 없음</text>
+
+  <text x="642" y="238" fill="#8b949e" font-size="20" font-family="monospace">[E] unreachable on boot</text>
+  <text x="672" y="266" fill="#8b949e" font-size="20" font-family="monospace">required target</text>
+  <text x="642" y="312" fill="#6e7681" font-size="19">경고가 아니라 에러 — 종료 코드에 반영된다</text>
+
+  <line x1="642" y1="360" x2="1118" y2="360" stroke="#30363d" stroke-width="1.5"/>
+  <text x="642" y="404" fill="#8b949e" font-size="21" font-family="monospace">$ echo $?</text>
+  <text x="1118" y="410" fill="#8b949e" font-size="46" font-weight="800" text-anchor="end" font-family="monospace">1</text>
+
+  <text x="642" y="470" fill="#8b949e" font-size="22" font-weight="700">여기서만 자동화가 걸러낸다</text>
+  <text x="642" y="500" fill="#6e7681" font-size="20">이번 서버는 정확히 반대 조건이었다</text>
+
+  <line x1="60" y1="530" x2="1140" y2="530" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="574" fill="#e6edf3" font-size="22"><tspan font-family="monospace">findmnt --verify || fail</tspan> 로 자동화했다면 <tspan fill="#4aa3df" font-weight="700">이 서버는 20개월 내내 통과했다</tspan></text>
+</svg>

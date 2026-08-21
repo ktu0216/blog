@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4aa3df"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="800" fill="#0d1117"/>
+
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800">PAM 스택은 <tspan font-family="monospace" fill="#4aa3df">sufficient</tspan> 에서 끊긴다</text>
+  <text x="60" y="100" fill="#8b949e" font-size="21"><tspan font-family="monospace" fill="#e6edf3">required</tspan> 는 "반드시 실행된다"가 아니라 "실행되면 반드시 성공해야 한다"</text>
+
+  <!-- auth stack -->
+  <text x="80" y="152" fill="#8b949e" font-size="20" font-weight="700" letter-spacing="3">AUTH 스택 — 통과했다</text>
+  <rect x="60" y="170" width="760" height="232" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+
+  <rect x="80" y="192" width="720" height="42" rx="8" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text y="220" font-size="21" font-family="monospace"><tspan x="98" fill="#4aa3df">auth</tspan><tspan x="190" fill="#4aa3df">sufficient</tspan><tspan x="340" fill="#e6edf3">pam_unix.so nullok</tspan></text>
+  <text x="782" y="220" fill="#4aa3df" font-size="18" font-weight="700" text-anchor="end">성공</text>
+
+  <text y="268" font-size="21" font-family="monospace" opacity="0.45"><tspan x="98" fill="#8b949e">auth</tspan><tspan x="190" fill="#8b949e">sufficient</tspan><tspan x="340" fill="#8b949e">pam_sss.so forward_pass</tspan></text>
+  <text x="782" y="268" fill="#6e7681" font-size="18" text-anchor="end">미도달</text>
+
+  <text y="312" font-size="21" font-family="monospace" opacity="0.45"><tspan x="98" fill="#8b949e">auth</tspan><tspan x="190" fill="#8b949e">required</tspan><tspan x="340" fill="#8b949e">pam_faillock.so authfail</tspan></text>
+  <text x="782" y="312" fill="#6e7681" font-size="18" text-anchor="end">미도달</text>
+
+  <text y="356" font-size="21" font-family="monospace" opacity="0.45"><tspan x="98" fill="#8b949e">auth</tspan><tspan x="190" fill="#8b949e">required</tspan><tspan x="340" fill="#8b949e">pam_deny.so</tspan></text>
+  <text x="782" y="356" fill="#6e7681" font-size="18" text-anchor="end">미도달</text>
+
+  <path d="M804 213 L 892 213" stroke="#4aa3df" stroke-width="3" fill="none" marker-end="url(#a1)"/>
+  <rect x="900" y="174" width="240" height="80" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="1020" y="208" fill="#e6edf3" font-size="21" font-weight="700" text-anchor="middle">즉시 성공 반환</text>
+  <text x="1020" y="236" fill="#8b949e" font-size="19" text-anchor="middle">아래는 호출조차 안 됨</text>
+
+  <text x="900" y="302" fill="#8b949e" font-size="19">로그를 덮던 결함 모듈도</text>
+  <text x="900" y="330" fill="#8b949e" font-size="19">이 아래에 있었다 —</text>
+  <text x="900" y="358" fill="#8b949e" font-size="19">실행된 적이 없다</text>
+
+  <line x1="60" y1="438" x2="1140" y2="438" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="600" y="476" fill="#8b949e" font-size="21" text-anchor="middle">관할이 처음부터 달랐다 — 실패한 것은 <tspan fill="#4aa3df" font-weight="700">아래 스택</tspan></text>
+
+  <!-- password stack -->
+  <text x="80" y="524" fill="#8b949e" font-size="20" font-weight="700" letter-spacing="3">PASSWORD 스택 — 완전히 별개</text>
+  <rect x="60" y="542" width="760" height="180" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+
+  <text y="590" font-size="21" font-family="monospace"><tspan x="98" fill="#8b949e">password</tspan><tspan x="230" fill="#8b949e">requisite</tspan><tspan x="368" fill="#8b949e">pam_pwquality.so</tspan></text>
+
+  <rect x="80" y="608" width="720" height="42" rx="8" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text y="636" font-size="21" font-family="monospace"><tspan x="98" fill="#4aa3df">password</tspan><tspan x="230" fill="#4aa3df">sufficient</tspan><tspan x="368" fill="#e6edf3">pam_unix.so shadow</tspan></text>
+
+  <text y="686" font-size="21" font-family="monospace"><tspan x="98" fill="#8b949e">password</tspan><tspan x="230" fill="#8b949e">required</tspan><tspan x="368" fill="#8b949e">pam_deny.so</tspan></text>
+
+  <path d="M804 629 L 892 629" stroke="#4aa3df" stroke-width="3" fill="none" marker-end="url(#a1)"/>
+  <rect x="900" y="590" width="240" height="80" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="1020" y="624" fill="#e6edf3" font-size="21" font-weight="700" text-anchor="middle">실제 실패 지점</text>
+  <text x="1020" y="652" fill="#8b949e" font-size="19" text-anchor="middle">섀도 파일을 못 읽음</text>
+
+  <line x1="60" y1="742" x2="1140" y2="742" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="780" fill="#e6edf3" font-size="22"><tspan fill="#4aa3df" font-weight="700">로그에 가장 시끄러운 줄</tspan> 과 <tspan fill="#4aa3df" font-weight="700">실제 판정에 관여하는 줄</tspan> 은 다르다</text>
+</svg>

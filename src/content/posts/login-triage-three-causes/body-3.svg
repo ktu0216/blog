@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4aa3df"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="660" fill="#0d1117"/>
+
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800">멈춰 있는 동안에만 보이는 줄서기</text>
+  <text x="60" y="98" fill="#8b949e" font-size="21">로그인이 멈춘 순간 다른 창에서 <tspan font-family="monospace" fill="#4aa3df">systemctl list-jobs</tspan> 를 찍는다</text>
+
+  <!-- queue -->
+  <text x="80" y="140" fill="#8b949e" font-size="19" font-weight="700" letter-spacing="3">대기 큐 — 위가 아래를 기다린다</text>
+
+  <rect x="80" y="156" width="560" height="58" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text y="192" font-size="21" font-family="monospace"><tspan x="102" fill="#8b949e">session-1325282.scope</tspan><tspan x="482" fill="#6e7681">waiting</tspan></text>
+
+  <rect x="80" y="226" width="560" height="58" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text y="262" font-size="21" font-family="monospace"><tspan x="102" fill="#8b949e">session-1325284.scope</tspan><tspan x="482" fill="#6e7681">waiting</tspan></text>
+
+  <text x="360" y="318" fill="#6e7681" font-size="20" text-anchor="middle">… 세션 scope 전부 waiting · 대기 job 11개</text>
+
+  <rect x="80" y="336" width="560" height="58" rx="10" fill="#161b22" stroke="#4aa3df" stroke-width="2"/>
+  <text y="372" font-size="21" font-family="monospace"><tspan x="102" fill="#e6edf3">home.mount</tspan><tspan x="482" fill="#4aa3df">waiting</tspan></text>
+
+  <rect x="80" y="424" width="560" height="104" rx="10" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text y="460" font-size="21" font-family="monospace"><tspan x="102" fill="#e6edf3">dev-mapper-vg-home.device</tspan><tspan x="482" fill="#4aa3df">running</tspan></text>
+  <text x="102" y="490" fill="#8b949e" font-size="18">삭제된 LV — udev가 본 적이 없다.</text>
+  <text x="102" y="514" fill="#8b949e" font-size="18">이 유닛은 영원히 active가 되지 않는다</text>
+
+  <path d="M360 214 L 360 222" stroke="#30363d" stroke-width="3"/>
+  <path d="M360 284 L 360 296" stroke="#30363d" stroke-width="3"/>
+  <path d="M360 398 L 360 418" stroke="#4aa3df" stroke-width="3" marker-end="url(#a3)"/>
+  <text x="384" y="412" fill="#8b949e" font-size="17" font-family="monospace">Requires= + After=</text>
+
+  <!-- right column -->
+  <line x1="690" y1="130" x2="690" y2="556" stroke="#30363d" stroke-width="1.5" stroke-dasharray="7 7"/>
+
+  <text x="730" y="140" fill="#8b949e" font-size="19" font-weight="700" letter-spacing="3">요청한 쪽에서 벌어지는 일</text>
+
+  <rect x="730" y="156" width="410" height="76" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="752" y="190" fill="#e6edf3" font-size="22" font-weight="700">logind → PID 1</text>
+  <text x="752" y="218" fill="#8b949e" font-size="20" font-family="monospace">StartTransientUnit (D-Bus)</text>
+
+  <path d="M935 232 L 935 268" stroke="#4aa3df" stroke-width="3" marker-end="url(#a3)"/>
+  <text x="955" y="258" fill="#8b949e" font-size="18">timeout 인자 = 0 → 기본값</text>
+
+  <rect x="730" y="278" width="410" height="110" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="935" y="322" fill="#4aa3df" font-size="42" font-weight="800" text-anchor="middle" font-family="monospace">25초</text>
+  <text x="935" y="356" fill="#e6edf3" font-size="20" text-anchor="middle" font-family="monospace">BUS_DEFAULT_TIMEOUT</text>
+  <text x="935" y="380" fill="#8b949e" font-size="18" text-anchor="middle">sd-bus 기본 reply timeout</text>
+
+  <path d="M935 388 L 935 424" stroke="#4aa3df" stroke-width="3" marker-end="url(#a3)"/>
+
+  <rect x="730" y="434" width="410" height="94" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="752" y="470" fill="#e6edf3" font-size="21">세션 등록 실패 → sshd는 그대로 진행</text>
+  <text x="752" y="504" fill="#8b949e" font-size="20"><tspan fill="#4aa3df" font-weight="700">로그인은 된다. 다만 25초를 낸다</tspan></text>
+
+  <line x1="60" y1="576" x2="1140" y2="576" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="622" fill="#e6edf3" font-size="22"><tspan font-family="monospace" fill="#4aa3df">28.2초 ≈ 25초 + 3.4초</tspan> — 고치고 나면 이 출력은 다시 볼 수 없다</text>
+</svg>

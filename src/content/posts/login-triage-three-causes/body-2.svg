@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4aa3df"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="700" fill="#0d1117"/>
+
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800"><tspan font-family="monospace" fill="#4aa3df">unix_chkpwd</tspan> 의 정답은 배포판마다 다르다</text>
+  <text x="60" y="98" fill="#8b949e" font-size="21">갈라진 이유는 헬퍼가 아니라 <tspan font-family="monospace" fill="#e6edf3">/etc/shadow</tspan> 의 소유권에 있다</text>
+
+  <line x1="600" y1="130" x2="600" y2="596" stroke="#30363d" stroke-width="1.5" stroke-dasharray="7 7"/>
+
+  <!-- left: RHEL -->
+  <rect x="60" y="140" width="500" height="54" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="310" y="177" fill="#e6edf3" font-size="24" font-weight="800" text-anchor="middle">RHEL · Fedora · CentOS Stream</text>
+
+  <rect x="60" y="214" width="500" height="110" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="310" y="252" fill="#8b949e" font-size="19" text-anchor="middle">shadow 파일</text>
+  <text x="310" y="292" fill="#e6edf3" font-size="26" font-family="monospace" text-anchor="middle">/etc/shadow  <tspan fill="#4aa3df" font-weight="700">0000 root:root</tspan></text>
+
+  <path d="M310 328 L 310 368" stroke="#4aa3df" stroke-width="3" marker-end="url(#a2)"/>
+  <text x="330" y="356" fill="#8b949e" font-size="19">shadow 그룹 자체가 없다</text>
+
+  <rect x="60" y="378" width="500" height="126" rx="12" fill="#161b22" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="310" y="416" fill="#8b949e" font-size="19" text-anchor="middle">헬퍼 정상 mode</text>
+  <text x="310" y="458" fill="#4aa3df" font-size="34" font-family="monospace" font-weight="700" text-anchor="middle">4755 root:root</text>
+  <text x="310" y="488" fill="#e6edf3" font-size="21" text-anchor="middle">setuid root</text>
+
+  <text x="310" y="542" fill="#8b949e" font-size="20" text-anchor="middle">setgid 방식이 물리적으로 불가능하니</text>
+  <text x="310" y="570" fill="#8b949e" font-size="20" text-anchor="middle">setuid root 말고 방법이 없다</text>
+
+  <!-- right: Debian -->
+  <rect x="640" y="140" width="500" height="54" rx="12" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="890" y="177" fill="#e6edf3" font-size="24" font-weight="800" text-anchor="middle">Debian · Ubuntu 26.04 LTS</text>
+
+  <rect x="640" y="214" width="500" height="110" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="890" y="252" fill="#8b949e" font-size="19" text-anchor="middle">shadow 파일</text>
+  <text x="890" y="292" fill="#e6edf3" font-size="26" font-family="monospace" text-anchor="middle">/etc/shadow  <tspan fill="#4aa3df" font-weight="700">0640 root:shadow</tspan></text>
+
+  <path d="M890 328 L 890 368" stroke="#4aa3df" stroke-width="3" marker-end="url(#a2)"/>
+  <text x="910" y="356" fill="#8b949e" font-size="19">그룹 읽기 권한이 있다</text>
+
+  <rect x="640" y="378" width="500" height="126" rx="12" fill="#161b22" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="890" y="416" fill="#8b949e" font-size="19" text-anchor="middle">헬퍼 정상 mode</text>
+  <text x="890" y="458" fill="#4aa3df" font-size="34" font-family="monospace" font-weight="700" text-anchor="middle">2755 root:shadow</text>
+  <text x="890" y="488" fill="#e6edf3" font-size="21" text-anchor="middle">setgid shadow · <tspan font-family="monospace">-rwxr-sr-x</tspan></text>
+
+  <text x="890" y="542" fill="#8b949e" font-size="20" text-anchor="middle">setuid root는 과한 권한이라 쓰지 않는다</text>
+  <text x="890" y="570" fill="#8b949e" font-size="20" text-anchor="middle">여기서 <tspan font-family="monospace" fill="#e6edf3">4755</tspan> 를 보면 그쪽이 이상한 상태</text>
+
+  <line x1="60" y1="616" x2="1140" y2="616" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="662" fill="#e6edf3" font-size="22"><tspan fill="#4aa3df" font-weight="700">추측하지 말고 패키지에 물어본다</tspan> — <tspan font-family="monospace">rpm -q --dump pam | grep unix_chkpwd</tspan></text>
+</svg>
