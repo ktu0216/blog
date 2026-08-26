@@ -195,7 +195,7 @@ LLM 추론은 성격이 완전히 다른 두 단계로 나뉩니다.
 
 ![가동률별 맥스튜디오 손익분기 회수 기간 비교 막대그래프](./apple-silicon-local-ai-homeserver/body-3.svg)
 
-전기요금은 어떨까요. M3 Ultra 맥스튜디오 실측 기준으로 유휴 32~34W, LLM 추론 중 160~200W였습니다([TechRadar](https://www.techradar.com/pro/apple-mac-studio-m3-ultra-workstation-can-run-deepseek-r1-671b-ai-model-entirely-in-memory-using-less-than-200w-reviewer-finds)). 180W로 하루 8시간, 30일이면 43.2kWh입니다. 한국전력 2026년 여름철 주택용 저압 2단계(214.6원/kWh) 기준 **월 약 9,300원**입니다([한국전력공사 요금표](https://home.kepco.co.kr/kepco/front/html/CY/E/E/CYEEHP00101.html)).
+전기요금은 어떨까요. M3 Ultra 맥스튜디오 실측 기준으로 유휴 32\~34W, LLM 추론 중 160\~200W였습니다([TechRadar](https://www.techradar.com/pro/apple-mac-studio-m3-ultra-workstation-can-run-deepseek-r1-671b-ai-model-entirely-in-memory-using-less-than-200w-reviewer-finds)). 180W로 하루 8시간, 30일이면 43.2kWh입니다. 한국전력 2026년 여름철 주택용 저압 2단계(214.6원/kWh) 기준 **월 약 9,300원**입니다([한국전력공사 요금표](https://home.kepco.co.kr/kepco/front/html/CY/E/E/CYEEHP00101.html)).
 
 월 $259 절감액에 비하면 무시할 수준입니다. **전기요금은 맥 기반 홈서버에서 손익분기의 결정 변수가 아닙니다.** 다만 한국은 누진제라, 이미 월 400kWh 근처를 쓰는 가구라면 43kWh가 구간을 밀어 올려 전체 사용량에 더 비싼 단가가 붙을 수 있습니다. 이건 맥의 문제가 아니라 누진제의 문제입니다.
 
