@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <linearGradient id="fade" gradientUnits="userSpaceOnUse" x1="320" y1="0" x2="1200" y2="0">
+      <stop offset="0" stop-color="#30363d" stop-opacity="1"/>
+      <stop offset="0.7" stop-color="#30363d" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#30363d" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="620" fill="#0d1117"/>
+
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800">같은 $2,499 맥스튜디오, 가동률만 다르면</text>
+  <text x="60" y="100" fill="#8b949e" font-size="21">M5 Max에서 32B Q4를 20 tok/s(추정)로 돌린다고 가정 · Sonnet 5 출력 $15/1M 기준</text>
+
+  <!-- axis -->
+  <text x="320" y="168" fill="#6e7681" font-size="18" text-anchor="middle" font-family="monospace">0</text>
+  <text x="525" y="168" fill="#6e7681" font-size="18" text-anchor="middle" font-family="monospace">3</text>
+  <text x="730" y="168" fill="#6e7681" font-size="18" text-anchor="middle" font-family="monospace">6</text>
+  <text x="935" y="168" fill="#6e7681" font-size="18" text-anchor="middle" font-family="monospace">9</text>
+  <text x="1140" y="168" fill="#6e7681" font-size="18" text-anchor="middle" font-family="monospace">12</text>
+  <text x="1140" y="516" fill="#6e7681" font-size="18" text-anchor="end">회수 기간 (개월)</text>
+  <line x1="320" y1="182" x2="320" y2="498" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="525" y1="182" x2="525" y2="498" stroke="#30363d" stroke-width="1" stroke-dasharray="5 6"/>
+  <line x1="730" y1="182" x2="730" y2="498" stroke="#30363d" stroke-width="1" stroke-dasharray="5 6"/>
+  <line x1="935" y1="182" x2="935" y2="498" stroke="#30363d" stroke-width="1" stroke-dasharray="5 6"/>
+  <line x1="1140" y1="182" x2="1140" y2="498" stroke="#30363d" stroke-width="1" stroke-dasharray="5 6"/>
+
+  <!-- 24h -->
+  <text x="60" y="228" fill="#e6edf3" font-size="24" font-weight="700">24시간 풀가동</text>
+  <text x="60" y="254" fill="#8b949e" font-size="19">월 약 $777 절감</text>
+  <rect x="320" y="200" width="219" height="60" rx="6" fill="#4aa3df"/>
+  <text x="555" y="240" fill="#4aa3df" font-size="28" font-weight="800">3.2개월</text>
+
+  <!-- 8h -->
+  <text x="60" y="338" fill="#e6edf3" font-size="24" font-weight="700">하루 8시간</text>
+  <text x="60" y="364" fill="#8b949e" font-size="19">월 약 $259 절감</text>
+  <rect x="320" y="310" width="656" height="60" rx="6" fill="#4aa3df" opacity="0.55"/>
+  <text x="992" y="350" fill="#4aa3df" font-size="28" font-weight="800">9.6개월</text>
+
+  <!-- 30min -->
+  <text x="60" y="448" fill="#8b949e" font-size="24" font-weight="700">하루 30분</text>
+  <text x="60" y="474" fill="#6e7681" font-size="19">월 약 $16 절감</text>
+  <rect x="320" y="420" width="880" height="60" rx="6" fill="url(#fade)"/>
+  <text x="348" y="460" fill="#8b949e" font-size="26" font-weight="800">회수 불가</text>
+  <text x="1150" y="466" fill="#8b949e" font-size="52" font-weight="700" text-anchor="middle" font-family="monospace">∞</text>
+
+  <line x1="60" y1="546" x2="1140" y2="546" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="590" fill="#e6edf3" font-size="22">손익분기를 정하는 건 하드웨어 가격이 아니라 <tspan fill="#4aa3df" font-weight="700">가동률</tspan> — 캐싱·배치 할인을 쓰면 더 밀린다</text>
+</svg>
