@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="670" viewBox="0 0 1200 670" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="670" fill="#0d1117"/>
+  <text x="60" y="62" fill="#e6edf3" font-size="38" font-weight="800">눈으로는 안 보이던 사고 <tspan fill="#4aa3df">3건</tspan> — 어느 검사로 잡혔을까</text>
+  <text x="60" y="98" fill="#8b949e" font-size="21">셋 다 빌드는 초록불이었다. 그리고 셋 다 스크립트 몇 줄이면 판정되는 조건이었다</text>
+
+  <text x="86" y="142" fill="#8b949e" font-size="20" font-weight="700">일어난 일</text>
+  <text x="706" y="142" fill="#4aa3df" font-size="20" font-weight="700">잡아낼 수 있었던 자동 검사</text>
+
+  <!-- row 1 -->
+  <rect x="60" y="160" width="520" height="112" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="86" y="204" fill="#e6edf3" font-size="24" font-weight="700">발행일을 미래 시각으로 둔 글</text>
+  <text x="86" y="240" fill="#8b949e" font-size="20">페이지가 통째로 생성 안 됨 · 빌드는 성공</text>
+  <path d="M596 216 L648 216 M634 204 L648 216 L634 228" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+  <rect x="680" y="160" width="460" height="112" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="706" y="204" fill="#4aa3df" font-size="22" font-family="monospace" font-weight="700">pubDatetime &lt; now</text>
+  <text x="706" y="240" fill="#e6edf3" font-size="20">발행일 한 줄 비교로 끝난다</text>
+
+  <!-- row 2 -->
+  <rect x="60" y="288" width="520" height="112" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="86" y="332" fill="#e6edf3" font-size="24" font-weight="700">RSS 자동발견 링크 404</text>
+  <text x="86" y="368" fill="#8b949e" font-size="20"><tspan font-family="monospace">/rss.xml/</tspan> — 트레일링 슬래시 하나 차이</text>
+  <path d="M596 344 L648 344 M634 332 L648 344 L634 356" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+  <rect x="680" y="288" width="460" height="112" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="706" y="332" fill="#4aa3df" font-size="22" font-family="monospace" font-weight="700">HEAD /rss.xml -&gt; 200</text>
+  <text x="706" y="368" fill="#e6edf3" font-size="20">규칙은 가이드에 있었으나 수동</text>
+
+  <!-- row 3 -->
+  <rect x="60" y="416" width="520" height="112" rx="14" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="86" y="460" fill="#e6edf3" font-size="24" font-weight="700">사이트맵 lastmod 0건</text>
+  <text x="86" y="496" fill="#8b949e" font-size="20">갱신 시각이 하나도 없음 · 빌드는 정상</text>
+  <path d="M596 472 L648 472 M634 460 L648 472 L634 484" stroke="#4aa3df" stroke-width="2.5" fill="none"/>
+  <rect x="680" y="416" width="460" height="112" rx="14" fill="#0f2233" stroke="#4aa3df" stroke-width="2.5"/>
+  <text x="706" y="460" fill="#4aa3df" font-size="22" font-family="monospace" font-weight="700">count(lastmod) &gt; 0</text>
+  <text x="706" y="496" fill="#e6edf3" font-size="20">사이트맵 XML을 세어보면 된다</text>
+
+  <line x1="60" y1="570" x2="1140" y2="570" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="612" fill="#e6edf3" font-size="22"><tspan fill="#4aa3df" font-weight="700">공통점</tspan> — 전부 초록불 뒤에 있었다. 실패 신호가 어디에도 뜨지 않았다.</text>
+  <text x="60" y="646" fill="#8b949e" font-size="20">사람이 검토했는데 못 잡은 게 아니라, 사람이 검토해서 잡을 수 있는 종류가 아니었다.</text>
+</svg>

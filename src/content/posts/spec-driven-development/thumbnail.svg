@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" font-family="'Noto Sans KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1020"/>
+      <stop offset="1" stop-color="#006cac"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <text x="540" y="112" fill="#8bd0f0" font-size="26" text-anchor="middle" font-family="monospace" letter-spacing="2">SDD - BLOG PIPELINE</text>
+
+  <!-- main title -->
+  <text x="540" y="204" fill="#ffffff" font-size="58" font-weight="800" text-anchor="middle">스펙 주도 개발을</text>
+  <text x="540" y="272" fill="#ffffff" font-size="58" font-weight="800" text-anchor="middle">코드가 아닌 일에 적용해본 기록</text>
+  <text x="540" y="336" fill="#cfe3f2" font-size="30" text-anchor="middle">다섯은 이미 있었고, 없는 하나가 사고를 냈다</text>
+
+  <line x1="420" y1="374" x2="660" y2="374" stroke="#8bd0f0" stroke-width="3" opacity="0.7"/>
+
+  <!-- table header -->
+  <text x="86" y="422" fill="#8bd0f0" font-size="22" font-weight="700" letter-spacing="1">SDD 요소</text>
+  <text x="404" y="422" fill="#8bd0f0" font-size="22" font-weight="700" letter-spacing="1">이 저장소의 해당물</text>
+  <text x="925" y="422" fill="#8bd0f0" font-size="22" font-weight="700" text-anchor="middle" letter-spacing="1">상태</text>
+
+  <!-- row 1 -->
+  <rect x="60" y="440" width="960" height="70" rx="14" fill="#0d1117" stroke="#4aa3df" stroke-width="2.5" opacity="0.95"/>
+  <path d="M92 476 l10 11 l20 -23" stroke="#4aa3df" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="140" y="484" fill="#ffffff" font-size="25" font-weight="700">요구사항 명세</text>
+  <text x="404" y="484" fill="#cfe3f2" font-size="23" font-family="monospace">brief.md</text>
+  <rect x="856" y="458" width="138" height="34" rx="17" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="925" y="482" fill="#4aa3df" font-size="21" font-weight="700" text-anchor="middle">있음</text>
+
+  <!-- row 2 -->
+  <rect x="60" y="518" width="960" height="70" rx="14" fill="#0d1117" stroke="#4aa3df" stroke-width="2.5" opacity="0.95"/>
+  <path d="M92 554 l10 11 l20 -23" stroke="#4aa3df" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="140" y="562" fill="#ffffff" font-size="25" font-weight="700">설계 문서</text>
+  <text x="404" y="562" fill="#cfe3f2" font-size="23" font-family="monospace">research.md</text>
+  <rect x="856" y="536" width="138" height="34" rx="17" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="925" y="560" fill="#4aa3df" font-size="21" font-weight="700" text-anchor="middle">있음</text>
+
+  <!-- row 3 -->
+  <rect x="60" y="596" width="960" height="70" rx="14" fill="#0d1117" stroke="#4aa3df" stroke-width="2.5" opacity="0.95"/>
+  <path d="M92 632 l10 11 l20 -23" stroke="#4aa3df" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="140" y="640" fill="#ffffff" font-size="25" font-weight="700">작업 분해</text>
+  <text x="404" y="640" fill="#cfe3f2" font-size="23" font-family="monospace">agents/ <tspan font-family="'Noto Sans KR',sans-serif">스펙 5개</tspan></text>
+  <rect x="856" y="614" width="138" height="34" rx="17" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="925" y="638" fill="#4aa3df" font-size="21" font-weight="700" text-anchor="middle">있음</text>
+
+  <!-- row 4 -->
+  <rect x="60" y="674" width="960" height="70" rx="14" fill="#0d1117" stroke="#4aa3df" stroke-width="2.5" opacity="0.95"/>
+  <path d="M92 710 l10 11 l20 -23" stroke="#4aa3df" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="140" y="718" fill="#ffffff" font-size="25" font-weight="700">What / How 분리</text>
+  <text x="404" y="718" fill="#cfe3f2" font-size="23" font-family="monospace">brief<tspan font-family="'Noto Sans KR',sans-serif">·</tspan>research <tspan font-family="'Noto Sans KR',sans-serif">↔</tspan> guides/</text>
+  <rect x="856" y="692" width="138" height="34" rx="17" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="925" y="716" fill="#4aa3df" font-size="21" font-weight="700" text-anchor="middle">있음</text>
+
+  <!-- row 5 -->
+  <rect x="60" y="752" width="960" height="70" rx="14" fill="#0d1117" stroke="#4aa3df" stroke-width="2.5" opacity="0.95"/>
+  <path d="M92 788 l10 11 l20 -23" stroke="#4aa3df" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="140" y="796" fill="#ffffff" font-size="25" font-weight="700">영속 컨텍스트</text>
+  <text x="404" y="796" fill="#cfe3f2" font-size="23" font-family="monospace">CLAUDE.md <tspan font-family="'Noto Sans KR',sans-serif">·</tspan> guides/</text>
+  <rect x="856" y="770" width="138" height="34" rx="17" fill="#0f2233" stroke="#4aa3df" stroke-width="2"/>
+  <text x="925" y="794" fill="#4aa3df" font-size="21" font-weight="700" text-anchor="middle">있음</text>
+
+  <!-- row 6 : partial -->
+  <rect x="60" y="830" width="960" height="70" rx="14" fill="#12151b" stroke="#30363d" stroke-width="2" stroke-dasharray="7 7" opacity="0.92"/>
+  <text x="140" y="874" fill="#8b949e" font-size="25" font-weight="700">승인 게이트</text>
+  <rect x="404" y="848" width="404" height="34" rx="8" fill="none" stroke="#30363d" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="606" y="872" fill="#6e7681" font-size="21" text-anchor="middle">보고만 있고 멈추지 않음</text>
+  <rect x="856" y="848" width="138" height="34" rx="17" fill="none" stroke="#30363d" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="925" y="872" fill="#8b949e" font-size="21" font-weight="700" text-anchor="middle">부분적</text>
+
+  <!-- row 7 : missing -->
+  <rect x="60" y="908" width="960" height="70" rx="14" fill="#12151b" stroke="#30363d" stroke-width="2" stroke-dasharray="7 7" opacity="0.92"/>
+  <text x="140" y="952" fill="#8b949e" font-size="25" font-weight="700">완료 판정 (오라클)</text>
+  <rect x="404" y="926" width="404" height="34" rx="8" fill="none" stroke="#30363d" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="606" y="950" fill="#6e7681" font-size="21" text-anchor="middle">비어 있음</text>
+  <rect x="856" y="926" width="138" height="34" rx="17" fill="none" stroke="#30363d" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="925" y="950" fill="#8b949e" font-size="21" font-weight="700" text-anchor="middle">없음</text>
+
+  <line x1="60" y1="1006" x2="1020" y2="1006" stroke="#8bd0f0" stroke-width="1.5" stroke-dasharray="7 7" opacity="0.5"/>
+  <text x="60" y="1050" fill="#cfe3f2" font-size="27">없던 것은 <tspan fill="#8bd0f0" font-weight="700">단계가 아니라 판정</tspan>이었다</text>
+  <text x="1020" y="1050" fill="#8bd0f0" font-size="30" text-anchor="end" font-family="monospace" opacity="0.9">assert()</text>
+</svg>
