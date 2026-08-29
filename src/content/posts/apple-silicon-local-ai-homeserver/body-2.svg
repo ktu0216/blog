@@ -1,68 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
   <defs>
     <marker id="b2u" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#8c8b8b"/>
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
     </marker>
   </defs>
   <rect width="1200" height="980" fill="#f0efec"/>
 
   <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">용량은 올릴 수 있는 크기를, 대역폭은 속도를 정한다</text>
-  <text x="60" y="100" fill="#737273" font-size="21">Q4_K_M 기준 파라미터당 약 0.6바이트 · KV 캐시와 런타임 오버헤드 15~20%는 별도</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">Q4_K_M 기준 파라미터당 약 0.6바이트 · KV 캐시와 런타임 오버헤드 15~20%는 별도</text>
 
-  <text x="60" y="136" fill="#737273" font-size="18" font-weight="700" letter-spacing="3">모델 크기</text>
-  <text x="270" y="136" fill="#737273" font-size="18" font-weight="700" letter-spacing="3">필요 메모리</text>
-  <text x="590" y="136" fill="#737273" font-size="18" font-weight="700" letter-spacing="3">도달 제품 · 생성 속도(추정)</text>
+  <text x="60" y="136" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">모델 크기</text>
+  <text x="270" y="136" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">필요 메모리</text>
+  <text x="590" y="136" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">도달 제품 · 생성 속도(추정)</text>
 
   <!-- 671B -->
   <text x="60" y="204" fill="#1f1f22" font-size="36" font-weight="800">671B</text>
-  <text x="60" y="236" fill="#737273" font-size="20">Q4 약 405GB (실측)</text>
-  <rect x="270" y="190" width="290" height="34" rx="6" fill="#2b2b2f" opacity="0.85"/>
+  <text x="60" y="236" fill="#5e5d5f" font-size="20">Q4 약 405GB (실측)</text>
+  <rect x="270" y="190" width="290" height="34" rx="6" fill="#a8412a" opacity="0.85"/>
   <text x="590" y="204" fill="#1f1f22" font-size="21" font-weight="400">512GB M5 Ultra — 10월 출시, 가격 미발표</text>
-  <text x="590" y="236" fill="#737273" font-size="21">이전 세대 M3 Ultra 512GB 실측 6.21 tok/s</text>
-  <line x1="60" y1="260" x2="1120" y2="260" stroke="#b5b4b3" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
+  <text x="590" y="236" fill="#5e5d5f" font-size="21">이전 세대 M3 Ultra 512GB 실측 6.21 tok/s</text>
+  <line x1="60" y1="260" x2="1120" y2="260" stroke="#dabbb2" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
 
   <!-- 235B -->
   <text x="60" y="324" fill="#1f1f22" font-size="36" font-weight="800">235B</text>
-  <text x="60" y="356" fill="#737273" font-size="20">Q4 약 134GB</text>
-  <rect x="270" y="310" width="167" height="34" rx="6" fill="#2b2b2f" opacity="0.85"/>
+  <text x="60" y="356" fill="#5e5d5f" font-size="20">Q4 약 134GB</text>
+  <rect x="270" y="310" width="167" height="34" rx="6" fill="#a8412a" opacity="0.85"/>
   <text x="590" y="324" fill="#1f1f22" font-size="21" font-weight="400">256GB M5 Ultra · $5,499 + $4,000</text>
-  <text x="590" y="356" fill="#737273" font-size="21">약 5~6 tok/s · 이론 상한 9.0 tok/s</text>
-  <line x1="60" y1="380" x2="1120" y2="380" stroke="#b5b4b3" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
+  <text x="590" y="356" fill="#5e5d5f" font-size="21">약 5~6 tok/s · 이론 상한 9.0 tok/s</text>
+  <line x1="60" y1="380" x2="1120" y2="380" stroke="#dabbb2" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
 
   <!-- 120B -->
   <text x="60" y="444" fill="#1f1f22" font-size="36" font-weight="800">120B</text>
-  <text x="60" y="476" fill="#737273" font-size="20">Q4 약 68GB</text>
-  <rect x="270" y="430" width="119" height="34" rx="6" fill="#2b2b2f" opacity="0.85"/>
+  <text x="60" y="476" fill="#5e5d5f" font-size="20">Q4 약 68GB</text>
+  <rect x="270" y="430" width="119" height="34" rx="6" fill="#a8412a" opacity="0.85"/>
   <text x="590" y="444" fill="#1f1f22" font-size="21" font-weight="400">128GB M5 Max 맥스튜디오</text>
-  <text x="590" y="476" fill="#737273" font-size="21">속도 추정치 없음</text>
-  <line x1="60" y1="500" x2="1120" y2="500" stroke="#b5b4b3" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
+  <text x="590" y="476" fill="#5e5d5f" font-size="21">속도 추정치 없음</text>
+  <line x1="60" y1="500" x2="1120" y2="500" stroke="#dabbb2" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
 
   <!-- 70B -->
   <text x="60" y="564" fill="#1f1f22" font-size="36" font-weight="800">70B</text>
-  <text x="60" y="596" fill="#737273" font-size="20">Q4 약 40GB</text>
-  <rect x="270" y="550" width="91" height="34" rx="6" fill="#2b2b2f" opacity="0.85"/>
+  <text x="60" y="596" fill="#5e5d5f" font-size="20">Q4 약 40GB</text>
+  <rect x="270" y="550" width="91" height="34" rx="6" fill="#a8412a" opacity="0.85"/>
   <text x="590" y="564" fill="#1f1f22" font-size="21" font-weight="400">64GB M5 Pro 맥미니 · 약 4~5 tok/s</text>
-  <text x="590" y="596" fill="#737273" font-size="21">M5 Max 맥스튜디오 · 약 9~11 tok/s</text>
-  <line x1="60" y1="620" x2="1120" y2="620" stroke="#b5b4b3" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
+  <text x="590" y="596" fill="#5e5d5f" font-size="21">M5 Max 맥스튜디오 · 약 9~11 tok/s</text>
+  <line x1="60" y1="620" x2="1120" y2="620" stroke="#dabbb2" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
 
   <!-- 32B -->
   <text x="60" y="684" fill="#1f1f22" font-size="36" font-weight="800">32B</text>
-  <text x="60" y="716" fill="#737273" font-size="20">Q4 약 18GB</text>
-  <rect x="270" y="670" width="61" height="34" rx="6" fill="#2b2b2f" opacity="0.85"/>
-  <text x="590" y="684" fill="#2b2b2f" font-size="21" font-weight="700">32GB M6 맥미니 (+$400) · 약 5~6 tok/s  ← 함정</text>
-  <text x="590" y="716" fill="#737273" font-size="21">M5 Max 맥스튜디오 · 약 20 tok/s</text>
-  <line x1="60" y1="740" x2="1120" y2="740" stroke="#b5b4b3" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
+  <text x="60" y="716" fill="#5e5d5f" font-size="20">Q4 약 18GB</text>
+  <rect x="270" y="670" width="61" height="34" rx="6" fill="#a8412a" opacity="0.85"/>
+  <text x="590" y="684" fill="#a8412a" font-size="21" font-weight="700">32GB M6 맥미니 (+$400) · 약 5~6 tok/s  ← 함정</text>
+  <text x="590" y="716" fill="#5e5d5f" font-size="21">M5 Max 맥스튜디오 · 약 20 tok/s</text>
+  <line x1="60" y1="740" x2="1120" y2="740" stroke="#dabbb2" stroke-width="1" stroke-dasharray="5 6" opacity="0.7"/>
 
   <!-- 8B -->
   <text x="60" y="804" fill="#1f1f22" font-size="36" font-weight="800">8B</text>
-  <text x="60" y="836" fill="#737273" font-size="20">Q4 약 4.6GB</text>
-  <rect x="270" y="790" width="31" height="34" rx="6" fill="#2b2b2f" opacity="0.85"/>
+  <text x="60" y="836" fill="#5e5d5f" font-size="20">Q4 약 4.6GB</text>
+  <rect x="270" y="790" width="31" height="34" rx="6" fill="#a8412a" opacity="0.85"/>
   <text x="590" y="804" fill="#1f1f22" font-size="21" font-weight="400">16GB M6 맥미니 $899 · 약 20~22 tok/s</text>
-  <text x="590" y="836" fill="#737273" font-size="21">이론 상한 37 tok/s에 효율 0.6 적용</text>
+  <text x="590" y="836" fill="#5e5d5f" font-size="21">이론 상한 37 tok/s에 효율 0.6 적용</text>
 
-  <path d="M1146 870 L 1146 165" stroke="#8c8b8b" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#b2u)"/>
-  <text x="1174" y="520" fill="#737273" font-size="19" text-anchor="middle" transform="rotate(-90 1174 520)">위로 갈수록 느려진다</text>
+  <path d="M1146 870 L 1146 165" stroke="#737273" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#b2u)"/>
+  <text x="1174" y="520" fill="#5e5d5f" font-size="19" text-anchor="middle" transform="rotate(-90 1174 520)">위로 갈수록 느려진다</text>
 
-  <line x1="60" y1="900" x2="1140" y2="900" stroke="#b5b4b3" stroke-width="1.5" stroke-dasharray="6 6"/>
-  <text x="60" y="944" fill="#1f1f22" font-size="22">속도 = <tspan font-family="monospace" fill="#2b2b2f">(대역폭 ÷ 모델 점유 메모리) × 0.6</tspan> 으로 계산한 추정치 — M5·M6 실측은 아직 없다</text>
+  <line x1="60" y1="900" x2="1140" y2="900" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="944" fill="#1f1f22" font-size="22">속도 = <tspan font-family="monospace" fill="#a8412a">(대역폭 ÷ 모델 점유 메모리) × 0.6</tspan> 으로 계산한 추정치 — M5·M6 실측은 아직 없다</text>
 </svg>

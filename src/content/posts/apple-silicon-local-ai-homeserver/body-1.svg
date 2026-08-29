@@ -1,47 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
   <defs>
     <marker id="b1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#2b2b2f"/>
+      <path d="M0 0 L10 5 L0 10 z" fill="#a8412a"/>
     </marker>
     <marker id="b1g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#8c8b8b"/>
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
     </marker>
   </defs>
   <rect width="1200" height="720" fill="#f0efec"/>
 
   <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">같은 추론인데, 병목이 서로 다른 두 단계</text>
-  <text x="60" y="100" fill="#737273" font-size="21">Apple이 발표한 배수는 셋 다 <tspan fill="#2b2b2f" font-weight="700">프롬프트 처리</tspan> — 토큰 생성이 몇 배라는 문구는 어디에도 없다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">Apple이 발표한 배수는 셋 다 <tspan fill="#a8412a" font-weight="700">프롬프트 처리</tspan> — 토큰 생성이 몇 배라는 문구는 어디에도 없다</text>
 
   <!-- left: prefill -->
-  <rect x="60" y="150" width="525" height="290" rx="14" fill="#f9f9f8" stroke="#2b2b2f" stroke-width="2.5"/>
-  <text x="86" y="196" fill="#2b2b2f" font-size="21" font-family="monospace" letter-spacing="4">PREFILL</text>
+  <rect x="60" y="150" width="525" height="290" rx="14" fill="#f9f9f8" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="86" y="196" fill="#a8412a" font-size="21" font-family="monospace" letter-spacing="4">PREFILL</text>
   <text x="86" y="244" fill="#1f1f22" font-size="34" font-weight="800">프롬프트 처리</text>
-  <line x1="86" y1="268" x2="559" y2="268" stroke="#b5b4b3" stroke-width="1.5"/>
-  <text x="86" y="304" fill="#737273" font-size="19" letter-spacing="2">무엇이 결정하나</text>
-  <text x="86" y="340" fill="#2b2b2f" font-size="27" font-weight="800">GPU 연산 능력 (FLOPS)</text>
-  <text x="86" y="384" fill="#737273" font-size="19" letter-spacing="2">체감</text>
+  <line x1="86" y1="268" x2="559" y2="268" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="86" y="304" fill="#5e5d5f" font-size="19" letter-spacing="2">무엇이 결정하나</text>
+  <text x="86" y="340" fill="#a8412a" font-size="27" font-weight="800">GPU 연산 능력 (FLOPS)</text>
+  <text x="86" y="384" fill="#5e5d5f" font-size="19" letter-spacing="2">체감</text>
   <text x="86" y="416" fill="#1f1f22" font-size="22">첫 글자가 나오기까지의 대기 시간</text>
 
-  <path d="M322 440 L 322 486" stroke="#2b2b2f" stroke-width="3" marker-end="url(#b1a)"/>
-  <rect x="60" y="496" width="525" height="116" rx="12" fill="#e2e1df" stroke="#2b2b2f" stroke-width="2.5"/>
-  <text x="322" y="552" fill="#2b2b2f" font-size="42" font-weight="800" text-anchor="middle">최대 3.9 ~ 4.8배</text>
-  <text x="322" y="588" fill="#737273" font-size="19" text-anchor="middle">M6 mini 4.8× · M5 Max 3.9× · M5 Ultra 4×</text>
+  <path d="M322 440 L 322 486" stroke="#a8412a" stroke-width="3" marker-end="url(#b1a)"/>
+  <rect x="60" y="496" width="525" height="116" rx="12" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="322" y="552" fill="#a8412a" font-size="42" font-weight="800" text-anchor="middle">최대 3.9 ~ 4.8배</text>
+  <text x="322" y="588" fill="#5e5d5f" font-size="19" text-anchor="middle">M6 mini 4.8× · M5 Max 3.9× · M5 Ultra 4×</text>
 
   <!-- right: decode -->
-  <rect x="615" y="150" width="525" height="290" rx="14" fill="#f9f9f8" stroke="#b5b4b3" stroke-width="2"/>
-  <text x="641" y="196" fill="#737273" font-size="21" font-family="monospace" letter-spacing="4">DECODE</text>
+  <rect x="615" y="150" width="525" height="290" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="641" y="196" fill="#5e5d5f" font-size="21" font-family="monospace" letter-spacing="4">DECODE</text>
   <text x="641" y="244" fill="#1f1f22" font-size="34" font-weight="800">토큰 생성</text>
-  <line x1="641" y1="268" x2="1114" y2="268" stroke="#b5b4b3" stroke-width="1.5"/>
-  <text x="641" y="304" fill="#737273" font-size="19" letter-spacing="2">무엇이 결정하나</text>
+  <line x1="641" y1="268" x2="1114" y2="268" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="641" y="304" fill="#5e5d5f" font-size="19" letter-spacing="2">무엇이 결정하나</text>
   <text x="641" y="340" fill="#1f1f22" font-size="27" font-weight="800">메모리 대역폭</text>
-  <text x="641" y="384" fill="#737273" font-size="19" letter-spacing="2">체감</text>
+  <text x="641" y="384" fill="#5e5d5f" font-size="19" letter-spacing="2">체감</text>
   <text x="641" y="416" fill="#1f1f22" font-size="22">글자가 흘러나오는 속도</text>
 
-  <path d="M877 440 L 877 486" stroke="#8c8b8b" stroke-width="3" stroke-dasharray="7 7" marker-end="url(#b1g)"/>
-  <rect x="615" y="496" width="525" height="116" rx="12" fill="#f0efec" stroke="#b5b4b3" stroke-width="2" stroke-dasharray="8 8"/>
-  <text x="877" y="552" fill="#737273" font-size="42" font-weight="800" text-anchor="middle">+12.5%</text>
-  <text x="877" y="588" fill="#8c8b8b" font-size="19" text-anchor="middle">M5 Pro · M5 Max 대역폭 증가율 (M6는 +42%)</text>
+  <path d="M877 440 L 877 486" stroke="#737273" stroke-width="3" stroke-dasharray="7 7" marker-end="url(#b1g)"/>
+  <rect x="615" y="496" width="525" height="116" rx="12" fill="#f0efec" stroke="#dabbb2" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="877" y="552" fill="#5e5d5f" font-size="42" font-weight="800" text-anchor="middle">+12.5%</text>
+  <text x="877" y="588" fill="#737273" font-size="19" text-anchor="middle">M5 Pro · M5 Max 대역폭 증가율 (M6는 +42%)</text>
 
-  <line x1="60" y1="646" x2="1140" y2="646" stroke="#b5b4b3" stroke-width="1.5" stroke-dasharray="6 6"/>
-  <text x="60" y="692" fill="#1f1f22" font-size="22">Apple이 말한 4배는 전부 왼쪽 이야기 — <tspan fill="#2b2b2f" font-weight="700">대화하듯 쓸 때의 생성 속도는 거의 그대로다</tspan></text>
+  <line x1="60" y1="646" x2="1140" y2="646" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="692" fill="#1f1f22" font-size="22">Apple이 말한 4배는 전부 왼쪽 이야기 — <tspan fill="#a8412a" font-weight="700">대화하듯 쓸 때의 생성 속도는 거의 그대로다</tspan></text>
 </svg>
