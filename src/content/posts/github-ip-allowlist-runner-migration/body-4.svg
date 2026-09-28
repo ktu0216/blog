@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="600" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">전환은 저장소가 아니라 파일 단위였다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">주 파이프라인만 옮기고 보조 워크플로는 클라우드에 남은 모양</text>
+
+  <text x="84" y="160" fill="#5e5d5f" font-size="20" font-weight="700">'전환 완료'로 보이던 저장소</text>
+  <rect x="60" y="176" width="1080" height="300" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="90" y="214" fill="#737273" font-size="18" font-family="monospace">.github/workflows/</text>
+
+  <rect x="90" y="234" width="1020" height="64" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="120" y="275" font-size="23" font-family="monospace"><tspan fill="#1f1f22" font-weight="700">ci.yml</tspan><tspan x="440" fill="#5e5d5f">runs-on: self-hosted</tspan></text>
+  <text x="1080" y="276" fill="#737273" font-size="28" text-anchor="end">✓</text>
+
+  <rect x="90" y="310" width="1020" height="64" rx="10" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="120" y="351" font-size="23" font-family="monospace"><tspan fill="#1f1f22" font-weight="700">labeler.yml</tspan><tspan x="440" fill="#a8412a" font-weight="700">runs-on: ubuntu-latest</tspan></text>
+  <text x="1080" y="352" fill="#a8412a" font-size="19" font-weight="700" text-anchor="end">남음</text>
+
+  <rect x="90" y="386" width="1020" height="64" rx="10" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="120" y="427" font-size="23" font-family="monospace"><tspan fill="#1f1f22" font-weight="700">auto-assign.yml</tspan><tspan x="440" fill="#a8412a" font-weight="700">runs-on: ubuntu-latest</tspan></text>
+  <text x="1080" y="428" fill="#a8412a" font-size="19" font-weight="700" text-anchor="end">남음</text>
+
+  <line x1="60" y1="510" x2="1140" y2="510" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="556" fill="#1f1f22" font-size="24">이런 저장소 <tspan fill="#a8412a" font-weight="800">11개</tspan> — 주 파이프라인 파일 하나만 보고 '완료'로 체크됐다</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="g1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="720" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">허용목록은 사람보다 <tspan fill="#a8412a">러너</tspan>를 먼저 끊는다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">출발지 IP가 목록에 없으면 토큰 종류와 무관하게 거부된다</text>
+
+  <text x="60" y="152" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">출발지</text>
+
+  <!-- sources -->
+  <rect x="60" y="170" width="360" height="92" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="84" y="208" fill="#1f1f22" font-size="23" font-weight="700">사무실 · IDC · VPN 사용자</text>
+  <text x="84" y="242" fill="#5e5d5f" font-size="19">허용목록 등록 IP</text>
+
+  <rect x="60" y="282" width="360" height="92" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="84" y="320" fill="#1f1f22" font-size="23" font-weight="700">self-hosted 러너</text>
+  <text x="84" y="354" fill="#5e5d5f" font-size="19">등록 IP에서 출발</text>
+
+  <rect x="60" y="394" width="360" height="92" rx="12" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="84" y="432" fill="#a8412a" font-size="23" font-weight="800">GitHub-hosted 러너</text>
+  <text x="84" y="466" fill="#5e5d5f" font-size="19">클라우드 공유 대역</text>
+
+  <rect x="60" y="506" width="360" height="92" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="84" y="544" fill="#1f1f22" font-size="23" font-weight="700">설치된 GitHub App</text>
+  <text x="84" y="578" fill="#5e5d5f" font-size="19">앱이 선언한 IP 자동 추가</text>
+
+  <!-- gate -->
+  <rect x="690" y="170" width="170" height="428" rx="14" fill="#f9f9f8" stroke="#1f1f22" stroke-width="2.5"/>
+  <text x="775" y="370" fill="#1f1f22" font-size="24" font-weight="800" text-anchor="middle">GitHub</text>
+  <text x="775" y="402" fill="#1f1f22" font-size="24" font-weight="800" text-anchor="middle">IP 허용목록</text>
+
+  <!-- target -->
+  <rect x="960" y="324" width="180" height="120" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="1050" y="378" fill="#1f1f22" font-size="24" font-weight="800" text-anchor="middle">저장소</text>
+  <text x="1050" y="412" fill="#5e5d5f" font-size="20" text-anchor="middle">API</text>
+
+  <!-- links -->
+  <path d="M420 216 L 682 216" stroke="#737273" stroke-width="2.5" marker-end="url(#g1)"/>
+  <path d="M420 328 L 682 328" stroke="#737273" stroke-width="2.5" marker-end="url(#g1)"/>
+  <path d="M420 552 L 682 552" stroke="#737273" stroke-width="2.5" marker-end="url(#g1)"/>
+  <path d="M420 440 L 660 440" stroke="#a8412a" stroke-width="3" stroke-dasharray="10 8"/>
+  <text x="672" y="452" fill="#a8412a" font-size="34" font-weight="800" text-anchor="middle">✕</text>
+  <text x="540" y="426" fill="#a8412a" font-size="17" font-family="monospace" text-anchor="middle">GITHUB_TOKEN</text>
+  <text x="540" y="470" fill="#a8412a" font-size="18" font-weight="700" text-anchor="middle">체크아웃 거부</text>
+  <path d="M860 384 L 952 384" stroke="#737273" stroke-width="2.5" marker-end="url(#g1)"/>
+
+  <line x1="60" y1="636" x2="1140" y2="636" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="680" fill="#5e5d5f" font-size="21">막는 것 — <tspan fill="#1f1f22">웹 로그인 · PAT · SSH 키 · App 토큰 · </tspan><tspan fill="#a8412a" font-family="monospace" font-weight="700">GITHUB_TOKEN</tspan></text>
+</svg>

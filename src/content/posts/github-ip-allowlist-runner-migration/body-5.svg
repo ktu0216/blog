@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="g5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">회신 요청에서 조치 요청으로</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">목록이 생기자 공지 문장 세 곳이 바뀌었다</text>
+
+  <text x="250" y="150" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">전 — 전수조사 전</text>
+  <text x="700" y="150" fill="#a8412a" font-size="18" font-weight="700" letter-spacing="3">후 — 목록 확보 후</text>
+
+  <!-- row 1 -->
+  <text x="60" y="222" fill="#1f1f22" font-size="22" font-weight="800">요청</text>
+  <rect x="250" y="170" width="380" height="96" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="272" y="226" fill="#737273" font-size="21">해당 저장소가 있으면 알려 주세요</text>
+  <path d="M636 218 L 690 218" stroke="#737273" stroke-width="2.5" marker-end="url(#g5)"/>
+  <rect x="700" y="170" width="440" height="96" rx="12" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="722" y="210" fill="#1f1f22" font-size="21" font-weight="700"><tspan font-family="monospace" fill="#a8412a">runs-on</tspan>을 self-hosted로 바꿔 주세요</text>
+  <text x="722" y="244" fill="#5e5d5f" font-size="19">+ 저장소별 파일 목록 링크</text>
+
+  <!-- row 2 -->
+  <text x="60" y="340" fill="#1f1f22" font-size="22" font-weight="800">미이행 표현</text>
+  <rect x="250" y="288" width="380" height="96" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="272" y="344" fill="#737273" font-size="21">회신이 없는 저장소</text>
+  <path d="M636 336 L 690 336" stroke="#737273" stroke-width="2.5" marker-end="url(#g5)"/>
+  <rect x="700" y="288" width="440" height="96" rx="12" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="722" y="344" fill="#1f1f22" font-size="21" font-weight="700">조치하지 않은 저장소</text>
+
+  <!-- row 3 -->
+  <text x="60" y="458" fill="#1f1f22" font-size="22" font-weight="800">확인법</text>
+  <rect x="250" y="406" width="380" height="96" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="272" y="462" fill="#737273" font-size="21">workflows 디렉터리가 있는지 보세요</text>
+  <path d="M636 454 L 690 454" stroke="#737273" stroke-width="2.5" marker-end="url(#g5)"/>
+  <rect x="700" y="406" width="440" height="96" rx="12" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="722" y="446" fill="#1f1f22" font-size="21" font-weight="700">목록에 파일명 기재</text>
+  <text x="722" y="480" fill="#5e5d5f" font-size="19">기본 브랜치 외는 직접 확인</text>
+
+  <line x1="60" y1="540" x2="1140" y2="540" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="590" fill="#1f1f22" font-size="24">책임이 <tspan fill="#5e5d5f">공지를 보낸 쪽</tspan>에서 <tspan fill="#a8412a" font-weight="800">저장소를 가진 쪽</tspan>으로</text>
+</svg>

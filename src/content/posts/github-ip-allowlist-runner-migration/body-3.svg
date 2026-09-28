@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="700" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">744개를 전부 읽어야 58개가 나온다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">조직 저장소의 <tspan font-family="monospace">.github/workflows/</tspan> 전수조사 · 기본 브랜치 기준</text>
+
+  <!-- funnel, centered at x=430 -->
+  <path d="M60 150 L 800 150 L 730 250 L 130 250 Z" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="430" y="196" fill="#5e5d5f" font-size="20" text-anchor="middle">조사한 저장소</text>
+  <text x="430" y="234" fill="#1f1f22" font-size="32" font-weight="800" text-anchor="middle">744</text>
+
+  <path d="M140 266 L 720 266 L 650 366 L 210 366 Z" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="430" y="312" fill="#5e5d5f" font-size="20" text-anchor="middle">워크플로 보유</text>
+  <text x="430" y="350" fill="#1f1f22" font-size="32" font-weight="800" text-anchor="middle">88</text>
+
+  <path d="M220 382 L 640 382 L 580 500 L 280 500 Z" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="430" y="424" fill="#a8412a" font-size="20" font-weight="700" text-anchor="middle">GitHub-hosted 러너 사용</text>
+  <text x="430" y="472" fill="#a8412a" font-size="40" font-weight="800" text-anchor="middle">58 <tspan font-size="21" font-weight="700">(파일 130)</tspan></text>
+
+  <!-- side: runs-on bar -->
+  <text x="860" y="196" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">runs-on 선언</text>
+  <rect x="860" y="220" width="280" height="30" rx="6" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <rect x="860" y="220" width="93" height="30" rx="6" fill="#737273"/>
+  <text x="860" y="286" fill="#1f1f22" font-size="22"><tspan font-weight="800">147</tspan> / 443건 기본 라벨</text>
+  <text x="860" y="316" fill="#5e5d5f" font-size="19">약 3분의 1</text>
+
+  <line x1="60" y1="560" x2="1140" y2="560" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="606" fill="#1f1f22" font-size="24">표본 한 건은 <tspan font-family="monospace">self-hosted</tspan>였다 — 전수로 보니 <tspan fill="#a8412a" font-weight="800">58개 저장소</tspan>가 남아 있었다</text>
+  <text x="60" y="646" fill="#5e5d5f" font-size="20">막대 폭은 비율이 아니라 단계 표시</text>
+</svg>

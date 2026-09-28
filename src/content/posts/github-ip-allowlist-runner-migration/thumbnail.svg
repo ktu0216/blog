@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1080" height="1080" fill="#f0efec"/>
+  <rect x="0" y="0" width="8" height="1080" fill="#a8412a"/>
+
+  <text x="72" y="92" fill="#5e5d5f" font-size="24" font-family="monospace" letter-spacing="6">RUNNER PATH</text>
+
+  <text x="72" y="182" fill="#1f1f22" font-size="50" font-weight="800">허용목록 뒤에서 러너를 어디서 띄울까</text>
+  <text x="72" y="230" fill="#5e5d5f" font-size="26">선택지 셋 — 둘을 기각하고 하나를 골랐다</text>
+
+  <!-- rejected 1 -->
+  <rect x="72" y="290" width="936" height="150" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="104" y="336" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">기각</text>
+  <text x="104" y="380" fill="#737273" font-size="32" font-weight="700" text-decoration="line-through">러너 IP 대역 전량 등록</text>
+  <text x="104" y="418" fill="#5e5d5f" font-size="22">IPv4 5,658개 대역 — 전체 IPv4의 0.65% (2026-08 기준)</text>
+
+  <!-- rejected 2 -->
+  <rect x="72" y="470" width="936" height="150" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="104" y="516" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">기각</text>
+  <text x="104" y="560" fill="#737273" font-size="32" font-weight="700" text-decoration="line-through">고정 IP 대형 러너</text>
+  <text x="104" y="598" fill="#5e5d5f" font-size="22">포함 분 적용 안 됨 · 항상 분당 과금 · runs-on 변경 필요</text>
+
+  <!-- adopted -->
+  <rect x="72" y="650" width="936" height="160" rx="14" fill="#ebe3de" stroke="#a8412a" stroke-width="3"/>
+  <rect x="104" y="676" width="76" height="34" rx="17" fill="#a8412a"/>
+  <text x="142" y="700" fill="#ffffff" font-size="19" font-weight="700" text-anchor="middle">채택</text>
+  <text x="104" y="756" fill="#1f1f22" font-size="36" font-weight="800">self-hosted 러너로 전환</text>
+  <text x="104" y="792" fill="#a8412a" font-size="23" font-weight="700">58개 저장소 · 워크플로 파일 130개</text>
+
+  <line x1="72" y1="880" x2="1008" y2="880" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <text x="72" y="938" fill="#1f1f22" font-size="34" font-weight="700">공개된 대역이라고 <tspan fill="#a8412a" font-weight="800">쓸 수 있는 대역</tspan>은 아니다</text>
+  <text x="72" y="986" fill="#5e5d5f" font-size="23">GitHub 문서가 인정하는 경로는 self-hosted와 고정 IP 대형 러너 둘뿐</text>
+
+  <text x="1008" y="1042" fill="#a8412a" font-size="34" text-anchor="end" font-family="monospace" opacity="0.7">[ &gt;_ ]</text>
+</svg>
