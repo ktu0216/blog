@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="540" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">약속에 <tspan fill="#a8412a">단서</tspan>가 붙었다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">Drive · Gmail · Google Photos 콘텐츠와 맞춤 광고에 관한 구글의 문구</text>
+
+  <!-- before -->
+  <rect x="60" y="140" width="500" height="250" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="90" y="186" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">2021</text>
+  <text x="90" y="250" fill="#1f1f22" font-size="28" font-weight="700">광고 목적으로</text>
+  <text x="90" y="292" fill="#1f1f22" font-size="28" font-weight="700">절대 쓰지 않음</text>
+  <text x="90" y="356" fill="#5e5d5f" font-size="21">조건 없음</text>
+
+  <path d="M570 265 L 630 265" stroke="#737273" stroke-width="2.5" marker-end="url(#b1)"/>
+
+  <!-- after -->
+  <rect x="640" y="140" width="500" height="250" rx="14" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="670" y="186" fill="#a8412a" font-size="19" font-family="monospace" letter-spacing="3">2026-10-16 시행</text>
+  <text x="670" y="250" fill="#1f1f22" font-size="28" font-weight="700">기본은 쓰지 않음</text>
+  <text x="670" y="292" fill="#1f1f22" font-size="28" font-weight="700">+ 사용자가 연결을 허용하면 <tspan fill="#a8412a" font-weight="800">예외</tspan></text>
+  <rect x="670" y="326" width="96" height="40" rx="20" fill="#a8412a"/>
+  <text x="718" y="353" fill="#ffffff" font-size="20" font-weight="700" text-anchor="middle">조건부</text>
+
+  <line x1="60" y1="436" x2="1140" y2="436" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="484" fill="#5e5d5f" font-size="22">트리거 — <tspan fill="#1f1f22" font-weight="700">Personal Intelligence 옵트인</tspan>  ·  확인된 제공 지역 — <tspan fill="#1f1f22" font-weight="700">미국</tspan></text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="b4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">사본은 조용히 <tspan fill="#a8412a">한 겹</tspan>으로 줄어든다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">정리하다 보면 자연스럽게 — 원본을 지우기 전에 확인할 것</text>
+
+  <text x="60" y="152" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">이관 직후 · 3겹</text>
+  <rect x="60" y="170" width="440" height="68" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="88" y="213" fill="#1f1f22" font-size="23" font-weight="700">구글 포토</text>
+  <text x="472" y="213" fill="#737273" font-size="17" text-anchor="end">정리 시 사라짐</text>
+  <rect x="60" y="252" width="440" height="68" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="88" y="295" fill="#1f1f22" font-size="23" font-weight="700">로컬 테이크아웃 파일</text>
+  <text x="472" y="295" fill="#737273" font-size="17" text-anchor="end">정리 시 사라짐</text>
+  <rect x="60" y="334" width="440" height="68" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="88" y="377" fill="#1f1f22" font-size="23" font-weight="700">새 서버 (Immich)</text>
+
+  <path d="M520 286 L 620 286" stroke="#737273" stroke-width="2.5" marker-end="url(#b4)"/>
+  <text x="570" y="270" fill="#5e5d5f" font-size="18" text-anchor="middle">정리</text>
+
+  <text x="640" y="152" fill="#a8412a" font-size="18" font-weight="700" letter-spacing="3">정리 후 · 1겹</text>
+  <rect x="640" y="170" width="500" height="232" rx="14" fill="#f9f9f8" stroke="#1f1f22" stroke-width="2.5"/>
+  <text x="668" y="213" fill="#1f1f22" font-size="23" font-weight="700">서버 (ZFS 미러)</text>
+  <rect x="668" y="236" width="206" height="62" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="771" y="274" fill="#5e5d5f" font-size="20" text-anchor="middle">디스크 A</text>
+  <rect x="906" y="236" width="206" height="62" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="1009" y="274" fill="#5e5d5f" font-size="20" text-anchor="middle">디스크 B</text>
+  <text x="668" y="344" fill="#a8412a" font-size="22" font-weight="800">미러 ≠ 백업</text>
+  <text x="668" y="378" fill="#5e5d5f" font-size="19">실수로 지운 것은 양쪽에서 똑같이 지워진다</text>
+
+  <text x="60" y="450" fill="#5e5d5f" font-size="20">압축 밖으로 따로 나온 큰 파일은 zip에 없다 — 로컬을 지우면 서버가 <tspan fill="#1f1f22" font-weight="700">유일본</tspan></text>
+
+  <rect x="60" y="486" width="1080" height="104" rx="14" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5" stroke-dasharray="10 6"/>
+  <text x="90" y="528" fill="#a8412a" font-size="19" font-family="monospace" letter-spacing="3" font-weight="700">안전망</text>
+  <text x="90" y="568" fill="#1f1f22" font-size="24" font-weight="700">원본을 지우기 전에 ZFS 스냅샷  <tspan fill="#5e5d5f" font-weight="400" font-size="20">— 앨범을 자산째 지웠을 때 되찾은 건 아직 3겹이었기 때문</tspan></text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="600" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">중복 391그룹 974장 — 진짜 중복은 <tspan fill="#a8412a">0건</tspan></text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">Immich가 중복을 다루는 기능은 두 가지, 걸리는 대상이 다르다</text>
+
+  <!-- true duplicate -->
+  <rect x="60" y="140" width="520" height="290" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="90" y="186" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">진짜 중복</text>
+  <text x="90" y="238" fill="#1f1f22" font-size="24" font-weight="700">파일명 · 크기 · 해시 동일</text>
+  <text x="90" y="290" fill="#5e5d5f" font-size="21">→ 업로드 단계에서 해시로 차단</text>
+  <text x="90" y="324" fill="#737273" font-size="18">라이브러리 단위로 적용</text>
+  <text x="90" y="396" fill="#1f1f22" font-size="22">감지 결과 속 <tspan font-weight="800">0건</tspan></text>
+
+  <!-- burst -->
+  <rect x="620" y="140" width="520" height="290" rx="14" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="650" y="186" fill="#a8412a" font-size="19" font-family="monospace" letter-spacing="3" font-weight="700">연사 (burst)</text>
+  <text x="650" y="238" fill="#1f1f22" font-size="24" font-weight="700">파일명 · 크기 모두 다름</text>
+  <text x="650" y="290" fill="#5e5d5f" font-size="21">→ 보기에만 비슷, ML 중복 감지에 걸림</text>
+  <text x="650" y="324" fill="#737273" font-size="18">기본으로 켜져 있음</text>
+  <text x="650" y="396" fill="#1f1f22" font-size="22">감지 결과 속 <tspan fill="#a8412a" font-weight="800">974장 전부</tspan></text>
+
+  <line x1="60" y1="476" x2="1140" y2="476" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="522" fill="#1f1f22" font-size="24">ML 결과는 <tspan fill="#5e5d5f">삭제 목록</tspan>이 아니라 <tspan fill="#a8412a" font-weight="800">검토 목록</tspan></text>
+  <text x="60" y="560" fill="#5e5d5f" font-size="20">일괄 처리했다면 서로 다른 사진 580여 장이 지워졌다</text>
+</svg>

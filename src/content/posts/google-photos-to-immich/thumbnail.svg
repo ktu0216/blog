@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="t1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
+    </marker>
+    <marker id="t2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#a8412a"/>
+    </marker>
+  </defs>
+  <rect width="1080" height="1080" fill="#f0efec"/>
+  <rect x="0" y="0" width="8" height="1080" fill="#a8412a"/>
+
+  <text x="72" y="92" fill="#5e5d5f" font-size="24" font-family="monospace" letter-spacing="6">PHOTO PATH</text>
+
+  <text x="72" y="182" fill="#1f1f22" font-size="50" font-weight="800">클라우드에서 집으로, 포트는 닫은 채</text>
+  <text x="72" y="230" fill="#5e5d5f" font-size="26">구글 포토 → TrueNAS 홈서버의 Immich, 바깥에선 Tailscale로</text>
+
+  <!-- google photos -->
+  <rect x="72" y="300" width="400" height="120" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="104" y="346" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">떠나는 쪽</text>
+  <text x="104" y="392" fill="#1f1f22" font-size="32" font-weight="700">구글 포토</text>
+
+  <!-- router port: not opened -->
+  <rect x="608" y="300" width="400" height="120" rx="14" fill="#f0efec" stroke="#737273" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="640" y="346" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">공유기</text>
+  <text x="640" y="392" fill="#737273" font-size="30" font-weight="700" text-decoration="line-through">:2283 포트포워딩</text>
+
+  <!-- takeout arrow -->
+  <path d="M272 420 L 272 552" stroke="#737273" stroke-width="2.5" marker-end="url(#t1)"/>
+  <text x="296" y="482" fill="#1f1f22" font-size="22" font-weight="700">Takeout 31개</text>
+  <text x="296" y="512" fill="#5e5d5f" font-size="20">약 59GB</text>
+
+  <!-- port: cut -->
+  <path d="M780 420 L 600 556" stroke="#737273" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="690" y="500" fill="#a8412a" font-size="34" font-weight="800" text-anchor="middle">✕</text>
+  <text x="724" y="498" fill="#5e5d5f" font-size="20">열지 않음</text>
+
+  <!-- home server -->
+  <rect x="72" y="560" width="520" height="200" rx="14" fill="#ebe3de" stroke="#a8412a" stroke-width="3"/>
+  <text x="104" y="606" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">집</text>
+  <text x="104" y="654" fill="#1f1f22" font-size="36" font-weight="800">TrueNAS + Immich</text>
+  <text x="104" y="692" fill="#5e5d5f" font-size="22">ZFS 미러 · 메모리 8GB 미니PC</text>
+  <text x="104" y="734" fill="#a8412a" font-size="23" font-weight="700">자산 약 1만 6천 장 · 390GB대</text>
+
+  <!-- phone -->
+  <rect x="740" y="600" width="268" height="120" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="772" y="646" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">밖</text>
+  <text x="772" y="692" fill="#1f1f22" font-size="30" font-weight="700">휴대폰 앱</text>
+
+  <!-- tailscale -->
+  <path d="M600 660 L 732 660" stroke="#a8412a" stroke-width="3" marker-start="url(#t2)" marker-end="url(#t2)"/>
+  <text x="666" y="644" fill="#a8412a" font-size="18" font-family="monospace" font-weight="700" text-anchor="middle">Tailscale</text>
+
+  <line x1="72" y1="860" x2="1008" y2="860" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <text x="72" y="924" fill="#1f1f22" font-size="34" font-weight="700">약관이 바뀌어도 <tspan fill="#a8412a" font-weight="800">사진이 있는 곳</tspan>은 내가 정한다</text>
+  <text x="72" y="972" fill="#5e5d5f" font-size="23">대신 클라우드가 하던 사본 관리를 넘겨받는다</text>
+
+  <text x="1008" y="1042" fill="#a8412a" font-size="34" text-anchor="end" font-family="monospace" opacity="0.7">[ &gt;_ ]</text>
+</svg>

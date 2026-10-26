@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <rect width="1200" height="720" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">테이크아웃은 폴더가 아니라 <tspan fill="#a8412a">용량</tspan>에서 자른다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">사진과 짝이 되는 JSON(촬영일·앨범·위치)이 서로 다른 압축파일에 떨어진다</text>
+
+  <!-- zip 1 -->
+  <rect x="60" y="140" width="340" height="270" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="84" y="180" fill="#1f1f22" font-size="21" font-weight="700" font-family="monospace">takeout-001.zip</text>
+  <text x="84" y="226" fill="#5e5d5f" font-size="20" font-family="monospace">IMG_0001.json</text>
+  <rect x="74" y="244" width="312" height="44" rx="8" fill="#ebe3de" stroke="#a8412a" stroke-width="2"/>
+  <text x="84" y="274" fill="#a8412a" font-size="20" font-family="monospace" font-weight="700">IMG_0002.json</text>
+  <text x="84" y="322" fill="#5e5d5f" font-size="20" font-family="monospace">IMG_0003.json</text>
+  <text x="84" y="358" fill="#737273" font-size="20" font-family="monospace">…</text>
+  <text x="84" y="394" fill="#737273" font-size="17">JSON 1,987 · 미디어 700</text>
+
+  <!-- zip 2 -->
+  <rect x="430" y="140" width="340" height="270" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="454" y="180" fill="#1f1f22" font-size="21" font-weight="700" font-family="monospace">takeout-002.zip</text>
+  <text x="454" y="226" fill="#5e5d5f" font-size="20" font-family="monospace">IMG_0001.jpg</text>
+  <rect x="444" y="244" width="312" height="44" rx="8" fill="#ebe3de" stroke="#a8412a" stroke-width="2"/>
+  <text x="454" y="274" fill="#a8412a" font-size="20" font-family="monospace" font-weight="700">IMG_0002.jpg</text>
+  <text x="454" y="322" fill="#5e5d5f" font-size="20" font-family="monospace">IMG_0004.json</text>
+  <text x="454" y="358" fill="#737273" font-size="20" font-family="monospace">…</text>
+
+  <!-- zip 3 -->
+  <rect x="800" y="140" width="340" height="270" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="824" y="180" fill="#1f1f22" font-size="21" font-weight="700" font-family="monospace">takeout-003.zip</text>
+  <text x="824" y="226" fill="#5e5d5f" font-size="20" font-family="monospace">IMG_0003.jpg</text>
+  <text x="824" y="274" fill="#5e5d5f" font-size="20" font-family="monospace">IMG_0004.mp4</text>
+  <text x="824" y="322" fill="#5e5d5f" font-size="20" font-family="monospace">IMG_0005.json</text>
+  <text x="824" y="358" fill="#737273" font-size="20" font-family="monospace">…</text>
+
+  <!-- pair link -->
+  <path d="M386 266 L 444 266" stroke="#a8412a" stroke-width="3" stroke-dasharray="6 5"/>
+  <text x="415" y="236" fill="#a8412a" font-size="18" font-weight="800" text-anchor="middle">짝</text>
+
+  <!-- outcomes -->
+  <rect x="60" y="450" width="1080" height="96" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="90" y="490" fill="#737273" font-size="19" font-family="monospace" letter-spacing="3">zip마다 따로 풀기</text>
+  <text x="90" y="526" fill="#5e5d5f" font-size="22">짝을 못 찾음 → 촬영일·앨범·위치 소실, 타임라인이 '내려받은 날짜'로 뭉개짐</text>
+
+  <rect x="60" y="566" width="1080" height="110" rx="12" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="90" y="606" fill="#a8412a" font-size="19" font-family="monospace" letter-spacing="3" font-weight="700">모든 파트를 한 명령에</text>
+  <text x="90" y="648" fill="#1f1f22" font-size="22" font-weight="700">도구가 압축파일 경계를 넘어 짝을 맞춘다  <tspan fill="#5e5d5f" font-weight="400" font-family="monospace" font-size="20">upload from-google-photos takeout-*.zip</tspan></text>
+</svg>

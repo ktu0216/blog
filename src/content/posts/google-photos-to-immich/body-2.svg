@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="g2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
+    </marker>
+    <marker id="r2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#a8412a"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="660" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">미니PC를 멈춘 건 <tspan fill="#a8412a">트랜스코딩</tspan>이었다</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">같은 미니PC, 영상 변환을 켰을 때와 껐을 때</text>
+
+  <!-- LEFT: transcoding on -->
+  <text x="60" y="150" fill="#a8412a" font-size="18" font-weight="700" letter-spacing="3">이관 중 · 트랜스코딩 켜짐</text>
+  <rect x="60" y="164" width="520" height="384" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+
+  <rect x="90" y="186" width="380" height="50" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="112" y="219" fill="#1f1f22" font-size="21" font-weight="700">영상 업로드</text>
+  <path d="M280 236 L 280 256" stroke="#737273" stroke-width="2" marker-end="url(#g2)"/>
+
+  <rect x="90" y="258" width="380" height="50" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="112" y="291" fill="#1f1f22" font-size="21" font-weight="700">트랜스코딩 작업 시작</text>
+  <path d="M280 308 L 280 328" stroke="#737273" stroke-width="2" marker-end="url(#g2)"/>
+
+  <rect x="90" y="330" width="380" height="50" rx="10" fill="#ebe3de" stroke="#a8412a" stroke-width="2.5"/>
+  <text x="112" y="363" fill="#a8412a" font-size="21" font-weight="800">CPU 100% · 팬 최대</text>
+  <path d="M280 380 L 280 400" stroke="#737273" stroke-width="2" marker-end="url(#g2)"/>
+
+  <rect x="90" y="402" width="380" height="50" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="112" y="435" fill="#1f1f22" font-size="21" font-weight="700">몇 시간째 응답 없음</text>
+  <path d="M280 452 L 280 472" stroke="#737273" stroke-width="2" marker-end="url(#g2)"/>
+
+  <rect x="90" y="474" width="380" height="50" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="112" y="507" fill="#1f1f22" font-size="21" font-weight="700">재부팅 → 업로드 재개</text>
+
+  <!-- loop -->
+  <path d="M470 499 L 530 499 L 530 211 L 478 211" fill="none" stroke="#a8412a" stroke-width="3" marker-end="url(#r2)"/>
+  <rect x="504" y="338" width="52" height="34" rx="17" fill="#a8412a"/>
+  <text x="530" y="361" fill="#ffffff" font-size="18" font-weight="700" text-anchor="middle">반복</text>
+
+  <!-- RIGHT: transcoding off -->
+  <text x="620" y="150" fill="#5e5d5f" font-size="18" font-weight="700" letter-spacing="3">트랜스코딩 끔 + 작업 동시성 낮춤</text>
+  <rect x="620" y="164" width="520" height="384" rx="14" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+
+  <rect x="650" y="186" width="460" height="50" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="672" y="219" fill="#1f1f22" font-size="21" font-weight="700">영상 업로드</text>
+  <path d="M880 236 L 880 256" stroke="#737273" stroke-width="2" marker-end="url(#g2)"/>
+
+  <rect x="650" y="258" width="460" height="50" rx="10" fill="#f0efec" stroke="#dabbb2" stroke-width="1.5"/>
+  <text x="672" y="291" fill="#1f1f22" font-size="21" font-weight="700">원본 그대로 저장</text>
+  <text x="1088" y="291" fill="#737273" font-size="18" text-anchor="end">변환 없음</text>
+  <path d="M880 308 L 880 328" stroke="#737273" stroke-width="2" marker-end="url(#g2)"/>
+
+  <rect x="650" y="330" width="460" height="50" rx="10" fill="#f0efec" stroke="#737273" stroke-width="2"/>
+  <text x="672" y="363" fill="#1f1f22" font-size="21" font-weight="800">완료</text>
+  <text x="1088" y="364" fill="#737273" font-size="26" text-anchor="end">✓</text>
+
+  <text x="650" y="436" fill="#5e5d5f" font-size="21">CPU 부하 보통 · 서버 응답 유지</text>
+  <text x="650" y="472" fill="#737273" font-size="18">재부팅 없이 다음 배치로</text>
+
+  <line x1="60" y1="586" x2="1140" y2="586" stroke="#dabbb2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="60" y="630" fill="#5e5d5f" font-size="21">저사양·발열 있는 미니PC일수록 영향이 큰 편 <tspan fill="#737273" font-size="18">— 필자 판단</tspan></text>
+</svg>
