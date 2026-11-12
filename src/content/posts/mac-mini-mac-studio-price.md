@@ -1,12 +1,15 @@
 ---
-title: "Mac mini · Mac Studio 전 구성 가격표 — 217개 조합 한 표에"
+title: "Mac mini · Mac Studio 전 구성 가격표 — 222개 조합 한 표에"
 pubDatetime: 2026-09-01T10:00:00+09:00
-description: "Mac mini 112개, Mac Studio 105개. 칩·메모리·저장장치 전 조합의 미국 달러가와 한국 원화가를 한 표에 모았습니다. M4 세대는 2026-06 인상 전후 가격을 나란히 볼 수 있습니다."
+modDatetime: 2026-11-12T10:00:00+09:00
+description: "Mac mini 112개, Mac Studio 110개. 칩·메모리·저장장치 전 조합의 미국 달러가와 한국 원화가를 한 표에 모았습니다. M4 세대는 2026-06 인상 전후 가격을 나란히 볼 수 있습니다."
 tags: ["맥미니", "맥스튜디오", "AppleSilicon", "M6", "M5Ultra", "가격표", "장비가격", "홈서버", "자료실"]
 draft: false
 ---
 
 로컬 LLM 홈서버로 맥을 알아보다가, 애플 스토어에서 구성을 하나씩 바꿔가며 가격을 확인하는 게 번거로워서 **전 조합을 한 표에 모았습니다.**
+
+2026-11-11에 다시 확인해 고쳤습니다. M5 Ultra 512GB 구성을 추가했고, 판매가 끝난 M4 세대는 판매 종료로 표시했습니다. 나머지 가격은 바뀌지 않았습니다.
 
 표는 칩, 가격 기준, 메모리, 저장장치 순으로 묶여 있습니다. 미국 달러가와 한국 원화가는 나란히 놓았습니다. **M4·M4 Pro·M4 Max·M3 Ultra는 출시가와 2026-06 인상가를 함께** 담아서, 같은 기계가 얼마나 올랐는지 바로 비교됩니다. 인상 때 사라진 메모리 옵션도 출시가 행에 남겨뒀습니다.
 
@@ -155,14 +158,14 @@ draft: false
 <div class="pricetable"><div class="page">
 
 <header class="masthead">
-  <p class="eyebrow">2026.08.26 기준 · 애플 정가</p>
+  <p class="eyebrow">2026.11.11 기준 · 애플 정가</p>
   <p class="lede">제품마다 표 하나씩입니다. 칩과 가격 기준(출시가 / 2026-06 인상가), 메모리와 저장장치의
   모든 조합을 미국 달러가와 한국 원화가로 함께 담았습니다.</p>
   <dl class="facts">
     <div class="fact"><dt>신형 발표</dt><dd>2026.08.25<small>출고 9월 22일</small></dd></div>
     <div class="fact"><dt>한국 사전주문</dt><dd>8월 27일 10:00</dd></div>
     <div class="fact"><dt>최저가</dt><dd>$899 / ₩1,499,000<small>Mac mini M6 16GB·256GB</small></dd></div>
-    <div class="fact"><dt>최고가</dt><dd>$18,299 / ₩31,250,000<small>M5 Ultra 36코어 256GB·16TB</small></dd></div>
+    <div class="fact"><dt>최고가</dt><dd>$29,799 / ₩50,800,000<small>M5 Ultra 36코어 512GB·16TB</small></dd></div>
   </dl>
 </header>
 
@@ -218,27 +221,27 @@ draft: false
 <tr class=""><td class="ssd">2TB</td><td class="num">$3,699</td><td class="num won">₩6,390,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$4,699</td><td class="num won">₩8,090,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$6,699</td><td class="num won">₩11,490,000</td></tr>
-<tr class="hist tier-top is-stock"><th class="grp" rowspan="20" scope="rowgroup"><span class="grp-chip">M4</span><span class="grp-cores">10코어 CPU · 10코어 GPU</span><span class="grp-year">출시 2024-10</span></th><th class="basis hist" rowspan="12" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2024-10</span></th><th class="ram" rowspan="4" scope="rowgroup">16GB</th><td class="ssd">256GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$599</td><td class="num won">₩890,000</td></tr>
-<tr class="hist is-stock"><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$799</td><td class="num won">₩1,190,000</td></tr>
+<tr class="hist tier-top"><th class="grp" rowspan="20" scope="rowgroup"><span class="grp-chip">M4</span><span class="grp-cores">10코어 CPU · 10코어 GPU</span><span class="grp-year">출시 2024-10</span></th><th class="basis hist" rowspan="12" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2024-10</span></th><th class="ram" rowspan="4" scope="rowgroup">16GB</th><td class="ssd">256GB</td><td class="num">$599</td><td class="num won">₩890,000</td></tr>
+<tr class="hist"><td class="ssd">512GB</td><td class="num">$799</td><td class="num won">₩1,190,000</td></tr>
 <tr class="hist"><td class="ssd">1TB</td><td class="num">$999</td><td class="num won">₩1,490,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$1,399</td><td class="num won">₩2,090,000</td></tr>
 <tr class="hist ram-top"><th class="ram" rowspan="4" scope="rowgroup">24GB</th><td class="ssd">256GB</td><td class="num">$799</td><td class="num won">₩1,190,000</td></tr>
-<tr class="hist is-stock"><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$999</td><td class="num won">₩1,490,000</td></tr>
+<tr class="hist"><td class="ssd">512GB</td><td class="num">$999</td><td class="num won">₩1,490,000</td></tr>
 <tr class="hist"><td class="ssd">1TB</td><td class="num">$1,199</td><td class="num won">₩1,790,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$1,599</td><td class="num won">₩2,390,000</td></tr>
 <tr class="hist ram-top"><th class="ram" rowspan="4" scope="rowgroup">32GB</th><td class="ssd">256GB</td><td class="num">$999</td><td class="num won">₩1,490,000</td></tr>
 <tr class="hist"><td class="ssd">512GB</td><td class="num">$1,199</td><td class="num won">₩1,790,000</td></tr>
 <tr class="hist"><td class="ssd">1TB</td><td class="num">$1,399</td><td class="num won">₩2,090,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$1,799</td><td class="num won">₩2,690,000</td></tr>
-<tr class="basis-top is-stock"><th class="basis" rowspan="8" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="4" scope="rowgroup">16GB</th><td class="ssd">256GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$799</td><td class="num won">₩1,349,000</td></tr>
-<tr class="is-stock"><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$999</td><td class="num won">₩1,689,000</td></tr>
+<tr class="basis-top"><th class="basis" rowspan="8" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="4" scope="rowgroup">16GB</th><td class="ssd">256GB</td><td class="num">$799</td><td class="num won">₩1,349,000</td></tr>
+<tr class=""><td class="ssd">512GB</td><td class="num">$999</td><td class="num won">₩1,689,000</td></tr>
 <tr class=""><td class="ssd">1TB</td><td class="num">$1,299</td><td class="num won">₩2,199,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$1,799</td><td class="num won">₩3,049,000</td></tr>
 <tr class="ram-top"><th class="ram" rowspan="4" scope="rowgroup">24GB</th><td class="ssd">256GB</td><td class="num">$999</td><td class="num won">₩1,689,000</td></tr>
-<tr class="is-stock"><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$1,199</td><td class="num won">₩2,029,000</td></tr>
+<tr class=""><td class="ssd">512GB</td><td class="num">$1,199</td><td class="num won">₩2,029,000</td></tr>
 <tr class=""><td class="ssd">1TB</td><td class="num">$1,499</td><td class="num won">₩2,539,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$1,999</td><td class="num won">₩3,389,000</td></tr>
-<tr class="hist tier-top is-stock"><th class="grp" rowspan="25" scope="rowgroup"><span class="grp-chip">M4 Pro</span><span class="grp-cores">12코어 CPU · 16코어 GPU</span><span class="grp-year">출시 2024-10</span></th><th class="basis hist" rowspan="15" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2024-10</span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$1,399</td><td class="num won">₩2,090,000</td></tr>
+<tr class="hist tier-top"><th class="grp" rowspan="25" scope="rowgroup"><span class="grp-chip">M4 Pro</span><span class="grp-cores">12코어 CPU · 16코어 GPU</span><span class="grp-year">출시 2024-10</span></th><th class="basis hist" rowspan="15" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2024-10</span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB</td><td class="num">$1,399</td><td class="num won">₩2,090,000</td></tr>
 <tr class="hist"><td class="ssd">1TB</td><td class="num">$1,599</td><td class="num won">₩2,390,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$1,999</td><td class="num won">₩2,990,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$2,599</td><td class="num won">₩3,890,000</td></tr>
@@ -253,7 +256,7 @@ draft: false
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$2,599</td><td class="num won">₩3,890,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$3,199</td><td class="num won">₩4,790,000</td></tr>
 <tr class="hist"><td class="ssd">8TB</td><td class="num">$4,399</td><td class="num won">₩6,590,000</td></tr>
-<tr class="basis-top is-stock"><th class="basis" rowspan="10" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$1,599</td><td class="num won">₩2,790,000</td></tr>
+<tr class="basis-top"><th class="basis" rowspan="10" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB</td><td class="num">$1,599</td><td class="num won">₩2,790,000</td></tr>
 <tr class=""><td class="ssd">1TB</td><td class="num">$1,899</td><td class="num won">₩3,300,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$2,399</td><td class="num won">₩4,150,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$3,399</td><td class="num won">₩5,850,000</td></tr>
@@ -263,7 +266,7 @@ draft: false
 <tr class=""><td class="ssd">2TB</td><td class="num">$2,999</td><td class="num won">₩5,170,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$3,999</td><td class="num won">₩6,870,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$5,999</td><td class="num won">₩10,270,000</td></tr>
-<tr class="hist tier-top is-stock"><th class="grp" rowspan="25" scope="rowgroup"><span class="grp-chip">M4 Pro</span><span class="grp-cores">14코어 CPU · 20코어 GPU</span><span class="grp-year">출시 2024-10</span></th><th class="basis hist" rowspan="15" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2024-10<sup class="dg">†</sup></span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$1,599</td><td class="num won">₩2,390,000</td></tr>
+<tr class="hist tier-top"><th class="grp" rowspan="25" scope="rowgroup"><span class="grp-chip">M4 Pro</span><span class="grp-cores">14코어 CPU · 20코어 GPU</span><span class="grp-year">출시 2024-10</span></th><th class="basis hist" rowspan="15" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2024-10<sup class="dg">†</sup></span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB</td><td class="num">$1,599</td><td class="num won">₩2,390,000</td></tr>
 <tr class="hist"><td class="ssd">1TB</td><td class="num">$1,799</td><td class="num won">₩2,690,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$2,199</td><td class="num won">₩3,290,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$2,799</td><td class="num won">₩4,190,000</td></tr>
@@ -278,7 +281,7 @@ draft: false
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$2,799</td><td class="num won">₩4,190,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$3,399</td><td class="num won">₩5,090,000</td></tr>
 <tr class="hist"><td class="ssd">8TB</td><td class="num">$4,599</td><td class="num won">₩6,890,000</td></tr>
-<tr class="basis-top is-stock"><th class="basis" rowspan="10" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$1,799</td><td class="num won">₩3,130,000</td></tr>
+<tr class="basis-top"><th class="basis" rowspan="10" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">24GB</th><td class="ssd">512GB</td><td class="num">$1,799</td><td class="num won">₩3,130,000</td></tr>
 <tr class=""><td class="ssd">1TB</td><td class="num">$2,099</td><td class="num won">₩3,640,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$2,599</td><td class="num won">₩4,490,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$3,599</td><td class="num won">₩6,190,000</td></tr>
@@ -294,7 +297,7 @@ draft: false
 </section>
 
 <section>
-  <div class="sec-head"><h2>Mac Studio</h2><span class="meta">105개 조합</span></div>
+  <div class="sec-head"><h2>Mac Studio</h2><span class="meta">110개 조합</span></div>
   <div class="tablewrap">
 <table>
   <thead><tr>
@@ -332,7 +335,7 @@ draft: false
 <tr class=""><td class="ssd">4TB</td><td class="num">$10,999</td><td class="num won">₩18,840,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$12,999</td><td class="num won">₩22,240,000</td></tr>
 <tr class=""><td class="ssd">16TB</td><td class="num">$16,999</td><td class="num won">₩29,040,000</td></tr>
-<tr class="tier-top"><th class="grp" rowspan="10" scope="rowgroup"><span class="grp-chip">M5 Ultra</span><span class="grp-cores">36코어 CPU · 80코어 GPU</span><span class="grp-year">출시 2026-08</span></th><th class="basis" rowspan="10" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2026-08</span></th><th class="ram" rowspan="5" scope="rowgroup">96GB</th><td class="ssd">1TB</td><td class="num">$6,799</td><td class="num won">₩11,700,000</td></tr>
+<tr class="tier-top"><th class="grp" rowspan="15" scope="rowgroup"><span class="grp-chip">M5 Ultra</span><span class="grp-cores">36코어 CPU · 80코어 GPU</span><span class="grp-year">출시 2026-08</span></th><th class="basis" rowspan="15" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2026-08</span></th><th class="ram" rowspan="5" scope="rowgroup">96GB</th><td class="ssd">1TB</td><td class="num">$6,799</td><td class="num won">₩11,700,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$7,299</td><td class="num won">₩12,550,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$8,299</td><td class="num won">₩14,250,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$10,299</td><td class="num won">₩17,650,000</td></tr>
@@ -342,17 +345,22 @@ draft: false
 <tr class=""><td class="ssd">4TB</td><td class="num">$12,299</td><td class="num won">₩21,050,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$14,299</td><td class="num won">₩24,450,000</td></tr>
 <tr class=""><td class="ssd">16TB</td><td class="num">$18,299</td><td class="num won">₩31,250,000</td></tr>
-<tr class="hist tier-top is-stock"><th class="grp" rowspan="10" scope="rowgroup"><span class="grp-chip">M4 Max</span><span class="grp-cores">14코어 CPU · 32코어 GPU</span><span class="grp-year">출시 2025-03</span></th><th class="basis hist" rowspan="5" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2025-03</span></th><th class="ram" rowspan="5" scope="rowgroup">36GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$1,999</td><td class="num won">₩3,290,000</td></tr>
+<tr class="ram-top"><th class="ram" rowspan="5" scope="rowgroup">512GB</th><td class="ssd">1TB</td><td class="num">$22,299</td><td class="num won">₩38,050,000</td></tr>
+<tr class=""><td class="ssd">2TB</td><td class="num">$22,799</td><td class="num won">₩38,900,000</td></tr>
+<tr class=""><td class="ssd">4TB</td><td class="num">$23,799</td><td class="num won">₩40,600,000</td></tr>
+<tr class=""><td class="ssd">8TB</td><td class="num">$25,799</td><td class="num won">₩44,000,000</td></tr>
+<tr class=""><td class="ssd">16TB</td><td class="num">$29,799</td><td class="num won">₩50,800,000</td></tr>
+<tr class="hist tier-top"><th class="grp" rowspan="10" scope="rowgroup"><span class="grp-chip">M4 Max</span><span class="grp-cores">14코어 CPU · 32코어 GPU</span><span class="grp-year">출시 2025-03</span></th><th class="basis hist" rowspan="5" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2025-03</span></th><th class="ram" rowspan="5" scope="rowgroup">36GB</th><td class="ssd">512GB</td><td class="num">$1,999</td><td class="num won">₩3,290,000</td></tr>
 <tr class="hist"><td class="ssd">1TB</td><td class="num">$2,199</td><td class="num won">₩3,590,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$2,599</td><td class="num won">₩4,190,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$3,199</td><td class="num won">₩5,090,000</td></tr>
 <tr class="hist"><td class="ssd">8TB</td><td class="num">$4,399</td><td class="num won">₩6,890,000</td></tr>
-<tr class="basis-top is-stock"><th class="basis" rowspan="5" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">36GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$2,499</td><td class="num won">₩4,290,000</td></tr>
+<tr class="basis-top"><th class="basis" rowspan="5" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">36GB</th><td class="ssd">512GB</td><td class="num">$2,499</td><td class="num won">₩4,290,000</td></tr>
 <tr class=""><td class="ssd">1TB</td><td class="num">$2,799</td><td class="num won">₩4,800,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$3,299</td><td class="num won">₩5,650,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$4,299</td><td class="num won">₩7,350,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$6,299</td><td class="num won">₩10,750,000</td></tr>
-<tr class="hist tier-top is-stock"><th class="grp" rowspan="20" scope="rowgroup"><span class="grp-chip">M4 Max</span><span class="grp-cores">16코어 CPU · 40코어 GPU</span><span class="grp-year">출시 2025-03</span></th><th class="basis hist" rowspan="15" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2025-03<sup class="dg">†</sup></span></th><th class="ram" rowspan="5" scope="rowgroup">48GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$2,499</td><td class="num won">₩4,040,000</td></tr>
+<tr class="hist tier-top"><th class="grp" rowspan="20" scope="rowgroup"><span class="grp-chip">M4 Max</span><span class="grp-cores">16코어 CPU · 40코어 GPU</span><span class="grp-year">출시 2025-03</span></th><th class="basis hist" rowspan="15" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2025-03<sup class="dg">†</sup></span></th><th class="ram" rowspan="5" scope="rowgroup">48GB</th><td class="ssd">512GB</td><td class="num">$2,499</td><td class="num won">₩4,040,000</td></tr>
 <tr class="hist"><td class="ssd">1TB</td><td class="num">$2,699</td><td class="num won">₩4,340,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$3,099</td><td class="num won">₩4,940,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$3,699</td><td class="num won">₩5,840,000</td></tr>
@@ -367,12 +375,12 @@ draft: false
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$4,099</td><td class="num won">₩6,440,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$4,699</td><td class="num won">₩7,340,000</td></tr>
 <tr class="hist"><td class="ssd">8TB</td><td class="num">$5,899</td><td class="num won">₩9,140,000</td></tr>
-<tr class="basis-top is-stock"><th class="basis" rowspan="5" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">64GB</th><td class="ssd">512GB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$3,499</td><td class="num won">₩5,990,000</td></tr>
+<tr class="basis-top"><th class="basis" rowspan="5" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">64GB</th><td class="ssd">512GB</td><td class="num">$3,499</td><td class="num won">₩5,990,000</td></tr>
 <tr class=""><td class="ssd">1TB</td><td class="num">$3,799</td><td class="num won">₩6,500,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$4,299</td><td class="num won">₩7,350,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$5,299</td><td class="num won">₩9,050,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$7,299</td><td class="num won">₩12,450,000</td></tr>
-<tr class="hist tier-top is-stock"><th class="grp" rowspan="15" scope="rowgroup"><span class="grp-chip">M3 Ultra</span><span class="grp-cores">28코어 CPU · 60코어 GPU</span><span class="grp-year">출시 2025-03</span></th><th class="basis hist" rowspan="10" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2025-03</span></th><th class="ram" rowspan="5" scope="rowgroup">96GB</th><td class="ssd">1TB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$3,999</td><td class="num won">₩6,590,000</td></tr>
+<tr class="hist tier-top"><th class="grp" rowspan="15" scope="rowgroup"><span class="grp-chip">M3 Ultra</span><span class="grp-cores">28코어 CPU · 60코어 GPU</span><span class="grp-year">출시 2025-03</span></th><th class="basis hist" rowspan="10" scope="rowgroup"><span class="basis-kind">출시가</span><span class="basis-date">2025-03</span></th><th class="ram" rowspan="5" scope="rowgroup">96GB</th><td class="ssd">1TB</td><td class="num">$3,999</td><td class="num won">₩6,590,000</td></tr>
 <tr class="hist"><td class="ssd">2TB</td><td class="num">$4,399</td><td class="num won">₩7,190,000</td></tr>
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$4,999</td><td class="num won">₩8,090,000</td></tr>
 <tr class="hist"><td class="ssd">8TB</td><td class="num">$6,199</td><td class="num won">₩9,890,000</td></tr>
@@ -382,7 +390,7 @@ draft: false
 <tr class="hist"><td class="ssd">4TB</td><td class="num">$6,599</td><td class="num won">₩10,490,000</td></tr>
 <tr class="hist"><td class="ssd">8TB</td><td class="num">$7,799</td><td class="num won">₩12,290,000</td></tr>
 <tr class="hist"><td class="ssd">16TB</td><td class="num">$10,199</td><td class="num won">₩15,890,000</td></tr>
-<tr class="basis-top is-stock"><th class="basis" rowspan="5" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">96GB</th><td class="ssd">1TB <span class="dot" aria-label="기본 구성">●</span></td><td class="num">$5,299</td><td class="num won">₩8,990,000</td></tr>
+<tr class="basis-top"><th class="basis" rowspan="5" scope="rowgroup"><span class="basis-kind">인상가</span><span class="basis-date">2026-06</span></th><th class="ram" rowspan="5" scope="rowgroup">96GB</th><td class="ssd">1TB</td><td class="num">$5,299</td><td class="num won">₩8,990,000</td></tr>
 <tr class=""><td class="ssd">2TB</td><td class="num">$5,799</td><td class="num won">₩9,840,000</td></tr>
 <tr class=""><td class="ssd">4TB</td><td class="num">$6,799</td><td class="num won">₩11,540,000</td></tr>
 <tr class=""><td class="ssd">8TB</td><td class="num">$8,799</td><td class="num won">₩14,940,000</td></tr>
@@ -413,8 +421,8 @@ draft: false
 </section>
 
 <section class="notes">
-  <p>· <strong>가격 기준</strong> 열은 언제 기준의 가격인지를 나타냅니다. 진하게 표시된 마지막 줄이
-  그 칩의 현재 판매가입니다. 2026년 신형은 가격 인상 뒤에 나와서 기준이 하나뿐입니다.</p>
+  <p>· <strong>가격 기준</strong> 열은 언제 기준의 가격인지를 나타냅니다. M4 · M4 Pro · M4 Max · M3 Ultra는
+  판매가 끝났고, 표에는 판매 종료 전 가격으로 남겨뒀습니다. 2026년 신형은 가격 인상 뒤에 나와서 기준이 하나뿐입니다.</p>
   <p>· 원화 옵션가는 <strong>달러 증분에 환산율을 곱해</strong> 구했습니다. 인상 후는 ₩1,700/$,
   출시 당시는 ₩1,500/$를 썼습니다. 두 환산율 모두 애플코리아 실제 가격과 맞춰봤습니다 —
   인상 후는 M4 Pro와 M3 Ultra의 옵션가로, 출시 당시는 M4 Mac mini의 메모리 · 저장장치
@@ -433,7 +441,7 @@ draft: false
   </ul>
   <p>· 애플코리아 화면에서는 <strong>메모리를 먼저 골라야</strong> 저장장치 쪽 추가 금액이 나타납니다.
   M5 Max에서 48GB 이상을 쓰려면 40코어 GPU를, M5 Ultra에서 512GB를 쓰려면 36코어 CPU를 같이 선택해야 합니다.</p>
-  <p>· M5 Ultra 36코어의 512GB 메모리 옵션은 10월 말에 나옵니다. 가격은 아직 공개되지 않았습니다.</p>
+  <p>· M5 Ultra 36코어의 512GB 메모리 옵션은 2026-10-28부터 주문할 수 있습니다. 96GB 대비 +$15,500 / +₩26,350,000이고, 1TB 구성이 $22,299 / ₩38,050,000부터입니다.</p>
   <p>· 가격 인상 때 없어진 메모리 옵션입니다. 출시가 기준 행에서만 볼 수 있습니다.</p>
   <ul class="cut">
     <li>Mac mini M4 <strong>32GB</strong> · M4 Pro <strong>64GB</strong> — 2026-06-25 단종</li>
