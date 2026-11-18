@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="710" viewBox="0 0 1200 710" font-family="'Noto Sans KR','Noto Sans CJK KR','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="j1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#737273"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="710" fill="#f0efec"/>
+
+  <text x="60" y="62" fill="#1f1f22" font-size="38" font-weight="800">내 서비스가 해당될까 — <tspan fill="#a8412a">세 번 모두 '예'</tspan>일 때만</text>
+  <text x="60" y="100" fill="#5e5d5f" font-size="21">하나라도 '아니오'면 Java4Shell 영향 대상이 아니다</text>
+
+  <rect x="60" y="136" width="580" height="104" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="84" y="164" fill="#737273" font-size="16" font-family="monospace" letter-spacing="3">1 · 버전</text>
+  <text x="84" y="206" fill="#1f1f22" font-size="23" font-weight="700">JDK 17.0.6 이상 · 21 · 25 · 27인가?</text>
+  <path d="M350 240 L 350 278" stroke="#737273" stroke-width="2.5" marker-end="url(#j1)"/>
+  <text x="366" y="266" fill="#5e5d5f" font-size="18" font-weight="700">예</text>
+  <path d="M640 188 L 752 188" stroke="#737273" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#j1)"/>
+  <text x="696" y="176" fill="#5e5d5f" font-size="18" font-weight="700" text-anchor="middle">아니오</text>
+  <rect x="760" y="136" width="380" height="104" rx="12" fill="#f0efec" stroke="#737273" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="784" y="172" fill="#5e5d5f" font-size="21" font-weight="700">해당 없음</text>
+  <text x="784" y="202" fill="#5e5d5f" font-size="18">JDK 8 · 11 · 17.0.0–17.0.5</text>
+  <text x="784" y="226" fill="#737273" font-size="15">단, Oracle 8u Enterprise Performance Pack은 영향</text>
+  <rect x="60" y="286" width="580" height="104" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="84" y="314" fill="#737273" font-size="16" font-family="monospace" letter-spacing="3">2 · CPU</text>
+  <text x="84" y="346" fill="#1f1f22" font-size="23" font-weight="700">x86-64 + AVX-512 VBMI CPU인가?</text>
+  <text x="84" y="374" fill="#5e5d5f" font-size="17">Intel Xeon Ice Lake 이후 · AMD Zen 4 이상</text>
+  <path d="M350 390 L 350 428" stroke="#737273" stroke-width="2.5" marker-end="url(#j1)"/>
+  <text x="366" y="416" fill="#5e5d5f" font-size="18" font-weight="700">예</text>
+  <path d="M640 338 L 752 338" stroke="#737273" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#j1)"/>
+  <text x="696" y="326" fill="#5e5d5f" font-size="18" font-weight="700" text-anchor="middle">아니오</text>
+  <rect x="760" y="286" width="380" height="104" rx="12" fill="#f0efec" stroke="#737273" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="784" y="322" fill="#5e5d5f" font-size="21" font-weight="700">해당 없음</text>
+  <text x="784" y="352" fill="#5e5d5f" font-size="18">ARM64 · VBMI 없는 구형 x86</text>
+  <rect x="60" y="436" width="580" height="104" rx="12" fill="#f9f9f8" stroke="#dabbb2" stroke-width="2"/>
+  <text x="84" y="464" fill="#737273" font-size="16" font-family="monospace" letter-spacing="3">3 · 호출 경로</text>
+  <text x="84" y="496" fill="#1f1f22" font-size="23" font-weight="700">외부 입력이 <tspan font-family="monospace" font-size="21">Base64.getDecoder()</tspan>로?</text>
+  <text x="84" y="524" fill="#5e5d5f" font-size="17">디코더가 C2로 JIT 컴파일될 만큼 자주 호출</text>
+  <path d="M350 540 L 350 578" stroke="#737273" stroke-width="2.5" marker-end="url(#j1)"/>
+  <text x="366" y="566" fill="#5e5d5f" font-size="18" font-weight="700">예</text>
+  <path d="M640 488 L 752 488" stroke="#737273" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#j1)"/>
+  <text x="696" y="476" fill="#5e5d5f" font-size="18" font-weight="700" text-anchor="middle">아니오</text>
+  <rect x="760" y="436" width="380" height="104" rx="12" fill="#f0efec" stroke="#737273" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="784" y="472" fill="#5e5d5f" font-size="21" font-weight="700">해당 없음</text>
+  <text x="784" y="502" fill="#5e5d5f" font-size="18">공격자 입력이 디코더에 닿지 않음</text>
+
+  <rect x="60" y="586" width="580" height="96" rx="12" fill="#ebe3de" stroke="#a8412a" stroke-width="3"/>
+  <text x="84" y="628" fill="#a8412a" font-size="26" font-weight="800">영향 가능</text>
+  <text x="84" y="662" fill="#5e5d5f" font-size="19">배포판 수정 빌드로 올리고 JVM 재시작</text>
+</svg>
